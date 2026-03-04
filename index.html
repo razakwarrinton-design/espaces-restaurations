@@ -108,6 +108,25 @@
       body {
         max-width: 100%;
         overflow-x: hidden;
+        width: 100%;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+
+      input,
+      select,
+      textarea {
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      iframe {
+        max-width: 100%;
       }
 
       /* ── PAGES ── */
@@ -826,6 +845,7 @@
         border: 1px solid var(--border);
         border-radius: 10px;
         overflow: hidden;
+        margin: 0 auto;
       }
       .map-box iframe {
         width: 100%;
@@ -974,6 +994,9 @@
         min-height: 100px;
       }
       input[type="time"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+      input[type="date"]::-webkit-calendar-picker-indicator {
         filter: invert(1);
       }
 
@@ -1453,6 +1476,7 @@
         border-top: 1px solid var(--border);
         display: flex;
         gap: 0.9rem;
+        flex-wrap: wrap;
       }
       .empty-cart {
         font-size: 0.8rem;
@@ -1789,14 +1813,62 @@
 
       /* ── RESPONSIVE ── */
       @media (max-width: 1024px) {
-        .why-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .srv-grid {
-          grid-template-columns: 1fr 1fr;
+        /* tablet adjustments: ensure grids wrap to a maximum of two columns */
+        .why-grid,
+        .srv-grid,
+        .spec-grid,
+        .loc-grid,
+        .avis-grid,
+        .ab-grid,
+        .ct-grid,
+        .order-input-grid,
+        .form-row2,
+        .res-grid,
+        .festiv-gal {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
       }
       @media (max-width: 768px) {
+        /* ensure no horizontal scrollbar appears */
+        html,
+        body,
+        .page,
+        section {
+          overflow-x: hidden;
+          width: 100%;
+        }
+        /* allow flex/grid items to shrink past their contents */
+        * {
+          min-width: 0;
+        }
+        input,
+        select,
+        textarea {
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+        .ct-form {
+          width: 100% !important;
+        }
+        /* collapse every grid to a single column and limit gap */
+        .ct-grid,
+        .spec-grid,
+        .why-grid,
+        .loc-grid,
+        .avis-grid,
+        .ab-grid,
+        .srv-grid,
+        .order-input-grid,
+        .form-row2,
+        .res-grid,
+        .festiv-gal {
+          width: 100% !important;
+          grid-template-columns: 1fr !important;
+          gap: 1rem !important;
+        }
+        .ct-row {
+          grid-template-columns: 1fr !important;
+        }
         .nav-links,
         .nav-cta {
           display: none;
@@ -1836,84 +1908,168 @@
         }
 
         /* HERO MOBILE */
-        #hero {
-          min-height: 100svh;
-        }
-        .hero-bg {
-          background-position: center center;
-          filter: brightness(0.55) !important;
-        }
-        .hero-ov {
-          background: linear-gradient(
-            to bottom,
-            rgba(8, 8, 8, 0.4) 0%,
-            rgba(8, 8, 8, 0.75) 100%
-          ) !important;
-        }
-        .hero-h1 {
-          font-size: clamp(1.8rem, 9vw, 3rem) !important;
-          hyphens: none !important;
-          word-break: normal !important;
-        }
-        .hero-content {
-          padding: 0 5%;
-          max-width: 100%;
-        }
-        .hero-stats {
-          gap: 1.5rem;
-        }
-        .hero-open {
-          display: none;
-        }
+        @media (max-width: 768px) {
+          .nav-links,
+          .nav-cta {
+            display: none;
+          }
+          .hamburger {
+            display: flex;
+          }
+          .section-pad {
+            padding: 50px 4%;
+          }
 
-        /* GRILLES */
-        .spec-grid {
-          grid-template-columns: 1fr;
-        }
-        .why-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .loc-grid {
-          grid-template-columns: 1fr;
-        }
-        .avis-grid {
-          grid-template-columns: 1fr;
-        }
-        .ab-grid {
-          grid-template-columns: 1fr;
-        }
-        .ct-grid {
-          grid-template-columns: 1fr;
-        }
-        .ct-row {
-          grid-template-columns: 1fr;
-        }
-        .srv-grid {
-          grid-template-columns: 1fr;
-        }
-        .festiv-gal {
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: auto;
-        }
-        .festiv-gal .fg-item:first-child {
-          grid-row: auto;
-        }
-        .fond-card {
-          flex-direction: column;
-          text-align: center;
-        }
-        footer {
-          flex-direction: column;
-          text-align: center;
-        }
-        .order-input-grid {
-          grid-template-columns: 1fr;
-        }
-        .o-fg.full {
-          grid-column: span 1;
-        }
-        .form-row2 {
-          grid-template-columns: 1fr;
+          /* HERO MOBILE */
+          #hero {
+            min-height: 100svh;
+          }
+          .hero-bg {
+            background-position: center center;
+            filter: brightness(0.55) !important;
+          }
+          .hero-ov {
+            background: linear-gradient(
+              to bottom,
+              rgba(8, 8, 8, 0.4) 0%,
+              rgba(8, 8, 8, 0.75) 100%
+            ) !important;
+          }
+          .hero-h1 {
+            font-size: clamp(1.8rem, 9vw, 3rem) !important;
+            hyphens: none !important;
+            word-break: normal !important;
+          }
+          .hero-content {
+            padding: 0 5%;
+            max-width: 100%;
+          }
+          .hero-stats {
+            gap: 1.5rem;
+          }
+          .hero-open {
+            display: none;
+          }
+
+          /* GRILLES */
+          .spec-grid {
+            grid-template-columns: 1fr;
+          }
+          .why-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+          .loc-grid {
+            grid-template-columns: 1fr;
+          }
+          .avis-grid {
+            grid-template-columns: 1fr;
+          }
+          .ab-grid {
+            grid-template-columns: 1fr;
+          }
+          .ct-grid {
+            grid-template-columns: 1fr;
+          }
+          .ct-row {
+            grid-template-columns: 1fr;
+          }
+          .srv-grid {
+            grid-template-columns: 1fr;
+          }
+          .festiv-gal {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+          }
+          .festiv-gal .fg-item:first-child {
+            grid-row: auto;
+          }
+          .fond-card {
+            flex-direction: column;
+            text-align: center;
+          }
+          footer {
+            flex-direction: column;
+            text-align: center;
+          }
+          .order-input-grid {
+            grid-template-columns: 1fr;
+          }
+          .o-fg.full {
+            grid-column: span 1;
+          }
+          .form-row2 {
+            grid-template-columns: 1fr;
+          }
+          .ab-tag {
+            display: none;
+          }
+
+          /* RESERVATION MOBILE */
+          #page-reservation .section-pad {
+            padding: 40px 4%;
+          }
+          #page-reservation > div:last-child {
+            padding: 0 4%;
+          }
+          #page-reservation .o-fg input,
+          #page-reservation .o-fg select {
+            width: 100%;
+          }
+          #page-reservation .btn-wa-main {
+            font-size: 0.75rem !important;
+            padding: 0.85rem 1rem !important;
+          }
+          .res-grid {
+            grid-template-columns: 1fr !important;
+          }
+
+          /* COMMANDE MOBILE */
+          .order-box {
+            margin: 0.3rem !important;
+            max-height: 95vh !important;
+            overflow-y: auto !important;
+          }
+          .order-ftr {
+            flex-direction: column !important;
+            padding: 1rem !important;
+            gap: 0.6rem !important;
+          }
+          .order-ftr button {
+            width: 100% !important;
+            justify-content: center !important;
+            font-size: 0.78rem !important;
+            flex: none !important;
+          }
+
+          /* CTA MOBILE */
+          #cta h2 {
+            font-size: clamp(1.6rem, 8vw, 2.5rem) !important;
+            word-break: normal !important;
+          }
+          #cta p {
+            font-size: 0.82rem;
+          }
+          #cta .cta-btns {
+            flex-direction: column;
+            align-items: center;
+          }
+          #cta .cta-btns > * {
+            width: 100%;
+            justify-content: center;
+          }
+
+          /* MAPS MOBILE */
+          .map-box {
+            width: 100% !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+          }
+          .map-box iframe {
+            width: 100% !important;
+          }
+          #page-contact .map-box {
+            overflow: hidden;
+          }
         }
       }
 
@@ -1938,6 +2094,10 @@
         }
         .nav-name {
           font-size: 0.85rem;
+        }
+        #page-reservation .btn-wa-main {
+          font-size: 0.68rem !important;
+          padding: 0.75rem 0.8rem !important;
         }
       }
 
@@ -2098,24 +2258,6 @@
         🛒 Commander maintenant
       </button>
     </div>
-
-    <!-- WhatsApp Float -->
-    <a
-      class="wa-float"
-      href="https://wa.me/22890151300?text=Bonjour%20Espaces%20Restaurations%20!"
-      target="_blank"
-      title="WhatsApp"
-    >
-      <svg viewBox="0 0 24 24" fill="white" width="26" height="26">
-        <path
-          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-        />
-        <path
-          d="M12 0C5.373 0 0 5.373 0 12c0 2.138.564 4.148 1.544 5.89L.057 23.43l5.698-1.493A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.144-1.455l-.37-.22-3.381.887.902-3.293-.241-.38A9.818 9.818 0 1112 21.818z"
-        />
-      </svg>
-    </a>
-    <div class="wa-tip">Lancer votre commande</div>
 
     <!-- ══════════════════════════════
      MODALE COMMANDE
@@ -2603,12 +2745,21 @@
               </button>
             </div>
           </div>
-          <div class="map-box">
+          <div
+            class="map-box"
+            style="
+              margin-top: 1.5rem;
+              height: 240px;
+              width: 100%;
+              box-sizing: border-box;
+              overflow: hidden;
+            "
+          >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.0370517487213!2d1.1512053!3d8.9687331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10294d607c4a7897%3A0x2e3d52b5302e6dfb!2sBar%20restaurant%20Les%20Espaces!5e0!3m2!1sfr!2stg!4v1772540720876!5m2!1sfr!2stg"
               width="100%"
-              height="100%"
-              style="border: none; border-radius: 10px"
+              height="240"
+              style="border: none; display: block"
               allowfullscreen
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -4035,22 +4186,6 @@
               >
                 📨 Envoyer
               </button>
-              <a
-                href="https://wa.me/22890151300?text=Bonjour%20Espaces%20Restaurations%20!"
-                target="_blank"
-                class="btn-wa-main"
-                style="width: 100%; justify-content: center"
-              >
-                <svg viewBox="0 0 24 24" fill="white" width="16" height="16">
-                  <path
-                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-                  />
-                  <path
-                    d="M12 0C5.373 0 0 5.373 0 12c0 2.138.564 4.148 1.544 5.89L.057 23.43l5.698-1.493A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.144-1.455l-.37-.22-3.381.887.902-3.293-.241-.38A9.818 9.818 0 1112 21.818z"
-                  />
-                </svg>
-                Écrire sur WhatsApp
-              </a>
             </div>
 
             <!-- VRAIS LOGOS RÉSEAUX SOCIAUX -->
@@ -4210,6 +4345,7 @@
             </h3>
             <div
               style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem"
+              class="res-grid"
             >
               <div class="o-fg">
                 <label>Votre Prénom</label>
