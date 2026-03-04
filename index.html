@@ -1,0 +1,4437 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Espaces Restaurations – Meilleur Restaurant Fast-Food à Sokodé | 24h/24
+    </title>
+    <meta
+      name="description"
+      content="Espaces Restaurations, meilleur restaurant fast-food à Sokodé. Hamburger, Pizza, Plats locaux, Livraison à domicile 24h/24. Commandez sur WhatsApp !"
+    />
+    <meta
+      name="keywords"
+      content="restaurant Sokodé, fast-food Sokodé, livraison repas Sokodé, meilleur restaurant Sokodé, Espaces Restaurations, cuisine locale Sokodé, traiteur Sokodé"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="TG" />
+    <meta name="geo.placename" content="Sokodé, Togo" />
+    <link rel="canonical" href="https://www.espaces-restaurations.tg" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Espaces Restaurations – Fast-Food à Sokodé 24h/24"
+    />
+    <meta
+      property="og:description"
+      content="Livraison de repas à Sokodé. Ouvert 24h/24, 7j/7. Commandez maintenant !"
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Espaces Restaurations",
+        "description": "Restaurant fast-food à Sokodé. Cuisine locale et internationale. Livraison 24h/24.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Face station Sadko, route Tchamba",
+          "addressLocality": "Sokodé",
+          "addressCountry": "TG"
+        },
+        "telephone": "+22890151300",
+        "openingHours": "Mo-Su 00:00-23:59",
+        "priceRange": "₣",
+        "servesCuisine": ["Fast-food", "Togolaise", "Africaine"]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --or: #ff7a1a;
+        --or-dk: #d9620e;
+        --or-lt: #ff9d52;
+        --bk: #080808;
+        --dk: #101010;
+        --card: #181818;
+        --card2: #202020;
+        --border: rgba(255, 122, 26, 0.16);
+        --wh: #ffffff;
+        --cream: #fff8f3;
+        --gray: #909090;
+        --gray2: #606060;
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bk);
+        color: var(--wh);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--or);
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      button {
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+      }
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      /* ── PAGES ── */
+      .page {
+        display: none;
+      }
+      .page.active {
+        display: block;
+      }
+
+      /* ══ NAV ══ */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 900;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4%;
+        height: 68px;
+        background: rgba(8, 8, 8, 0.97);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(16px);
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+      }
+      /* ─ LOGO ZONE : remplacez src="logo.png" par votre vrai logo ─ */
+      .logo-img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+      .logo-img-wrap {
+        width: 42px;
+        height: 42px;
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--card);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-svg-fallback {
+        width: 36px;
+        height: 36px;
+      }
+      .nav-name {
+        font-family: "Syne", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+      }
+      .nav-name span {
+        color: var(--or);
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 0.15rem;
+      }
+      .nav-links li button {
+        background: none;
+        border: none;
+        color: var(--gray);
+        font-family: "Inter", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.45rem 0.9rem;
+        border-radius: 5px;
+        transition: all 0.25s;
+      }
+      .nav-links li button:hover,
+      .nav-links li button.active {
+        color: var(--wh);
+        background: rgba(255, 122, 26, 0.12);
+      }
+      .nav-links li button.active {
+        color: var(--or);
+      }
+      .nav-cta {
+        background: var(--or);
+        color: var(--wh);
+        border: none;
+        padding: 0.55rem 1.3rem;
+        border-radius: 5px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+      .nav-cta:hover {
+        background: var(--or-lt);
+        transform: translateY(-1px);
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--wh);
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+      .mob-menu {
+        display: none;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.98);
+        z-index: 899;
+        padding: 1rem 4%;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .mob-menu.open {
+        display: flex;
+      }
+      .mob-menu button,
+      .mob-menu a {
+        background: none;
+        border: none;
+        color: var(--gray);
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.7rem 1rem;
+        border-radius: 6px;
+        text-align: left;
+        transition: all 0.2s;
+      }
+      .mob-menu button:hover,
+      .mob-menu a:hover {
+        background: rgba(255, 122, 26, 0.12);
+        color: var(--or);
+      }
+
+      /* ── WHATSAPP FLOAT ── */
+      .wa-float {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 9999;
+        background: #25d366;
+        color: white;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        animation: waPulse 2.5s infinite;
+        transition: transform 0.2s;
+      }
+      .wa-float:hover {
+        transform: scale(1.1);
+      }
+      @keyframes waPulse {
+        0%,
+        100% {
+          box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+        }
+        50% {
+          box-shadow: 0 4px 32px rgba(37, 211, 102, 0.7);
+        }
+      }
+      .wa-tip {
+        position: fixed;
+        bottom: 34px;
+        right: 90px;
+        z-index: 9998;
+        background: var(--card);
+        color: var(--wh);
+        border: 1px solid rgba(37, 211, 102, 0.3);
+        padding: 0.4rem 0.9rem;
+        border-radius: 20px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        white-space: nowrap;
+        animation: waTip 3s ease infinite;
+      }
+      @keyframes waTip {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.55;
+        }
+      }
+
+      /* ── SHARED ── */
+      .section-pad {
+        padding: 80px 4%;
+      }
+      .s-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--or);
+        margin-bottom: 0.6rem;
+      }
+      .s-title {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.05;
+        color: var(--wh);
+      }
+      .s-title span {
+        color: var(--or);
+      }
+      .s-sub {
+        font-size: 0.88rem;
+        color: var(--gray);
+        line-height: 1.85;
+        max-width: 540px;
+      }
+      .s-sub strong {
+        color: var(--wh);
+        font-weight: 600;
+      }
+      .or-bar {
+        width: 44px;
+        height: 3px;
+        background: var(--or);
+        border-radius: 2px;
+        margin: 1rem 0;
+      }
+      /* subtitles bold blanc pur */
+      h3,
+      h4 {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .btn-or {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--or);
+        color: var(--wh);
+        padding: 0.82rem 1.9rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+      .btn-or:hover {
+        background: var(--or-lt);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--wh);
+        padding: 0.82rem 1.9rem;
+        border: 2px solid rgba(255, 255, 255, 0.22);
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition:
+          border-color 0.25s,
+          color 0.25s;
+      }
+      .btn-ghost:hover {
+        border-color: var(--or);
+        color: var(--or);
+      }
+      .btn-wa-main {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: #25d366;
+        color: #fff;
+        padding: 0.85rem 2rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+      .btn-wa-main:hover {
+        background: #1ebe5a;
+        transform: translateY(-2px);
+      }
+
+      /* PLACEHOLDER */
+      .ph {
+        background: var(--card2);
+        border: 2px dashed rgba(255, 122, 26, 0.28);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        color: var(--gray2);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0.8rem;
+        transition: border-color 0.3s;
+      }
+      .ph:hover {
+        border-color: var(--or);
+      }
+      .ph-ic {
+        font-size: 1.8rem;
+        opacity: 0.35;
+      }
+
+      /* REVEAL */
+      .rev {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      .rev.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ════════════ PAGE ACCUEIL ════════════ */
+
+      /* HERO */
+      #hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding-top: 68px;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1600&q=85")
+          center/cover no-repeat;
+        animation: hZoom 16s ease-in-out infinite alternate;
+      }
+      @keyframes hZoom {
+        from {
+          transform: scale(1.06);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      .hero-ov {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          100deg,
+          rgba(8, 8, 8, 0.82) 42%,
+          rgba(8, 8, 8, 0.25) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 4%;
+        max-width: 700px;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 122, 26, 0.15);
+        border: 1px solid rgba(255, 122, 26, 0.45);
+        color: var(--or);
+        padding: 0.38rem 1rem;
+        border-radius: 30px;
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        margin-bottom: 1.4rem;
+        opacity: 0;
+        animation: fUp 0.8s 0.2s forwards;
+      }
+      .hero-badge::before {
+        content: "●";
+        font-size: 0.45rem;
+        animation: blink 1.2s infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+      }
+      .hero-h1 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(3rem, 8.5vw, 6.5rem);
+        font-weight: 800;
+        line-height: 0.95;
+        word-break: normal;
+        overflow-wrap: normal;
+        hyphens: none;
+      }
+      .hero-h1 span {
+        color: var(--or);
+      }
+      .hero-p {
+        font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.75;
+        margin: 1.2rem 0 2.2rem;
+        opacity: 0;
+        animation: fUp 0.8s 0.8s forwards;
+      }
+      .hero-p strong {
+        color: var(--or);
+        font-weight: 600;
+      }
+      .hero-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        opacity: 0;
+        animation: fUp 0.8s 1.1s forwards;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0;
+        animation: fUp 0.8s 1.4s forwards;
+      }
+      .stat-n {
+        font-family: "Syne", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--or);
+        line-height: 1;
+      }
+      .stat-l {
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gray);
+        margin-top: 0.2rem;
+      }
+      .hero-open {
+        position: absolute;
+        right: 4%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        text-align: center;
+        opacity: 0;
+        animation: fadeI 1s 1.5s forwards;
+      }
+      .open-ring {
+        width: 108px;
+        height: 108px;
+        border-radius: 50%;
+        background: var(--or);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: "Syne", sans-serif;
+        color: var(--wh);
+        letter-spacing: 0.06em;
+        box-shadow:
+          0 0 0 8px rgba(255, 122, 26, 0.2),
+          0 0 0 16px rgba(255, 122, 26, 0.08);
+        animation: ringPulse 2.5s ease infinite;
+      }
+      .open-ring .big {
+        font-size: 1.8rem;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .open-ring small {
+        font-size: 0.55rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      @keyframes ringPulse {
+        0%,
+        100% {
+          box-shadow:
+            0 0 0 8px rgba(255, 122, 26, 0.2),
+            0 0 0 16px rgba(255, 122, 26, 0.08);
+        }
+        50% {
+          box-shadow:
+            0 0 0 12px rgba(255, 122, 26, 0.25),
+            0 0 0 22px rgba(255, 122, 26, 0.06);
+        }
+      }
+      @keyframes fUp {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeI {
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* SPECIALITES */
+      #spec {
+        background: var(--dk);
+      }
+      .spec-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.4rem;
+        margin-top: 2.5rem;
+      }
+      .sc {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          border-color 0.3s;
+      }
+      .sc:hover {
+        transform: translateY(-5px);
+        border-color: var(--or);
+      }
+      .sc-img {
+        height: 195px;
+      }
+      .sc-img .ph {
+        height: 100%;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px dashed rgba(255, 122, 26, 0.2);
+      }
+      .sc-body {
+        padding: 1.1rem 1.3rem 1.3rem;
+      }
+      .sc-name {
+        font-family: "Syne", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.35rem;
+      }
+      .sc-desc {
+        font-size: 0.78rem;
+        color: var(--gray);
+        line-height: 1.65;
+        margin-bottom: 0.9rem;
+      }
+      .sc-ft {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .sc-price {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--or);
+      }
+      .sc-btn {
+        background: var(--or);
+        color: #fff;
+        border: none;
+        padding: 0.42rem 0.95rem;
+        border-radius: 4px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: background 0.25s;
+        cursor: pointer;
+      }
+      .sc-btn:hover {
+        background: var(--or-lt);
+      }
+
+      /* POURQUOI */
+      #why {
+        background: var(--bk);
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+        margin-top: 2.5rem;
+      }
+      .wc {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.8rem 1.4rem;
+        text-align: center;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
+      .wc:hover {
+        border-color: var(--or);
+        transform: translateY(-4px);
+      }
+      .wc-ic {
+        font-size: 2.2rem;
+        margin-bottom: 0.9rem;
+      }
+      .wc-t {
+        font-family: "Syne", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .wc-d {
+        font-size: 0.78rem;
+        color: var(--gray);
+        line-height: 1.75;
+      }
+
+      /* LOCALISATION */
+      #loc {
+        background: var(--dk);
+      }
+      .loc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .loc-item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.4rem;
+        align-items: flex-start;
+      }
+      .loc-ic {
+        font-size: 1.1rem;
+        min-width: 28px;
+        margin-top: 3px;
+      }
+      .loc-lbl {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--or);
+        margin-bottom: 0.25rem;
+      }
+      .loc-v {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.65;
+      }
+      .map-box {
+        width: 100%;
+        aspect-ratio: 4/3;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .map-box iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .badge-open {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(37, 211, 102, 0.12);
+        border: 1px solid rgba(37, 211, 102, 0.35);
+        color: #25d366;
+        padding: 0.45rem 1.1rem;
+        border-radius: 30px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        margin-top: 1rem;
+      }
+
+      /* AVIS CLIENTS */
+      #avis {
+        background: var(--bk);
+      }
+      .avis-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+        margin-top: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      .av-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.6rem;
+        transition: border-color 0.3s;
+      }
+      .av-card:hover {
+        border-color: var(--or);
+      }
+      .av-stars {
+        color: #ffd700;
+        font-size: 0.9rem;
+        margin-bottom: 0.9rem;
+        letter-spacing: 0.08em;
+      }
+      .av-txt {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.85;
+        margin-bottom: 1.1rem;
+        font-style: italic;
+      }
+      .av-auth {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .av-av {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--or);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.95rem;
+        color: #fff;
+        flex-shrink: 0;
+      }
+
+      /* FORMULAIRE AVIS */
+      .avis-form-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 2.2rem;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .avis-form-box h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.4rem;
+      }
+      .avis-form-box p {
+        font-size: 0.82rem;
+        color: var(--gray);
+        margin-bottom: 1.6rem;
+      }
+      .star-row {
+        display: flex;
+        gap: 0.4rem;
+        margin-bottom: 1.2rem;
+      }
+      .star-btn {
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        color: var(--gray2);
+        cursor: pointer;
+        transition: color 0.2s;
+        line-height: 1;
+      }
+      .star-btn.on {
+        color: #ffd700;
+      }
+      .form-row2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .fg {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .fg label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--or);
+      }
+      .fg input,
+      .fg textarea {
+        background: var(--card2);
+        border: 1px solid var(--border);
+        color: var(--wh);
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .fg input:focus,
+      .fg textarea:focus {
+        border-color: var(--or);
+      }
+      .fg textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      input[type="time"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+
+      /* CTA FINAL */
+      #cta {
+        background: linear-gradient(
+          120deg,
+          #1a0c02 0%,
+          #120800 50%,
+          #0d0d0d 100%
+        );
+        padding: 80px 4%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      #cta::before {
+        content: "";
+        position: absolute;
+        top: -120px;
+        right: -120px;
+        width: 380px;
+        height: 380px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 122, 26, 0.12) 0%,
+          transparent 70%
+        );
+      }
+      #cta h2 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2.2rem, 5.5vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 0.8rem;
+        position: relative;
+        z-index: 1;
+      }
+      #cta p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 2.2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-btns {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ════════════ PAGE MENU ════════════ */
+      .pg-hdr {
+        padding: 115px 4% 45px;
+        background: linear-gradient(to bottom, var(--dk), var(--bk));
+        border-bottom: 1px solid var(--border);
+      }
+      .menu-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 2rem;
+      }
+      .m-tab {
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--gray);
+        padding: 0.55rem 1.3rem;
+        border-radius: 30px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.25s;
+        white-space: nowrap;
+      }
+      .m-tab.active,
+      .m-tab:hover {
+        background: var(--or);
+        border-color: var(--or);
+        color: #fff;
+      }
+      .m-panel {
+        display: none;
+        width: 100%;
+      }
+      .m-panel.active {
+        display: block;
+        width: 100%;
+        padding: 2.8rem 4%;
+      }
+      .m-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+        gap: 1.3rem;
+      }
+      .mc {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          border-color 0.3s;
+      }
+      .mc:hover {
+        transform: translateY(-4px);
+        border-color: var(--or);
+      }
+      .mc-img {
+        height: 165px;
+      }
+      .mc-img .ph {
+        height: 100%;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px dashed rgba(255, 122, 26, 0.2);
+      }
+      .mc-body {
+        padding: 1rem 1.15rem;
+      }
+      .mc-name {
+        font-family: "Syne", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.3rem;
+      }
+      .mc-desc {
+        font-size: 0.75rem;
+        color: var(--gray);
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+      }
+      .mc-ft {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .mc-price {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--or);
+      }
+      .add-btn {
+        background: var(--or);
+        color: #fff;
+        border: none;
+        padding: 0.38rem 0.85rem;
+        border-radius: 4px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.25s;
+      }
+      .add-btn:hover {
+        background: var(--or-lt);
+      }
+
+      /* TOUT NOS PLATS */
+      .all-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+        gap: 1rem;
+        width: 100%;
+      }
+      .all-c {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+        display: block;
+      }
+      .all-c:hover {
+        border-color: var(--or);
+        transform: scale(1.03);
+      }
+      .all-c-img {
+        height: 110px;
+        overflow: hidden;
+        width: 100%;
+      }
+      .all-c-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .all-c-body {
+        padding: 0.7rem;
+      }
+      .all-c-name {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.2rem;
+      }
+      .all-c-price {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--or);
+      }
+      .all-c {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
+      .all-c:hover {
+        border-color: var(--or);
+        transform: scale(1.03);
+      }
+      .all-c-img {
+        height: 110px;
+      }
+      .all-c-img .ph {
+        height: 100%;
+        border-radius: 0;
+        border: none;
+        font-size: 0.6rem;
+      }
+      .all-c-body {
+        padding: 0.7rem;
+      }
+      .all-c-body {
+        padding: 0.7rem;
+      }
+      .all-c-img {
+        height: 110px;
+        overflow: hidden;
+      }
+      .all-c-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .all-c-name {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.2rem;
+      }
+      .all-c-price {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--or);
+      }
+
+      /* ════════════ COMMANDE MODALE ════════════ */
+      .order-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 68px;
+        overflow-y: auto;
+      }
+      .order-modal.open {
+        display: flex;
+      }
+      .order-box {
+        background: var(--dk);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        width: 100%;
+        max-width: 700px;
+        margin: 2rem 1rem;
+        overflow: hidden;
+      }
+      .order-hdr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.3rem 1.8rem;
+        border-bottom: 1px solid var(--border);
+        background: var(--card);
+      }
+      .order-hdr h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .close-modal {
+        background: none;
+        border: none;
+        color: var(--gray);
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+      .close-modal:hover {
+        color: var(--or);
+      }
+      .order-body {
+        padding: 1.6rem 1.8rem;
+      }
+      .order-section {
+        margin-bottom: 1.8rem;
+      }
+      .order-section h4 {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--or);
+        margin-bottom: 1rem;
+      }
+      .dish-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        max-height: 240px;
+        overflow-y: auto;
+        padding-right: 0.3rem;
+      }
+      .dish-list::-webkit-scrollbar {
+        width: 3px;
+      }
+      .dish-list::-webkit-scrollbar-thumb {
+        background: var(--or);
+      }
+      .dish-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--card2);
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        padding: 0.7rem 1rem;
+        transition: border-color 0.2s;
+      }
+      .dish-row:hover {
+        border-color: var(--or);
+      }
+      .dish-info {
+        flex: 1;
+      }
+      .dish-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .dish-price {
+        font-size: 0.75rem;
+        color: var(--or);
+        margin-top: 0.15rem;
+      }
+      .qty-ctrl {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .qty-btn {
+        background: var(--or);
+        border: none;
+        color: #fff;
+        width: 26px;
+        height: 26px;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .qty-btn:hover {
+        background: var(--or-lt);
+      }
+      .qty-n {
+        min-width: 22px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 0.88rem;
+        color: #fff;
+      }
+      .order-input-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.9rem;
+      }
+      .o-fg {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .o-fg.full {
+        grid-column: span 2;
+      }
+      .o-fg label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--or);
+      }
+      .o-fg input,
+      .o-fg select,
+      .o-fg textarea {
+        background: var(--card2);
+        border: 1px solid var(--border);
+        color: var(--wh);
+        padding: 0.72rem 1rem;
+        border-radius: 6px;
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .o-fg input:focus,
+      .o-fg select:focus,
+      .o-fg textarea:focus {
+        border-color: var(--or);
+      }
+      .o-fg select option {
+        background: var(--dk);
+      }
+      .order-summary {
+        background: var(--card2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1rem 1.2rem;
+        margin-top: 1.5rem;
+      }
+      .sum-title {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--or);
+        margin-bottom: 0.7rem;
+      }
+      .sum-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        margin-bottom: 0.8rem;
+        max-height: 120px;
+        overflow-y: auto;
+      }
+      .sum-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .sum-total {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0.7rem;
+        border-top: 1px solid var(--border);
+        font-weight: 700;
+        color: #fff;
+      }
+      .order-ftr {
+        padding: 1.2rem 1.8rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 0.9rem;
+      }
+      .empty-cart {
+        font-size: 0.8rem;
+        color: var(--gray);
+        text-align: center;
+        padding: 1.5rem;
+        font-style: italic;
+      }
+
+      /* ════════════ PAGE SERVICES ════════════ */
+      .srv-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.4rem;
+        margin-top: 2.5rem;
+      }
+      .srv-c {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 2rem 1.8rem;
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
+      .srv-c:hover {
+        border-color: var(--or);
+        transform: translateY(-4px);
+      }
+      .srv-c::before {
+        content: "";
+        position: absolute;
+        top: -24px;
+        right: -24px;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: rgba(255, 122, 26, 0.06);
+      }
+      .srv-ic {
+        font-size: 2.4rem;
+        margin-bottom: 1.1rem;
+      }
+      .srv-t {
+        font-family: "Syne", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.7rem;
+      }
+      .srv-d {
+        font-size: 0.8rem;
+        color: var(--gray);
+        line-height: 1.8;
+        margin-bottom: 1.4rem;
+      }
+      .festiv-gal {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 235px 235px;
+        gap: 8px;
+        margin-top: 2rem;
+      }
+      .fg-item {
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--card2);
+      }
+      .fg-item:first-child {
+        grid-row: span 2;
+      }
+      .fg-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .fg-item:first-child {
+        grid-row: span 2;
+      }
+      .fg-item .ph {
+        height: 100%;
+        border-radius: 0;
+        font-size: 0.65rem;
+      }
+      .fg-item {
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--card2);
+        border: 2px solid transparent;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
+      .fg-item:hover {
+        border-color: var(--or);
+        transform: scale(1.02);
+      }
+
+      /* ════════════ PAGE À PROPOS ════════════ */
+      .ab-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4.5rem;
+        align-items: center;
+      }
+      .ab-img-wrap {
+        position: relative;
+      }
+      .ab-img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .ab-img .ph {
+        height: 100%;
+        border-radius: 10px;
+      }
+      .ab-tag {
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        background: var(--or);
+        color: #fff;
+        width: 110px;
+        height: 110px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: "Syne", sans-serif;
+      }
+      .ab-tag .big {
+        font-size: 2.8rem;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .ab-tag small {
+        font-size: 0.55rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .ab-text p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.9;
+        margin-bottom: 1rem;
+      }
+      .ab-vals {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .val {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.1rem;
+      }
+      .val-ic {
+        font-size: 1.3rem;
+        margin-bottom: 0.45rem;
+      }
+      .val-t {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.25rem;
+      }
+      .val-d {
+        font-size: 0.73rem;
+        color: var(--gray);
+        line-height: 1.6;
+      }
+      .fond-card {
+        display: flex;
+        gap: 2.2rem;
+        align-items: center;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 2.2rem;
+        margin-top: 4rem;
+      }
+      .fond-photo {
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
+      }
+      .fond-photo .ph {
+        height: 100%;
+        border-radius: 50%;
+      }
+      .fond-name {
+        font-family: "Syne", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #fff;
+      }
+      .fond-role {
+        color: var(--or);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 0.9rem;
+      }
+      .fond-msg {
+        font-size: 0.87rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.9;
+        font-style: italic;
+      }
+
+      /* ════════════ PAGE CONTACT ════════════ */
+      .ct-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+      .ct-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .ct-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .social-row {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+      /* Vrai logos réseaux sociaux */
+      .soc-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--gray);
+        padding: 0.55rem 1.1rem;
+        border-radius: 7px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        transition: all 0.25s;
+      }
+      .soc-btn:hover {
+        border-color: var(--or);
+        color: var(--wh);
+      }
+      .soc-btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+      .soc-tiktok:hover {
+        border-color: #69c9d0;
+        color: #69c9d0;
+      }
+      .soc-fb:hover {
+        border-color: #1877f2;
+        color: #1877f2;
+      }
+      .soc-ig:hover {
+        border-color: #e1306c;
+        color: #e1306c;
+      }
+      .soc-wa:hover {
+        border-color: #25d366;
+        color: #25d366;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--dk);
+        border-top: 1px solid var(--border);
+        padding: 2.8rem 4%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+      .ft-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .ft-name {
+        font-family: "Syne", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+      .ft-sub {
+        font-size: 0.68rem;
+        color: var(--gray);
+        margin-top: 0.2rem;
+      }
+      .ft-links {
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+      }
+      .ft-links button {
+        background: none;
+        border: none;
+        color: var(--gray);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: color 0.25s;
+      }
+      .ft-links button:hover {
+        color: var(--or);
+      }
+      .ft-copy {
+        font-size: 0.62rem;
+        color: var(--gray2);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 1024px) {
+        .why-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .srv-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .section-pad {
+          padding: 50px 4%;
+        }
+        .hero-h1 {
+          font-size: clamp(1.8rem, 9vw, 3rem) !important;
+          hyphens: none !important;
+          word-break: normal !important;
+        }
+        .s-title {
+          font-size: clamp(1.6rem, 7vw, 2.5rem);
+        }
+        .pg-hdr {
+          padding: 100px 4% 35px;
+        }
+        .order-box {
+          margin: 0.5rem;
+        }
+        .avis-form-box {
+          padding: 1.4rem;
+        }
+        .menu-tabs {
+          gap: 0.3rem;
+        }
+        .m-tab {
+          font-size: 0.65rem;
+          padding: 0.45rem 0.8rem;
+        }
+        .ab-tag {
+          display: none;
+        }
+
+        /* HERO MOBILE */
+        #hero {
+          min-height: 100svh;
+        }
+        .hero-bg {
+          background-position: center center;
+          filter: brightness(0.55) !important;
+        }
+        .hero-ov {
+          background: linear-gradient(
+            to bottom,
+            rgba(8, 8, 8, 0.4) 0%,
+            rgba(8, 8, 8, 0.75) 100%
+          ) !important;
+        }
+        .hero-h1 {
+          font-size: clamp(1.8rem, 9vw, 3rem) !important;
+          hyphens: none !important;
+          word-break: normal !important;
+        }
+        .hero-content {
+          padding: 0 5%;
+          max-width: 100%;
+        }
+        .hero-stats {
+          gap: 1.5rem;
+        }
+        .hero-open {
+          display: none;
+        }
+
+        /* GRILLES */
+        .spec-grid {
+          grid-template-columns: 1fr;
+        }
+        .why-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .loc-grid {
+          grid-template-columns: 1fr;
+        }
+        .avis-grid {
+          grid-template-columns: 1fr;
+        }
+        .ab-grid {
+          grid-template-columns: 1fr;
+        }
+        .ct-grid {
+          grid-template-columns: 1fr;
+        }
+        .ct-row {
+          grid-template-columns: 1fr;
+        }
+        .srv-grid {
+          grid-template-columns: 1fr;
+        }
+        .festiv-gal {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto;
+        }
+        .festiv-gal .fg-item:first-child {
+          grid-row: auto;
+        }
+        .fond-card {
+          flex-direction: column;
+          text-align: center;
+        }
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+        .order-input-grid {
+          grid-template-columns: 1fr;
+        }
+        .o-fg.full {
+          grid-column: span 1;
+        }
+        .form-row2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* TRES PETIT ECRAN (320px) */
+      @media (max-width: 400px) {
+        .hero-h1 {
+          font-size: 2.2rem;
+        }
+        .hero-btns {
+          flex-direction: column;
+        }
+        .hero-btns > * {
+          width: 100%;
+          justify-content: center;
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-stats {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        .nav-name {
+          font-size: 0.85rem;
+        }
+      }
+
+      /* TABLETTE (768px - 1024px) */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .spec-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .why-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .pourquoi-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .srv-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero-h1 {
+          font-size: clamp(3rem, 7vw, 5rem);
+        }
+      }
+      @media (max-width: 480px) {
+        .spec-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-btns {
+          flex-direction: column;
+        }
+        .hero-btns > * {
+          width: 100%;
+          justify-content: center;
+        }
+        .ab-vals {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══ NAV ══ -->
+    <nav>
+      <div class="nav-brand" onclick="goPage('accueil')">
+        <!--
+      ===================================================
+      LOGO : Remplacez le src ci-dessous par votre logo
+      Ex: <img class="logo-img" src="votre-logo.png" alt="Espaces Logo"/>
+      ===================================================
+    -->
+        <div class="logo-img-wrap">
+          <img
+            src="images/logo.png"
+            alt="Espaces Restaurations"
+            style="width: 100%; height: 100%; object-fit: contain"
+          />
+        </div>
+        <div>
+          <div class="nav-name">ESPACES <span>REST.</span></div>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <button onclick="goPage('accueil')" id="nb-accueil" class="active">
+            Accueil
+          </button>
+        </li>
+        <li><button onclick="goPage('menu')" id="nb-menu">Menu</button></li>
+        <li>
+          <button onclick="goPage('services')" id="nb-services">
+            Services
+          </button>
+        </li>
+        <li>
+          <button onclick="goPage('apropos')" id="nb-apropos">À Propos</button>
+        </li>
+        <li>
+          <button onclick="goPage('contact')" id="nb-contact">Contact</button>
+        </li>
+      </ul>
+      <button class="nav-cta" onclick="openOrder()">🛒 Commander</button>
+      <button class="hamburger" onclick="toggleMob()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mob-menu" id="mobMenu">
+      <button
+        onclick="
+          goPage('accueil');
+          toggleMob();
+        "
+      >
+        🏠 Accueil
+      </button>
+      <button
+        onclick="
+          goPage('menu');
+          toggleMob();
+        "
+      >
+        🍽️ Menu
+      </button>
+      <button
+        onclick="
+          goPage('services');
+          toggleMob();
+        "
+      >
+        🎉 Services
+      </button>
+      <button
+        onclick="
+          goPage('apropos');
+          toggleMob();
+        "
+      >
+        📖 À Propos
+      </button>
+      <button
+        onclick="
+          goPage('contact');
+          toggleMob();
+        "
+      >
+        📞 Contact
+      </button>
+      <button
+        onclick="
+          openOrder();
+          toggleMob();
+        "
+        style="
+          background: var(--or);
+          color: #fff;
+          border-radius: 6px;
+          margin-top: 0.5rem;
+          text-align: center;
+        "
+      >
+        🛒 Commander maintenant
+      </button>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <a
+      class="wa-float"
+      href="https://wa.me/22890151300?text=Bonjour%20Espaces%20Restaurations%20!"
+      target="_blank"
+      title="WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="white" width="26" height="26">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+        />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.138.564 4.148 1.544 5.89L.057 23.43l5.698-1.493A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.144-1.455l-.37-.22-3.381.887.902-3.293-.241-.38A9.818 9.818 0 1112 21.818z"
+        />
+      </svg>
+    </a>
+    <div class="wa-tip">Lancer votre commande</div>
+
+    <!-- ══════════════════════════════
+     MODALE COMMANDE
+══════════════════════════════ -->
+    <div class="order-modal" id="orderModal">
+      <div class="order-box">
+        <div class="order-hdr">
+          <h3>🛒 Passer une Commande</h3>
+          <button class="close-modal" onclick="closeOrder()">✕</button>
+        </div>
+        <div class="order-body">
+          <!-- CHOISIR LES PLATS -->
+          <div class="order-section">
+            <h4>1 – Choisir vos plats & boissons</h4>
+            <div
+              style="
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                margin-bottom: 1rem;
+              "
+            >
+              <button
+                class="m-tab active"
+                onclick="filterDish('all', this)"
+                style="font-size: 0.65rem; padding: 0.4rem 0.9rem"
+              >
+                Tout
+              </button>
+              <button
+                class="m-tab"
+                onclick="filterDish('fast', this)"
+                style="font-size: 0.65rem; padding: 0.4rem 0.9rem"
+              >
+                🍔 Fast-Food
+              </button>
+              <button
+                class="m-tab"
+                onclick="filterDish('local', this)"
+                style="font-size: 0.65rem; padding: 0.4rem 0.9rem"
+              >
+                🫓 Plats Locaux
+              </button>
+              <button
+                class="m-tab"
+                onclick="filterDish('boisson', this)"
+                style="font-size: 0.65rem; padding: 0.4rem 0.9rem"
+              >
+                🥤 Boissons
+              </button>
+            </div>
+            <div class="dish-list" id="dishList"></div>
+          </div>
+
+          <!-- INFOS LIVRAISON -->
+          <div class="order-section">
+            <h4>2 – Infos Livraison</h4>
+            <div class="order-input-grid">
+              <div class="o-fg">
+                <label>Votre Prénom</label>
+                <input type="text" id="ord-name" placeholder="Ex : Kofi" />
+              </div>
+              <div class="o-fg">
+                <label>Téléphone WhatsApp</label>
+                <input
+                  type="tel"
+                  id="ord-phone"
+                  placeholder="+228 00 00 00 00"
+                />
+              </div>
+              <div class="o-fg">
+                <label>Heure de Livraison Souhaitée</label>
+                <input type="time" id="ord-time" />
+              </div>
+              <div class="o-fg">
+                <label>Mode</label>
+                <select id="ord-mode">
+                  <option>Livraison à domicile</option>
+                  <option>Récupérer sur place</option>
+                </select>
+              </div>
+              <div class="o-fg full">
+                <label>Adresse de livraison</label>
+                <input
+                  type="text"
+                  id="ord-addr"
+                  placeholder="Quartier, rue, repère..."
+                />
+              </div>
+              <div class="o-fg full">
+                <label>Note / Demande Spéciale</label>
+                <input
+                  type="text"
+                  id="ord-note"
+                  placeholder="Ex: sans piment, bien cuit, etc."
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- RÉSUMÉ -->
+          <div class="order-summary">
+            <div class="sum-title">Résumé de la commande</div>
+            <div class="sum-list" id="sumList">
+              <div class="empty-cart">
+                Aucun plat sélectionné pour l'instant…
+              </div>
+            </div>
+            <div class="sum-total">
+              <span>Total estimé</span
+              ><span id="sumTotal" style="color: var(--or)">0 FCFA</span>
+            </div>
+          </div>
+        </div>
+        <div class="order-ftr">
+          <button
+            class="btn-wa-main"
+            onclick="sendOrder()"
+            style="flex: 1; justify-content: center"
+          >
+            <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+              />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.138.564 4.148 1.544 5.89L.057 23.43l5.698-1.493A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.144-1.455l-.37-.22-3.381.887.902-3.293-.241-.38A9.818 9.818 0 1112 21.818z"
+              />
+            </svg>
+            Envoyer sur WhatsApp
+          </button>
+          <button class="btn-ghost" onclick="closeOrder()">Annuler</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+     PAGE ACCUEIL
+══════════════════════════════ -->
+    <div class="page active" id="page-accueil">
+      <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-ov"></div>
+        <div class="hero-content">
+          <div class="hero-badge">Ouvert 24h/24 — 7j/7 · Sokodé, Togo</div>
+          <h1 class="hero-h1">
+            Restaurant<br /><span>Fast-Food</span><br />à Sokodé
+          </h1>
+          <p class="hero-p">
+            Hamburger · Pizza · Plats locaux · Attiéké · Poisson braisé<br /><strong
+              >Livraison à domicile disponible partout à Sokodé !</strong
+            >
+          </p>
+          <div class="hero-btns">
+            <button class="btn-wa-main" onclick="openOrder()">
+              <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.138.564 4.148 1.544 5.89L.057 23.43l5.698-1.493A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.144-1.455l-.37-.22-3.381.887.902-3.293-.241-.38A9.818 9.818 0 1112 21.818z"
+                />
+              </svg>
+              Lancer votre commande
+            </button>
+            <a href="tel:+22890151300" class="btn-ghost"
+              >📞 Appeler maintenant</a
+            >
+            <button class="btn-ghost" onclick="goPage('menu')">
+              📋 Voir le menu
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="stat-n">24H</div>
+              <div class="stat-l">Ouvert chaque jour</div>
+            </div>
+            <div>
+              <div class="stat-n">26+</div>
+              <div class="stat-l">Plats au menu</div>
+            </div>
+            <div>
+              <div class="stat-n">🛵</div>
+              <div class="stat-l">Livraison disponible</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-open">
+          <div class="open-ring">
+            <span class="big">24H</span>
+            <small>/24 · 7j/7</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPÉCIALITÉS -->
+      <section id="spec" class="section-pad">
+        <div class="rev">
+          <p class="s-label">⭐ Nos Spécialités</p>
+          <h2 class="s-title">Nos Plats <span>Phares</span></h2>
+          <div class="or-bar"></div>
+          <p class="s-sub">
+            Des saveurs authentiques préparées avec passion, disponibles à toute
+            heure du jour et de la nuit.
+          </p>
+        </div>
+        <div class="spec-grid rev">
+          <div class="sc">
+            <div class="sc-img">
+              <img
+                src="images/Hamburger.jpg"
+                alt="Hamburger"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">Hamburger</div>
+              <div class="sc-desc">
+                Pain moelleux, steak juteux, fromage fondu, sauce maison — Un
+                incontournable !
+              </div>
+              <div class="sc-ft">
+                <span class="sc-price">1 350 FCFA</span
+                ><button class="sc-btn" onclick="quickAdd('Hamburger', 1350)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="sc">
+            <div class="sc-img">
+              <img
+                src="images/Chawarma Poulet.jpg"
+                alt="Chawarma"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">Chawarma</div>
+              <div class="sc-desc">
+                Wrap garni de viande tendre, légumes croquants et sauce épicée
+                maison.
+              </div>
+              <div class="sc-ft">
+                <span class="sc-price">1 350 – 1 500 FCFA</span
+                ><button
+                  class="sc-btn"
+                  onclick="quickAdd('Chawarma Poulet', 1500)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="sc">
+            <div class="sc-img">
+              <img
+                src="images/Pizza.jpg"
+                alt="Pizza"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">Pizza</div>
+              <div class="sc-desc">
+                Pâte croustillante maison, sauce tomate, fromage fondant,
+                garnitures variées.
+              </div>
+              <div class="sc-ft">
+                <span class="sc-price">4 500 – 5 000 FCFA</span
+                ><button class="sc-btn" onclick="quickAdd('Pizza', 4500)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="sc">
+            <div class="sc-img">
+              <img
+                src="images/Riz au Poulet Yassa.jpg"
+                alt="Riz Yassa"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">Riz au Poulet Yassa</div>
+              <div class="sc-desc">
+                Poulet mariné, oignons caramélisés, sauce yassa citronnée — Un
+                régal !
+              </div>
+              <div class="sc-ft">
+                <span class="sc-price">2 500 FCFA</span
+                ><button
+                  class="sc-btn"
+                  onclick="quickAdd('Riz Poulet Yassa', 2500)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="sc">
+            <div class="sc-img">
+              <img
+                src="images/Poisson Braisé.jpg"
+                alt="Poisson Braisé"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">Poisson Braisé</div>
+              <div class="sc-desc">
+                Grillé à la braise, accompagné au choix : Akpan, riz, frites,
+                couscous ou salade.
+              </div>
+              <div class="sc-ft">
+                <span class="sc-price">3 500 – 5 000 FCFA</span
+                ><button
+                  class="sc-btn"
+                  onclick="quickAdd('Poisson Braisé', 3500)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="sc">
+            <div class="sc-img">
+              <img
+                src="images/Attiéké.jpg"
+                alt="Attiéké"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">Attiéké</div>
+              <div class="sc-desc">
+                Semoule de manioc légère et parfumée, servie avec viande ou
+                poisson grillé.
+              </div>
+              <div class="sc-ft">
+                <span class="sc-price">1 200 – 1 500 FCFA</span
+                ><button class="sc-btn" onclick="quickAdd('Attiéké', 1200)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 2.2rem" class="rev">
+          <button class="btn-or" onclick="goPage('menu')">
+            🍽️ Voir tous nos plats →
+          </button>
+        </div>
+      </section>
+
+      <!-- POURQUOI -->
+      <section id="why" class="section-pad">
+        <div
+          class="rev"
+          style="text-align: center; max-width: 640px; margin: 0 auto"
+        >
+          <p class="s-label">💪 Nos Engagements</p>
+          <h2 class="s-title">Pourquoi <span>Nous Choisir ?</span></h2>
+          <div class="or-bar" style="margin: 1rem auto"></div>
+        </div>
+        <div class="why-grid rev">
+          <div class="wc">
+            <div class="wc-ic">🥗</div>
+            <h4 class="wc-t">Produits Frais</h4>
+            <p class="wc-d">
+              Ingrédients sélectionnés chaque jour auprès de producteurs locaux
+              pour garantir fraîcheur et qualité.
+            </p>
+          </div>
+          <div class="wc">
+            <div class="wc-ic">🛵</div>
+            <h4 class="wc-t">Livraison Rapide</h4>
+            <p class="wc-d">
+              Commandez sur WhatsApp et recevez votre repas directement à
+              domicile, partout à Sokodé.
+            </p>
+          </div>
+          <div class="wc">
+            <div class="wc-ic">🌙</div>
+            <h4 class="wc-t">Ouvert 24h/24</h4>
+            <p class="wc-d">
+              Faim à minuit ? Pas de problème ! Nous sommes ouverts tous les
+              jours, sans aucune exception.
+            </p>
+          </div>
+          <div class="wc">
+            <div class="wc-ic">🎉</div>
+            <h4 class="wc-t">Service Traiteur</h4>
+            <p class="wc-d">
+              Anniversaires, cérémonies, événements — nous gérons vos festivités
+              avec professionnalisme.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOCALISATION -->
+      <section style="background: var(--dk); padding: 80px 4%">
+        <div class="loc-grid rev">
+          <div>
+            <p class="s-label">📍 Nous Trouver</p>
+            <h2 class="s-title">Où Sommes-<span>Nous ?</span></h2>
+            <div class="or-bar"></div>
+            <div class="loc-item">
+              <div class="loc-ic">📍</div>
+              <div>
+                <div class="loc-lbl">Adresse</div>
+                <div class="loc-v">
+                  Face à la station d'essence Sadko,<br />juste après Tcheik
+                  Hamdan, route Tchamba<br /><strong style="color: #fff"
+                    >Komah 2, Sokodé – Togo</strong
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="loc-item">
+              <div class="loc-ic">📞</div>
+              <div>
+                <div class="loc-lbl">Contacts</div>
+                <div class="loc-v">
+                  <a
+                    href="tel:+22890151300"
+                    style="color: var(--or); font-weight: 700"
+                    >+228 90 15 13 00</a
+                  ><br /><a
+                    href="tel:+22892326439"
+                    style="color: rgba(255, 255, 255, 0.6)"
+                    >+228 92 32 64 39</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="loc-item">
+              <div class="loc-ic">✉️</div>
+              <div>
+                <div class="loc-lbl">Email</div>
+                <div class="loc-v">
+                  <a
+                    href="mailto:lesespaces2024@gmail.com"
+                    style="color: var(--or)"
+                    >lesespaces2024@gmail.com</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="badge-open">🟢 Ouvert maintenant — 24h/24 · 7j/7</div>
+            <div style="margin-top: 1.8rem">
+              <button class="btn-or" onclick="openOrder()">
+                🛒 Commander maintenant
+              </button>
+            </div>
+          </div>
+          <div class="map-box">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.0370517487213!2d1.1512053!3d8.9687331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10294d607c4a7897%3A0x2e3d52b5302e6dfb!2sBar%20restaurant%20Les%20Espaces!5e0!3m2!1sfr!2stg!4v1772540720876!5m2!1sfr!2stg"
+              width="100%"
+              height="100%"
+              style="border: none; border-radius: 10px"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Bar Restaurant Les Espaces – Sokodé"
+            >
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- AVIS CLIENTS -->
+      <section id="avis" class="section-pad">
+        <div class="rev" style="text-align: center">
+          <p class="s-label">💬 Témoignages</p>
+          <h2 class="s-title">Ce Qu'ils <span>Disent de Nous</span></h2>
+          <div class="or-bar" style="margin: 1rem auto"></div>
+        </div>
+        <div class="avis-grid rev" id="avisContainer">
+          <div class="av-card">
+            <div class="av-stars">★★★★★</div>
+            <p class="av-txt">
+              "Le meilleur Chawarma de Sokodé ! La viande est tendre, la sauce
+              est parfaite. Je commande au moins 3 fois par semaine !"
+            </p>
+            <div class="av-auth">
+              <div class="av-av">A</div>
+              <div>
+                <strong
+                  style="
+                    font-size: 0.85rem;
+                    font-weight: 700;
+                    color: #fff;
+                    display: block;
+                  "
+                  >Abdoulaye K.</strong
+                ><span style="font-size: 0.72rem; color: var(--gray)"
+                  >📍 Sokodé</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="av-card">
+            <div class="av-stars">★★★★★</div>
+            <p class="av-txt">
+              "Ouvert à toute heure, livraison rapide et plats délicieux.
+              Espaces Restaurations, c'est mon restaurant préféré à Sokodé !"
+            </p>
+            <div class="av-auth">
+              <div class="av-av" style="background: #c0392b">F</div>
+              <div>
+                <strong
+                  style="
+                    font-size: 0.85rem;
+                    font-weight: 700;
+                    color: #fff;
+                    display: block;
+                  "
+                  >Fatima D.</strong
+                ><span style="font-size: 0.72rem; color: var(--gray)"
+                  >📍 Komah 2</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="av-card">
+            <div class="av-stars">★★★★★</div>
+            <p class="av-txt">
+              "Ils ont géré l'anniversaire de ma fille à merveille. Nourriture
+              abondante et délicieuse. Service traiteur au top !"
+            </p>
+            <div class="av-auth">
+              <div class="av-av" style="background: #922b21">M</div>
+              <div>
+                <strong
+                  style="
+                    font-size: 0.85rem;
+                    font-weight: 700;
+                    color: #fff;
+                    display: block;
+                  "
+                  >Moussa Y.</strong
+                ><span style="font-size: 0.72rem; color: var(--gray)"
+                  >📍 Sokodé</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULAIRE DONNER SON AVIS -->
+        <div class="avis-form-box rev" style="margin-top: 3rem">
+          <h3>✍️ Donnez Votre Avis</h3>
+          <p>
+            Votre expérience nous aide à nous améliorer. Partagez votre avis !
+          </p>
+          <div>
+            <p
+              style="
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                color: var(--or);
+                margin-bottom: 0.5rem;
+              "
+            >
+              Votre Note
+            </p>
+            <div class="star-row" id="starRow">
+              <button class="star-btn" onclick="setRating(1)">★</button>
+              <button class="star-btn" onclick="setRating(2)">★</button>
+              <button class="star-btn" onclick="setRating(3)">★</button>
+              <button class="star-btn" onclick="setRating(4)">★</button>
+              <button class="star-btn" onclick="setRating(5)">★</button>
+            </div>
+          </div>
+          <div class="form-row2">
+            <div class="fg">
+              <label>Votre Prénom</label
+              ><input type="text" id="av-name" placeholder="Ex: Kofi" />
+            </div>
+            <div class="fg">
+              <label>Votre Ville</label
+              ><input type="text" id="av-city" placeholder="Ex: Sokodé" />
+            </div>
+          </div>
+          <div class="fg" style="margin-bottom: 1.2rem">
+            <label>Votre Avis</label
+            ><textarea
+              id="av-txt"
+              placeholder="Dites-nous ce que vous avez aimé…"
+              style="
+                background: var(--card2);
+                border: 1px solid var(--border);
+                color: var(--wh);
+                padding: 0.75rem 1rem;
+                border-radius: 6px;
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 0.85rem;
+                outline: none;
+                width: 100%;
+                min-height: 100px;
+                resize: vertical;
+              "
+            ></textarea>
+          </div>
+          <button
+            class="btn-or"
+            onclick="submitAvis()"
+            style="width: 100%; justify-content: center"
+          >
+            ✅ Publier mon avis
+          </button>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section id="cta">
+        <h2>
+          Vous Avez Faim ? <span style="color: var(--or)">Commandez !</span>
+        </h2>
+        <p>
+          Livraison de repas à Sokodé — Fast-food & Cuisine locale — Ouvert
+          24h/24
+        </p>
+        <div class="cta-btns">
+          <button class="btn-wa-main" onclick="openOrder()">
+            💬 Lancer votre commande
+          </button>
+          <a href="tel:+22890151300" class="btn-ghost">📞 Appeler maintenant</a>
+        </div>
+      </section>
+    </div>
+    <!-- /accueil -->
+
+    <!-- ══════════════════════════════
+     PAGE MENU
+══════════════════════════════ -->
+    <div class="page" id="page-menu">
+      <div class="pg-hdr">
+        <p class="s-label">🍽️ Carte Complète</p>
+        <h1 class="s-title">
+          Menu du Restaurant <span>Espaces à Sokodé</span>
+        </h1>
+        <div class="or-bar"></div>
+        <p class="s-sub">
+          Cuisine fast-food & plats locaux togolais — Meilleur restaurant de
+          Sokodé. Livraison à domicile 24h/24.
+        </p>
+        <div class="menu-tabs">
+          <button class="m-tab active" onclick="switchMTab('fast-food', this)">
+            🍔 Fast-Food
+          </button>
+          <button class="m-tab" onclick="switchMTab('local', this)">
+            🫓 Plats Locaux
+          </button>
+          <button class="m-tab" onclick="switchMTab('boissons', this)">
+            🥤 Boissons
+          </button>
+          <button class="m-tab" onclick="switchMTab('tout', this)">
+            📋 Voir Tous Nos Plats
+          </button>
+        </div>
+      </div>
+
+      <div class="m-panel active" id="mpt-fast-food">
+        <div class="m-grid">
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Hamburger.jpg"
+                alt="Hamburger"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Hamburger</div>
+              <div class="mc-desc">
+                Pain moelleux, steak, fromage, sauce maison
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">1 350 FCFA</span
+                ><button class="add-btn" onclick="quickAdd('Hamburger', 1350)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Chawarma Bœuf.jpg"
+                alt="Chawarma Boeuf"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Chawarma Bœuf</div>
+              <div class="mc-desc">Wrap bœuf mariné, légumes, sauce épicée</div>
+              <div class="mc-ft">
+                <span class="mc-price">1 350 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Chawarma Bœuf', 1350)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Chawarma Poulet.jpg"
+                alt="Chawarma Poulet"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Chawarma Poulet</div>
+              <div class="mc-desc">Wrap poulet tendre, légumes croquants</div>
+              <div class="mc-ft">
+                <span class="mc-price">1 500 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Chawarma Poulet', 1500)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Pizza.jpg"
+                alt="Pizza"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Pizza</div>
+              <div class="mc-desc">
+                Pâte croustillante, fromage fondu, garnitures
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">4 500 – 5 000 FCFA</span
+                ><button class="add-btn" onclick="quickAdd('Pizza', 4500)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Frites.jpg"
+                alt="Frites"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Frites</div>
+              <div class="mc-desc">Nature 1 000 F — Avec viande 1 500 F</div>
+              <div class="mc-ft">
+                <span class="mc-price">1 000 – 1 500 FCFA</span
+                ><button class="add-btn" onclick="quickAdd('Frites', 1000)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Crêpe Suzette.jpg"
+                alt="Crêpe Suzette"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Crêpe Suzette</div>
+              <div class="mc-desc">
+                Crêpe fine et dorée, garnie selon vos envies
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">2 000 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Crêpe Suzette', 2000)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Spaghetti Bolognaise.jpg"
+                alt="Spaghetti Bolognaise"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Spaghetti Bolognaise</div>
+              <div class="mc-desc">
+                Sauce tomate maison, viande hachée, herbes
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">2 500 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Spaghetti Bolognaise', 2500)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Spaghetti au Gras.jpg"
+                alt="Spaghetti au Gras"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Spaghetti au Gras</div>
+              <div class="mc-desc">Rouge ou Blanc, bien mouillé ou non</div>
+              <div class="mc-ft">
+                <span class="mc-price">1 100 – 1 300 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Spaghetti au Gras', 1100)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Salade.jpg"
+                alt="Salade"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Salade</div>
+              <div class="mc-desc">
+                Fraîche et croquante, 3 tailles disponibles
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">1 000 – 2 000 FCFA</span
+                ><button class="add-btn" onclick="quickAdd('Salade', 1000)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-panel" id="mpt-local">
+        <div class="m-grid">
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Riz Blanc Parfumé.jpg"
+                alt="Riz Blanc Parfumé"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Riz Blanc Parfumé</div>
+              <div class="mc-desc">
+                Riz long grain parfumé, cuit à la perfection
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">1 200 – 1 500 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Riz Blanc Parfumé', 1200)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Riz au Poulet Yassa.jpg"
+                alt="Riz Poulet Yassa"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Riz Poulet Yassa</div>
+              <div class="mc-desc">
+                Poulet mariné, oignons, sauce yassa citronnée
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">2 500 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Riz Poulet Yassa', 2500)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Riz au Gras.jpg"
+                alt="Riz au Gras"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Riz au Gras</div>
+              <div class="mc-desc">Riz cuisiné en sauce, saveurs profondes</div>
+              <div class="mc-ft">
+                <span class="mc-price">1 500 – 2 000 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Riz au Gras', 1500)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Couscous.jpg"
+                alt="Couscous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Couscous</div>
+              <div class="mc-desc">Semoule, légumes et viande mijotée</div>
+              <div class="mc-ft">
+                <span class="mc-price">1 200 – 1 500 FCFA</span
+                ><button class="add-btn" onclick="quickAdd('Couscous', 1200)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Poisson Braisé.jpg"
+                alt="Poisson Braisé"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Poisson Braisé</div>
+              <div class="mc-desc">
+                Grillé à la braise · Accomp: Akpan/Riz/Frites/Couscous/Salade
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">3 500 – 5 000 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Poisson Braisé', 3500)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Attiéké.jpg"
+                alt="Attiéké"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Attiéké</div>
+              <div class="mc-desc">Semoule de manioc légère et parfumée</div>
+              <div class="mc-ft">
+                <span class="mc-price">1 200 – 1 500 FCFA</span
+                ><button class="add-btn" onclick="quickAdd('Attiéké', 1200)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Foufou.jpg"
+                alt="Foufou"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Foufou</div>
+              <div class="mc-desc">
+                Viande bœuf & chèvre · Sauces variées disponibles
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">500 FCFA+</span
+                ><button class="add-btn" onclick="quickAdd('Foufou', 500)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Pâte au Mil.jpg"
+                alt="Pâte au Mil"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Pâte au Mil</div>
+              <div class="mc-desc">
+                Pâte traditionnelle, accompagnements variés
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">200 FCFA</span
+                ><button class="add-btn" onclick="quickAdd('Pâte au Mil', 200)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Pâte au Maïs.jpg"
+                alt="Pâte au Maïs"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Pâte au Maïs</div>
+              <div class="mc-desc">Douce, sauce gombo ou tomate</div>
+              <div class="mc-ft">
+                <span class="mc-price">100 FCFA</span
+                ><button
+                  class="add-btn"
+                  onclick="quickAdd('Pâte au Maïs', 100)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Emakoumé.jpg"
+                alt="Emakoumé"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Emakoumé</div>
+              <div class="mc-desc">
+                Plat traditionnel togolais, riche et savoureux
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">200 FCFA</span
+                ><button class="add-btn" onclick="quickAdd('Emakoumé', 200)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Déguè.jpg"
+                alt="Déguè"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Déguè</div>
+              <div class="mc-desc">
+                500 F · Arachide 100 F · Lait Peak 600 F
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">500 FCFA+</span
+                ><button class="add-btn" onclick="quickAdd('Déguè', 500)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Khom.jpg"
+                alt="Khom"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Khom</div>
+              <div class="mc-desc">
+                100 F · Kanami · Akpama · Sardine · Poisson sardine
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">100 FCFA+</span
+                ><button class="add-btn" onclick="quickAdd('Khom', 100)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-panel" id="mpt-boissons">
+        <div class="m-grid">
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Canettes Sucreries.jpg"
+                alt="Canettes Sucreries"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Canettes Sucreries</div>
+              <div class="mc-desc">
+                Coca-Cola, Pepsi, Fanta, Sprite et autres
+              </div>
+              <div class="mc-ft">
+                <span class="mc-price">400 FCFA</span>
+                <button
+                  class="add-btn"
+                  onclick="quickAdd('Canette Sucrerie', 400)"
+                >
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Canettes Bières BB.jpg"
+                alt="Bières BB"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Canettes Bières BB</div>
+              <div class="mc-desc">Bières fraîches de qualité</div>
+              <div class="mc-ft">
+                <span class="mc-price">600 FCFA</span>
+                <button class="add-btn" onclick="quickAdd('Bière BB', 600)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Canettes Bières Djama.jpg"
+                alt="Bières Djama"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Canettes Bières Djama</div>
+              <div class="mc-desc">Bière locale populaire</div>
+              <div class="mc-ft">
+                <span class="mc-price">500 FCFA</span>
+                <button class="add-btn" onclick="quickAdd('Bière Dajama', 500)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mc">
+            <div class="mc-img">
+              <img
+                src="images/Vin de Palme (Déha).jpg"
+                alt="Vin de Palme"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Vin de Palme (Déha)</div>
+              <div class="mc-desc">En bouteilles, naturel et frais</div>
+              <div class="mc-ft">
+                <span class="mc-price">300 – 500 FCFA</span>
+                <button class="add-btn" onclick="quickAdd('Vin de Palme', 300)">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-panel" id="mpt-tout">
+        <p
+          style="color: var(--gray); font-size: 0.82rem; margin-bottom: 1.8rem"
+        >
+          Cliquez sur un plat pour l'ajouter a votre commande
+        </p>
+        <div class="all-grid">
+          <div class="all-c" onclick="quickAdd('Hamburger', 1350)">
+            <div class="all-c-img">
+              <img src="images/Hamburger.jpg" alt="Hamburger" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Hamburger</div>
+              <div class="all-c-price">1 350 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Chawarma Bœuf', 1350)">
+            <div class="all-c-img">
+              <img src="images/Chawarma Bœuf.jpg" alt="Chawarma Boeuf" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Chawarma Bœuf</div>
+              <div class="all-c-price">1 350 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Chawarma Poulet', 1500)">
+            <div class="all-c-img">
+              <img src="images/Chawarma Poulet.jpg" alt="Chawarma Poulet" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Chawarma Poulet</div>
+              <div class="all-c-price">1 500 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Pizza', 4500)">
+            <div class="all-c-img">
+              <img src="images/Pizza.jpg" alt="Pizza" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Pizza</div>
+              <div class="all-c-price">4 500 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Frites', 1000)">
+            <div class="all-c-img">
+              <img src="images/Frites.jpg" alt="Frites" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Frites</div>
+              <div class="all-c-price">1 000 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Crêpe Suzette', 2000)">
+            <div class="all-c-img">
+              <img src="images/Crêpe Suzette.jpg" alt="Crepe Suzette" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Crêpe Suzette</div>
+              <div class="all-c-price">2 000 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Spaghetti Bolognaise', 2500)">
+            <div class="all-c-img">
+              <img
+                src="images/Spaghetti Bolognaise.jpg"
+                alt="Spaghetti Bolognaise"
+              />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Spag. Bolognaise</div>
+              <div class="all-c-price">2 500 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Spaghetti au Gras', 1100)">
+            <div class="all-c-img">
+              <img src="images/Spaghetti au Gras.jpg" alt="Spaghetti au Gras" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Spag. au Gras</div>
+              <div class="all-c-price">1 100 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Salade', 1000)">
+            <div class="all-c-img">
+              <img src="images/Salade.jpg" alt="Salade" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Salade</div>
+              <div class="all-c-price">1 000 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Riz Blanc Parfumé', 1200)">
+            <div class="all-c-img">
+              <img src="images/Riz Blanc Parfumé.jpg" alt="Riz Blanc" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Riz Blanc</div>
+              <div class="all-c-price">1 200 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Riz Poulet Yassa', 2500)">
+            <div class="all-c-img">
+              <img src="images/Riz au Poulet Yassa.jpg" alt="Riz Yassa" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Riz Yassa</div>
+              <div class="all-c-price">2 500 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Riz au Gras', 1500)">
+            <div class="all-c-img">
+              <img src="images/Riz au Gras.jpg" alt="Riz au Gras" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Riz au Gras</div>
+              <div class="all-c-price">1 500 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Couscous', 1200)">
+            <div class="all-c-img">
+              <img src="images/Couscous.jpg" alt="Couscous" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Couscous</div>
+              <div class="all-c-price">1 200 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Poisson Braisé', 3500)">
+            <div class="all-c-img">
+              <img src="images/Poisson Braisé.jpg" alt="Poisson Braisé" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Poisson Braisé</div>
+              <div class="all-c-price">3 500 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Attiéké', 1200)">
+            <div class="all-c-img">
+              <img src="images/Attiéké.jpg" alt="Attiéké" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Attiéké</div>
+              <div class="all-c-price">1 200 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Foufou', 500)">
+            <div class="all-c-img">
+              <img src="images/Foufou.jpg" alt="Foufou" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Foufou</div>
+              <div class="all-c-price">500 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Pâte au Mil', 200)">
+            <div class="all-c-img">
+              <img src="images/Pâte au Mil.jpg" alt="Pate au Mil" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Pâte au Mil</div>
+              <div class="all-c-price">200 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Pâte au Maïs', 100)">
+            <div class="all-c-img">
+              <img src="images/Pâte au Maïs.jpg" alt="Pate au Mais" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Pâte au Maïs</div>
+              <div class="all-c-price">100 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Emakoumé', 200)">
+            <div class="all-c-img">
+              <img src="images/Emakoumé.jpg" alt="Emakoumé" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Emakoumé</div>
+              <div class="all-c-price">200 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Déguè', 500)">
+            <div class="all-c-img">
+              <img src="images/Déguè.jpg" alt="Déguè" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Déguè</div>
+              <div class="all-c-price">500 F</div>
+            </div>
+          </div>
+          <div class="all-c" onclick="quickAdd('Khom', 100)">
+            <div class="all-c-img">
+              <img src="images/Khom.jpg" alt="Khom" />
+            </div>
+            <div class="all-c-body">
+              <div class="all-c-name">Khom</div>
+              <div class="all-c-price">100 F</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          background: var(--dk);
+          padding: 2.5rem 4%;
+          text-align: center;
+          border-top: 1px solid var(--border);
+        "
+      >
+        <button class="btn-wa-main" onclick="openOrder()">
+          💬 Passer commande sur WhatsApp
+        </button>
+      </div>
+    </div>
+    <!-- /menu -->
+
+    <!-- ══════════════════════════════
+     PAGE SERVICES
+══════════════════════════════ -->
+    <div class="page" id="page-services">
+      <div class="pg-hdr">
+        <p class="s-label">🎉 Nos Services</p>
+        <h1 class="s-title">
+          Traiteur, Livraison & <span>Événements à Sokodé</span>
+        </h1>
+        <div class="or-bar"></div>
+        <p class="s-sub">
+          Service traiteur à Sokodé — Organisation d'anniversaires, cérémonies
+          et événements d'entreprise.
+        </p>
+      </div>
+      <section class="section-pad">
+        <div class="srv-grid rev">
+          <div class="srv-c">
+            <div class="srv-ic">🛵</div>
+            <h3 class="srv-t">Livraison à Domicile</h3>
+            <p class="srv-d">
+              Commandez vos plats depuis chez vous. Livraison rapide partout à
+              Sokodé, 24h/24 et 7j/7. Un simple message WhatsApp suffit !
+            </p>
+            <button class="btn-or" onclick="openOrder()">
+              Commander maintenant
+            </button>
+          </div>
+          <div class="srv-c">
+            <div class="srv-ic">🍽️</div>
+            <h3 class="srv-t">Service Traiteur</h3>
+            <p class="srv-d">
+              Buffets, repas servis, plateaux-repas pour vos séminaires,
+              mariages, cérémonies et réceptions. Devis gratuit sur demande.
+            </p>
+            <a
+              href="https://wa.me/22890151300?text=Bonjour%2C%20je%20souhaite%20un%20devis%20traiteur%20!"
+              target="_blank"
+              class="btn-or"
+              >Demander un devis</a
+            >
+          </div>
+          <div class="srv-c">
+            <div class="srv-ic">🎂</div>
+            <h3 class="srv-t">Anniversaires & Fêtes</h3>
+            <p class="srv-d">
+              Célébrez vos anniversaires, baptêmes et fêtes chez nous ou à
+              domicile. Décoration, nourriture, ambiance — on s'occupe de tout !
+            </p>
+            <a
+              href="https://wa.me/22890151300?text=Bonjour%2C%20je%20veux%20organiser%20un%20événement%20!"
+              target="_blank"
+              class="btn-or"
+              >Réserver</a
+            >
+          </div>
+        </div>
+
+        <!-- GALERIE FESTIVITÉS -->
+        <div class="rev" style="margin-top: 5rem">
+          <p class="s-label">📸 Galerie Festivités</p>
+          <h2 class="s-title">Nos <span>Événements</span></h2>
+          <div class="or-bar"></div>
+          <p class="s-sub">
+            Moments festifs et cérémonies organisés par Espaces Restaurations à
+            Sokodé.
+          </p>
+          <div class="festiv-gal" style="margin-top: 2rem">
+            <div class="fg-item">
+              <img
+                src="images/Événement (2).jpeg"
+                alt="Evenement 2"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="fg-item">
+              <img
+                src="images/Événement(1).jpeg"
+                alt="Evenement 1"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="fg-item">
+              <img
+                src="images/Événement (3).jpeg"
+                alt="Evenement 3"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="fg-item">
+              <img
+                src="images/Événement (4).jpeg"
+                alt="Evenement 4"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="fg-item">
+              <img
+                src="images/Événement (5).jpeg"
+                alt="Evenement 5"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- /services -->
+
+    <!-- ══════════════════════════════
+     PAGE À PROPOS
+══════════════════════════════ -->
+    <div class="page" id="page-apropos">
+      <div class="pg-hdr">
+        <p class="s-label">📖 Notre Histoire</p>
+        <h1 class="s-title">À Propos <span>d'Espaces Restaurations</span></h1>
+        <div class="or-bar"></div>
+      </div>
+      <section class="section-pad">
+        <div class="ab-grid rev">
+          <div class="ab-img-wrap">
+            <div class="ab-img">
+              <img
+                src="images/restaurant.jpeg"
+                alt="Espaces Restaurations"
+                style="
+                  width: 100%;
+                  height: 480px;
+                  object-fit: cover;
+                  border-radius: 10px;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="ab-tag">
+              <span class="big">24H</span><small>/24 · 7j/7</small>
+            </div>
+          </div>
+          <div class="ab-text">
+            <p class="s-label">Notre Vision</p>
+            <h2 class="s-title">
+              Devenir la <span>Référence</span> des Restaurants
+            </h2>
+            <div class="or-bar"></div>
+            <p>
+              Espaces Restaurations est né d'une vision ambitieuse :
+              <strong style="color: #fff"
+                >devenir la référence absolue de la restauration à Sokodé et au
+                Togo</strong
+              >. Situés à Komah 2 sur la route de Tchamba, nous accueillons nos
+              clients 24h/24, 7j/7.
+            </p>
+            <p>
+              Notre mission est de proposer une cuisine savoureuse, accessible
+              et de qualité — qu'il s'agisse de fast-food moderne ou de plats
+              traditionnels togolais préparés avec passion.
+            </p>
+            <p>
+              De la livraison à domicile aux grands événements festifs, Espaces
+              Restaurations s'engage à vous offrir une expérience culinaire
+              mémorable à chaque fois.
+            </p>
+            <div class="ab-vals">
+              <div class="val">
+                <div class="val-ic">🎯</div>
+                <h4 class="val-t">Notre Mission</h4>
+                <p class="val-d">
+                  Satisfaire chaque client avec des plats de qualité préparés
+                  avec soin.
+                </p>
+              </div>
+              <div class="val">
+                <div class="val-ic">🌟</div>
+                <h4 class="val-t">Notre Vision</h4>
+                <p class="val-d">
+                  Devenir la référence des restaurants à Sokodé et au-delà.
+                </p>
+              </div>
+              <div class="val">
+                <div class="val-ic">🤝</div>
+                <h4 class="val-t">Nos Valeurs</h4>
+                <p class="val-d">
+                  Qualité, générosité, accessibilité et service client
+                  irréprochable.
+                </p>
+              </div>
+              <div class="val">
+                <div class="val-ic">📍</div>
+                <h4 class="val-t">Notre Ancrage</h4>
+                <p class="val-d">
+                  Fièrement basés à Sokodé, nous servons notre communauté chaque
+                  jour.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fond-card rev">
+          <div class="fond-photo">
+            <div class="ph" style="height: 150px; border-radius: 50%">
+              <span class="ph-ic">👤</span
+              ><span style="font-size: 0.6rem">Photo Fondateur</span>
+            </div>
+          </div>
+          <div>
+            <div class="fond-name">Seyram Yawovi AFOKPA</div>
+            <div class="fond-role">Fondateur & Responsable</div>
+            <p class="fond-msg">
+              "Notre ambition est simple : chaque client qui fait confiance à
+              Espaces Restaurations doit repartir pleinement satisfait. Nous
+              mettons tout notre cœur dans chaque plat, chaque service, chaque
+              événement. Sokodé mérite le meilleur — et nous sommes là pour le
+              lui donner."
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- /apropos -->
+
+    <!-- ══════════════════════════════
+     PAGE CONTACT
+══════════════════════════════ -->
+    <div class="page" id="page-contact">
+      <div class="pg-hdr">
+        <p class="s-label">📞 Contact</p>
+        <h1 class="s-title">Contactez <span>Espaces Restaurations</span></h1>
+        <div class="or-bar"></div>
+        <p class="s-sub">
+          Restaurant Fast-Food à Sokodé — Ouvert 24h/24 — Livraison disponible
+          partout à Sokodé.
+        </p>
+      </div>
+      <section class="section-pad">
+        <div class="ct-grid rev">
+          <div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 1.8rem">
+              Envoyez-nous <span style="color: var(--or)">un message</span>
+            </h3>
+            <div class="ct-form">
+              <div class="ct-row">
+                <div class="fg">
+                  <label>Prénom</label
+                  ><input type="text" id="ct-fn" placeholder="Votre prénom" />
+                </div>
+                <div class="fg">
+                  <label>Nom</label
+                  ><input type="text" placeholder="Votre nom" />
+                </div>
+              </div>
+              <div class="fg">
+                <label>Téléphone / WhatsApp</label
+                ><input type="tel" placeholder="+228 00 00 00 00" />
+              </div>
+              <div class="fg">
+                <label>Objet</label>
+                <select
+                  style="
+                    background: var(--card2);
+                    border: 1px solid var(--border);
+                    color: var(--wh);
+                    padding: 0.75rem 1rem;
+                    border-radius: 6px;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 0.85rem;
+                    outline: none;
+                    width: 100%;
+                  "
+                >
+                  <option>Commande de repas</option>
+                  <option>Service traiteur</option>
+                  <option>Réservation événement</option>
+                  <option>Livraison à domicile</option>
+                  <option>Autre demande</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label>Message</label
+                ><textarea
+                  id="ct-msg"
+                  placeholder="Votre message..."
+                  style="
+                    background: var(--card2);
+                    border: 1px solid var(--border);
+                    color: var(--wh);
+                    padding: 0.75rem 1rem;
+                    border-radius: 6px;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 0.85rem;
+                    outline: none;
+                    width: 100%;
+                    min-height: 120px;
+                    resize: vertical;
+                  "
+                ></textarea>
+              </div>
+              <button
+                class="btn-or"
+                onclick="sendContact()"
+                style="width: 100%; justify-content: center; padding: 1rem"
+              >
+                📨 Envoyer
+              </button>
+              <a
+                href="https://wa.me/22890151300?text=Bonjour%20Espaces%20Restaurations%20!"
+                target="_blank"
+                class="btn-wa-main"
+                style="width: 100%; justify-content: center"
+              >
+                <svg viewBox="0 0 24 24" fill="white" width="16" height="16">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                  />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.138.564 4.148 1.544 5.89L.057 23.43l5.698-1.493A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.144-1.455l-.37-.22-3.381.887.902-3.293-.241-.38A9.818 9.818 0 1112 21.818z"
+                  />
+                </svg>
+                Écrire sur WhatsApp
+              </a>
+            </div>
+
+            <!-- VRAIS LOGOS RÉSEAUX SOCIAUX -->
+            <div style="margin-top: 2.5rem">
+              <p class="s-label" style="margin-bottom: 1rem">Réseaux Sociaux</p>
+              <div class="social-row">
+                <a
+                  href="https://www.tiktok.com/@lesespaces6"
+                  target="_blank"
+                  class="soc-btn soc-tiktok"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"
+                    />
+                  </svg>
+                  TikTok
+                </a>
+                <a href="#" target="_blank" class="soc-btn soc-fb">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    />
+                  </svg>
+                  Facebook
+                </a>
+                <a href="#" target="_blank" class="soc-btn soc-ig">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                  Instagram
+                </a>
+                <a
+                  href="https://wa.me/22890151300"
+                  target="_blank"
+                  class="soc-btn soc-wa"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.138.564 4.148 1.544 5.89L.057 23.43l5.698-1.493A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.144-1.455l-.37-.22-3.381.887.902-3.293-.241-.38A9.818 9.818 0 1112 21.818z"
+                    />
+                  </svg>
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 1.8rem">
+              Nos <span style="color: var(--or)">Coordonnées</span>
+            </h3>
+            <div class="loc-item">
+              <div class="loc-ic">📍</div>
+              <div>
+                <div class="loc-lbl">Adresse</div>
+                <div class="loc-v">
+                  Face station Sadko, après Tcheik Hamdan<br />Route Tchamba —
+                  Komah 2, Sokodé
+                </div>
+              </div>
+            </div>
+            <div class="loc-item">
+              <div class="loc-ic">📱</div>
+              <div>
+                <div class="loc-lbl">WhatsApp Principal</div>
+                <div class="loc-v">
+                  <a
+                    href="https://wa.me/22890151300"
+                    target="_blank"
+                    style="color: var(--or); font-weight: 700"
+                    >+228 90 15 13 00</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="loc-item">
+              <div class="loc-ic">📞</div>
+              <div>
+                <div class="loc-lbl">Numéro Secondaire</div>
+                <div class="loc-v">
+                  <a
+                    href="tel:+22892326439"
+                    style="color: rgba(255, 255, 255, 0.65)"
+                    >+228 92 32 64 39</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="loc-item">
+              <div class="loc-ic">✉️</div>
+              <div>
+                <div class="loc-lbl">Email</div>
+                <div class="loc-v">
+                  <a
+                    href="mailto:lesespaces2024@gmail.com"
+                    style="color: var(--or)"
+                    >lesespaces2024@gmail.com</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="loc-item">
+              <div class="loc-ic">⏰</div>
+              <div>
+                <div class="loc-lbl">Horaires</div>
+                <div class="loc-v" style="color: #25d366; font-weight: 700">
+                  Ouvert 24h/24 — 7 jours sur 7
+                </div>
+              </div>
+            </div>
+            <div class="map-box" style="margin-top: 1.5rem; height: 240px">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.0370517487213!2d1.1512053!3d8.9687331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10294d607c4a7897%3A0x2e3d52b5302e6dfb!2sBar%20restaurant%20Les%20Espaces!5e0!3m2!1sfr!2stg!4v1772540720876!5m2!1sfr!2stg"
+                width="100%"
+                height="100%"
+                style="border: none; border-radius: 10px"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Bar Restaurant Les Espaces – Sokodé"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- /contact -->
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="ft-brand">
+        <div class="logo-img-wrap">
+          <img
+            src="images/logo.png"
+            alt="Espaces Restaurations"
+            style="width: 100%; height: 100%; object-fit: contain"
+          />
+        </div>
+        <div>
+          <div class="ft-name">ESPACES RESTAURATIONS</div>
+          <div class="ft-sub">Meilleur Fast-Food à Sokodé · Ouvert 24h/24</div>
+        </div>
+      </div>
+      <div class="ft-links">
+        <button onclick="goPage('accueil')">Accueil</button>
+        <button onclick="goPage('menu')">Menu</button>
+        <button onclick="goPage('services')">Services</button>
+        <button onclick="goPage('apropos')">À Propos</button>
+        <button onclick="goPage('contact')">Contact</button>
+      </div>
+      <div class="ft-copy">© 2025 Espaces Restaurations · Sokodé, Togo</div>
+    </footer>
+
+    <script>
+      // ──────────── NAVIGATION ────────────
+      function goPage(id) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document.getElementById("page-" + id).classList.add("active");
+        document
+          .querySelectorAll('[id^="nb-"]')
+          .forEach((b) => b.classList.remove("active"));
+        const nb = document.getElementById("nb-" + id);
+        if (nb) nb.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(initReveal, 80);
+      }
+      function toggleMob() {
+        document.getElementById("mobMenu").classList.toggle("open");
+      }
+
+      // ──────────── REVEAL ────────────
+      function initReveal() {
+        const obs = new IntersectionObserver(
+          (es) => {
+            es.forEach((e) => {
+              if (e.isIntersecting) e.target.classList.add("in");
+            });
+          },
+          { threshold: 0.08 },
+        );
+        document
+          .querySelectorAll(".rev:not(.in)")
+          .forEach((el) => obs.observe(el));
+      }
+      initReveal();
+
+      // ──────────── MENU TABS ────────────
+      function switchMTab(id, btn) {
+        document
+          .querySelectorAll(".m-panel")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll("#page-menu .m-tab")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("mpt-" + id).classList.add("active");
+        btn.classList.add("active");
+      }
+
+      // ──────────── COMMANDE SYSTEM ────────────
+      const DISHES = [
+        { name: "Hamburger", price: 1350, cat: "fast" },
+        { name: "Chawarma Bœuf", price: 1350, cat: "fast" },
+        { name: "Chawarma Poulet", price: 1500, cat: "fast" },
+        { name: "Pizza", price: 4500, cat: "fast" },
+        { name: "Frites", price: 1000, cat: "fast" },
+        { name: "Crêpe Suzette", price: 2000, cat: "fast" },
+        { name: "Spaghetti Bolognaise", price: 2500, cat: "fast" },
+        { name: "Spaghetti au Gras", price: 1100, cat: "fast" },
+        { name: "Salade", price: 1000, cat: "fast" },
+        { name: "Riz Blanc Parfumé", price: 1200, cat: "local" },
+        { name: "Riz Poulet Yassa", price: 2500, cat: "local" },
+        { name: "Riz au Gras", price: 1500, cat: "local" },
+        { name: "Couscous", price: 1200, cat: "local" },
+        { name: "Poisson Braisé", price: 3500, cat: "local" },
+        { name: "Attiéké", price: 1200, cat: "local" },
+        { name: "Foufou", price: 500, cat: "local" },
+        { name: "Pâte au Mil", price: 200, cat: "local" },
+        { name: "Pâte au Maïs", price: 100, cat: "local" },
+        { name: "Emakoumé", price: 200, cat: "local" },
+        { name: "Déguè", price: 500, cat: "local" },
+        { name: "Khom", price: 100, cat: "local" },
+        { name: "Canette Sucrerie", price: 400, cat: "boisson" },
+        { name: "Bière BB", price: 600, cat: "boisson" },
+        { name: "Bière Dajama", price: 500, cat: "boisson" },
+        { name: "Vin de Palme", price: 300, cat: "boisson" },
+      ];
+      let cart = {};
+      let currentFilter = "all";
+
+      function openOrder() {
+        document.getElementById("orderModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+        renderDishList();
+        updateSummary();
+      }
+      function closeOrder() {
+        document.getElementById("orderModal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function filterDish(cat, btn) {
+        currentFilter = cat;
+        document
+          .querySelectorAll("#orderModal .m-tab")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderDishList();
+      }
+      function renderDishList() {
+        const list = document.getElementById("dishList");
+        const filtered =
+          currentFilter === "all"
+            ? DISHES
+            : DISHES.filter((d) => d.cat === currentFilter);
+        list.innerHTML = filtered
+          .map(
+            (d) => `
+    <div class="dish-row">
+      <div class="dish-info">
+        <div class="dish-name">${d.name}</div>
+        <div class="dish-price">${d.price.toLocaleString()} FCFA</div>
+      </div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty('${d.name}',${d.price},-1)">−</button>
+        <span class="qty-n" id="qty-${d.name.replace(/\s/g, "_")}">${cart[d.name] ? cart[d.name].qty : 0}</span>
+        <button class="qty-btn" onclick="changeQty('${d.name}',${d.price},1)">+</button>
+      </div>
+    </div>`,
+          )
+          .join("");
+      }
+      function changeQty(name, price, delta) {
+        if (!cart[name]) cart[name] = { qty: 0, price };
+        cart[name].qty = Math.max(0, cart[name].qty + delta);
+        if (cart[name].qty === 0) delete cart[name];
+        const el = document.getElementById("qty-" + name.replace(/\s/g, "_"));
+        if (el) el.textContent = cart[name] ? cart[name].qty : 0;
+        updateSummary();
+      }
+      function quickAdd(name, price) {
+        if (!cart[name]) cart[name] = { qty: 0, price };
+        cart[name].qty++;
+        updateSummary();
+        openOrder();
+      }
+      function updateSummary() {
+        const items = Object.entries(cart);
+        const sl = document.getElementById("sumList");
+        const st = document.getElementById("sumTotal");
+        if (!items.length) {
+          sl.innerHTML =
+            '<div class="empty-cart">Aucun plat sélectionné…</div>';
+          st.textContent = "0 FCFA";
+          return;
+        }
+        let total = 0;
+        sl.innerHTML = items
+          .map(([n, v]) => {
+            total += v.price * v.qty;
+            return `<div class="sum-item"><span>${n} ×${v.qty}</span><span>${(v.price * v.qty).toLocaleString()} F</span></div>`;
+          })
+          .join("");
+        st.textContent = total.toLocaleString() + " FCFA";
+      }
+      function sendOrder() {
+        const items = Object.entries(cart);
+        if (!items.length) {
+          alert("⚠️ Veuillez sélectionner au moins un plat !");
+          return;
+        }
+        const name = document.getElementById("ord-name").value || "Client";
+        const phone =
+          document.getElementById("ord-phone").value || "Non renseigné";
+        const time =
+          document.getElementById("ord-time").value || "Dès que possible";
+        const mode = document.getElementById("ord-mode").value;
+        const addr = document.getElementById("ord-addr").value || "À préciser";
+        const note = document.getElementById("ord-note").value;
+        let total = 0;
+        let msg = `COMMANDE - Espaces Restaurations\n\n`;
+        msg += `Client : ${name}\n`;
+        msg += `Tel : ${phone}\n`;
+        msg += `Mode : ${mode}\n`;
+        if (mode.includes("domicile")) msg += `Adresse : ${addr}\n`;
+        msg += `Heure souhaitee : ${time}\n\n`;
+        msg += `Detail de la commande :\n`;
+        items.forEach(([n, v]) => {
+          total += v.price * v.qty;
+          msg += `- ${n} x${v.qty} = ${(v.price * v.qty).toLocaleString()} FCFA\n`;
+        });
+        msg += `\nTotal estime : ${total.toLocaleString()} FCFA`;
+        if (note) msg += `\nNote : ${note}`;
+
+        window.open(
+          "https://wa.me/22890151300?text=" + encodeURIComponent(msg),
+          "_blank",
+        );
+        closeOrder();
+        cart = {};
+      }
+      document
+        .getElementById("orderModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeOrder();
+        });
+
+      // ──────────── AVIS SYSTEM ────────────
+      let userRating = 0;
+      function setRating(n) {
+        userRating = n;
+        document
+          .querySelectorAll(".star-btn")
+          .forEach((b, i) => b.classList.toggle("on", i < n));
+      }
+      function submitAvis() {
+        const name = document.getElementById("av-name").value.trim();
+        const city = document.getElementById("av-city").value.trim();
+        const txt = document.getElementById("av-txt").value.trim();
+        if (!name || !txt || !userRating) {
+          alert(
+            "⚠️ Veuillez remplir votre nom, votre avis et donner une note !",
+          );
+          return;
+        }
+        const stars = "★".repeat(userRating) + "☆".repeat(5 - userRating);
+        const col = ["#FF7A1A", "#E8151B", "#c0392b", "#FF9D52", "#D9620E"];
+        const c = col[name.charCodeAt(0) % col.length];
+        const card = document.createElement("div");
+        card.className = "av-card";
+        card.innerHTML = `<div class="av-stars">${stars}</div><p class="av-txt">"${txt}"</p><div class="av-auth"><div class="av-av" style="background:${c}">${name[0].toUpperCase()}</div><div><strong style="font-size:.85rem;font-weight:700;color:#FFF;display:block">${name}</strong><span style="font-size:.72rem;color:var(--gray)">📍 ${city || "Sokodé"}</span></div></div>`;
+        document.getElementById("avisContainer").appendChild(card);
+        document.getElementById("av-name").value = "";
+        document.getElementById("av-city").value = "";
+        document.getElementById("av-txt").value = "";
+        setRating(0);
+        userRating = 0;
+        alert("✅ Merci " + name + " ! Votre avis a été publié.");
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      // ──────────── CONTACT FORM ────────────
+      function sendContact() {
+        const fn = document.getElementById("ct-fn").value;
+        const msg = document.getElementById("ct-msg").value;
+        if (!fn) {
+          alert("Veuillez entrer votre prénom.");
+          return;
+        }
+        const wa =
+          "Bonjour%20Espaces%20Restaurations%2C%20je%20vous%20contacte%20depuis%20le%20site.%20Mon%20nom%20:%20" +
+          encodeURIComponent(fn) +
+          (msg ? "%0AMessage%20:%20" + encodeURIComponent(msg) : "");
+        window.open("https://wa.me/22890151300?text=" + wa, "_blank");
+      }
+    </script>
+  </body>
+</html>
