@@ -2015,6 +2015,11 @@
         <li>
           <button onclick="goPage('contact')" id="nb-contact">Contact</button>
         </li>
+        <li>
+          <button onclick="goPage('reservation')" id="nb-reservation">
+            Réservation
+          </button>
+        </li>
       </ul>
       <button class="nav-cta" onclick="openOrder()">🛒 Commander</button>
       <button class="hamburger" onclick="toggleMob()" aria-label="Menu">
@@ -2063,6 +2068,14 @@
         "
       >
         📞 Contact
+      </button>
+      <button
+        onclick="
+          goPage('reservation');
+          toggleMob();
+        "
+      >
+        🗓️ Réservation
       </button>
       <button
         onclick="
@@ -4164,7 +4177,267 @@
       </section>
     </div>
     <!-- /contact -->
+    <div class="page" id="page-reservation">
+      <div class="pg-hdr">
+        <p class="s-label">🗓️ Réservation</p>
+        <h1 class="s-title">Réserver une <span>Table</span></h1>
+        <div class="or-bar"></div>
+        <p class="s-sub">
+          Choisissez votre date, heure, plats et boissons — Nous vous attendons
+          !
+        </p>
+      </div>
 
+      <section class="section-pad">
+        <div style="max-width: 750px; margin: 0 auto">
+          <!-- ETAPE 1 DATE & HEURE -->
+          <div
+            style="
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: 12px;
+              padding: 2rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <h3 style="font-size: 1rem; margin-bottom: 1.5rem">
+              📅 Étape 1 — Date & Heure
+            </h3>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem"
+            >
+              <div class="o-fg">
+                <label>Votre Prénom</label>
+                <input type="text" id="res-name" placeholder="Ex: Kofi" />
+              </div>
+              <div class="o-fg">
+                <label>Téléphone WhatsApp</label>
+                <input
+                  type="tel"
+                  id="res-phone"
+                  placeholder="+228 00 00 00 00"
+                />
+              </div>
+              <div class="o-fg">
+                <label>Date de Réservation</label>
+                <input type="date" id="res-date" />
+              </div>
+              <div class="o-fg">
+                <label>Heure d'Arrivée</label>
+                <input type="time" id="res-time" />
+              </div>
+              <div class="o-fg">
+                <label>Nombre de Personnes</label>
+                <select
+                  id="res-persons"
+                  style="
+                    background: var(--card2);
+                    border: 1px solid var(--border);
+                    color: var(--wh);
+                    padding: 0.72rem 1rem;
+                    border-radius: 6px;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 0.85rem;
+                    outline: none;
+                    width: 100%;
+                  "
+                >
+                  <option>1 personne</option>
+                  <option>2 personnes</option>
+                  <option>3 personnes</option>
+                  <option>4 personnes</option>
+                  <option>5 personnes</option>
+                  <option>6+ personnes</option>
+                </select>
+              </div>
+              <div class="o-fg">
+                <label>Type d'Occasion</label>
+                <select
+                  id="res-occasion"
+                  style="
+                    background: var(--card2);
+                    border: 1px solid var(--border);
+                    color: var(--wh);
+                    padding: 0.72rem 1rem;
+                    border-radius: 6px;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 0.85rem;
+                    outline: none;
+                    width: 100%;
+                  "
+                >
+                  <option>Repas simple</option>
+                  <option>Anniversaire</option>
+                  <option>Repas d'affaires</option>
+                  <option>Sortie en famille</option>
+                  <option>Sortie romantique</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- ETAPE 2 PLATS -->
+          <div
+            style="
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: 12px;
+              padding: 2rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <h3 style="font-size: 1rem; margin-bottom: 1.5rem">
+              🍽️ Étape 2 — Choisir vos Plats & Boissons
+            </h3>
+            <div
+              style="
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                margin-bottom: 1rem;
+              "
+            >
+              <button
+                class="m-tab active"
+                onclick="filterRes('all', this)"
+                style="font-size: 0.65rem; padding: 0.4rem 0.9rem"
+              >
+                Tout
+              </button>
+              <button
+                class="m-tab"
+                onclick="filterRes('fast', this)"
+                style="font-size: 0.65rem; padding: 0.4rem 0.9rem"
+              >
+                🍔 Fast-Food
+              </button>
+              <button
+                class="m-tab"
+                onclick="filterRes('local', this)"
+                style="font-size: 0.65rem; padding: 0.4rem 0.9rem"
+              >
+                🫓 Plats Locaux
+              </button>
+              <button
+                class="m-tab"
+                onclick="filterRes('boisson', this)"
+                style="font-size: 0.65rem; padding: 0.4rem 0.9rem"
+              >
+                🥤 Boissons
+              </button>
+            </div>
+            <div
+              class="dish-list"
+              id="resDishList"
+              style="max-height: 300px"
+            ></div>
+          </div>
+
+          <!-- ETAPE 3 PLAT SPECIAL -->
+          <div
+            style="
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: 12px;
+              padding: 2rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <h3 style="font-size: 1rem; margin-bottom: 0.5rem">
+              ✨ Étape 3 — Recommander un Plat Spécial
+            </h3>
+            <p
+              style="
+                font-size: 0.78rem;
+                color: var(--gray);
+                margin-bottom: 1rem;
+              "
+            >
+              Un plat qui n'est pas dans notre menu ? Dites-nous, on fera de
+              notre mieux !
+            </p>
+            <div class="o-fg">
+              <label>Votre Plat Spécial</label>
+              <input
+                type="text"
+                id="res-special"
+                placeholder="Ex: Poulet rôti aux herbes, Thiéboudienne..."
+              />
+            </div>
+          </div>
+
+          <!-- ETAPE 4 NOTE -->
+          <div
+            style="
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: 12px;
+              padding: 2rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <h3 style="font-size: 1rem; margin-bottom: 0.5rem">
+              📝 Étape 4 — Note Spéciale
+            </h3>
+            <div class="o-fg">
+              <label>Demande Particulière</label>
+              <textarea
+                id="res-note"
+                placeholder="Ex: Sans piment, allergie aux arachides, table en terrasse..."
+                style="
+                  background: var(--card2);
+                  border: 1px solid var(--border);
+                  color: var(--wh);
+                  padding: 0.75rem 1rem;
+                  border-radius: 6px;
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 0.85rem;
+                  outline: none;
+                  width: 100%;
+                  min-height: 100px;
+                  resize: vertical;
+                "
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- RESUME -->
+          <div class="order-summary" style="margin-bottom: 1.5rem">
+            <div class="sum-title">Résumé de la Réservation</div>
+            <div class="sum-list" id="resSumList">
+              <div class="empty-cart">Aucun plat sélectionné…</div>
+            </div>
+            <div class="sum-total">
+              <span>Total estimé</span
+              ><span id="resTotalDisplay" style="color: var(--or)">0 FCFA</span>
+            </div>
+          </div>
+
+          <!-- BOUTON -->
+          <button
+            class="btn-wa-main"
+            onclick="sendReservation()"
+            style="
+              width: 100%;
+              justify-content: center;
+              font-size: 0.9rem;
+              padding: 1rem;
+            "
+          >
+            <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+              />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.138.564 4.148 1.544 5.89L.057 23.43l5.698-1.493A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.144-1.455l-.37-.22-3.381.887.902-3.293-.241-.38A9.818 9.818 0 1112 21.818z"
+              />
+            </svg>
+            Confirmer la Réservation sur WhatsApp
+          </button>
+        </div>
+      </section>
+    </div>
     <!-- ── FOOTER ── -->
     <footer>
       <div class="ft-brand">
@@ -4186,11 +4459,151 @@
         <button onclick="goPage('services')">Services</button>
         <button onclick="goPage('apropos')">À Propos</button>
         <button onclick="goPage('contact')">Contact</button>
+        <button onclick="goPage('reservation')">Réservation</button>
       </div>
       <div class="ft-copy">© 2025 Espaces Restaurations · Sokodé, Togo</div>
     </footer>
 
     <script>
+      // ── RESERVATION SYSTEM ──
+      let resCart = {};
+      let resFilter = "all";
+
+      function filterRes(cat, btn) {
+        resFilter = cat;
+        document
+          .querySelectorAll("#page-reservation .m-tab")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderResDishes();
+      }
+
+      function renderResDishes() {
+        const list = document.getElementById("resDishList");
+        if (!list) return;
+        const filtered =
+          resFilter === "all"
+            ? DISHES
+            : DISHES.filter((d) => d.cat === resFilter);
+        let html = "";
+        for (let i = 0; i < filtered.length; i++) {
+          const d = filtered[i];
+          const safeId = d.name.replace(/\s/g, "_");
+          const qty = resCart[d.name] ? resCart[d.name].qty : 0;
+          html += '<div class="dish-row">';
+          html += '<div class="dish-info">';
+          html += '<div class="dish-name">' + d.name + "</div>";
+          html +=
+            '<div class="dish-price">' +
+            d.price.toLocaleString() +
+            " FCFA</div>";
+          html += "</div>";
+          html += '<div class="qty-ctrl">';
+          html +=
+            '<button class="qty-btn" onclick="resQty(' + i + ',-1)">−</button>';
+          html +=
+            '<span class="qty-n" id="resqty-' + safeId + '">' + qty + "</span>";
+          html +=
+            '<button class="qty-btn" onclick="resQty(' + i + ',1)">+</button>';
+          html += "</div>";
+          html += "</div>";
+        }
+        list.innerHTML = html;
+      }
+
+      function resQty(index, delta) {
+        const filtered =
+          resFilter === "all"
+            ? DISHES
+            : DISHES.filter((d) => d.cat === resFilter);
+        const d = filtered[index];
+        if (!resCart[d.name]) resCart[d.name] = { qty: 0, price: d.price };
+        resCart[d.name].qty = Math.max(0, resCart[d.name].qty + delta);
+        if (resCart[d.name].qty === 0) delete resCart[d.name];
+        const el = document.getElementById(
+          "resqty-" + d.name.replace(/\s/g, "_"),
+        );
+        if (el) el.textContent = resCart[d.name] ? resCart[d.name].qty : 0;
+        updateResSummary();
+      }
+
+      function updateResSummary() {
+        const items = Object.entries(resCart);
+        const sl = document.getElementById("resSumList");
+        const st = document.getElementById("resTotalDisplay");
+        if (!items.length) {
+          sl.innerHTML =
+            '<div class="empty-cart">Aucun plat sélectionné…</div>';
+          st.textContent = "0 FCFA";
+          return;
+        }
+        let total = 0;
+        let html = "";
+        items.forEach(function (item) {
+          const n = item[0];
+          const v = item[1];
+          total += v.price * v.qty;
+          html +=
+            '<div class="sum-item"><span>' +
+            n +
+            " x" +
+            v.qty +
+            "</span><span>" +
+            (v.price * v.qty).toLocaleString() +
+            " F</span></div>";
+        });
+        sl.innerHTML = html;
+        st.textContent = total.toLocaleString() + " FCFA";
+      }
+
+      function sendReservation() {
+        const name = document.getElementById("res-name").value || "Client";
+        const phone =
+          document.getElementById("res-phone").value || "Non renseigne";
+        const date =
+          document.getElementById("res-date").value || "Non renseigne";
+        const time =
+          document.getElementById("res-time").value || "Non renseigne";
+        const persons = document.getElementById("res-persons").value;
+        const occasion = document.getElementById("res-occasion").value;
+        const special = document.getElementById("res-special").value;
+        const note = document.getElementById("res-note").value;
+        const items = Object.entries(resCart);
+
+        let msg = "RESERVATION - Espaces Restaurations\n\n";
+        msg += "Client : " + name + "\n";
+        msg += "Tel : " + phone + "\n";
+        msg += "Date : " + date + "\n";
+        msg += "Heure : " + time + "\n";
+        msg += "Personnes : " + persons + "\n";
+        msg += "Occasion : " + occasion + "\n";
+
+        if (items.length) {
+          let total = 0;
+          msg += "\nPlats & Boissons :\n";
+          items.forEach(function (item) {
+            const n = item[0];
+            const v = item[1];
+            total += v.price * v.qty;
+            msg +=
+              "- " +
+              n +
+              " x" +
+              v.qty +
+              " = " +
+              (v.price * v.qty).toLocaleString() +
+              " FCFA\n";
+          });
+          msg += "Total estime : " + total.toLocaleString() + " FCFA\n";
+        }
+        if (special) msg += "\nPlat special : " + special + "\n";
+        if (note) msg += "\nNote : " + note;
+
+        window.open(
+          "https://wa.me/22890151300?text=" + encodeURIComponent(msg),
+          "_blank",
+        );
+      }
       // ──────────── NAVIGATION ────────────
       function goPage(id) {
         document
@@ -4204,6 +4617,7 @@
         if (nb) nb.classList.add("active");
         window.scrollTo({ top: 0, behavior: "smooth" });
         setTimeout(initReveal, 80);
+        if (id === "reservation") renderResDishes(); // ← ajoute cette ligne
       }
       function toggleMob() {
         document.getElementById("mobMenu").classList.toggle("open");
