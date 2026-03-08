@@ -1059,9 +1059,8 @@
       }
       .menu-tabs {
         display: flex;
-        flex-wrap: wrap;
         gap: 0.5rem;
-        margin-top: 2rem;
+        flex-wrap: wrap;
       }
       .m-tab {
         background: var(--card);
@@ -1258,6 +1257,228 @@
         font-size: 0.72rem;
         font-weight: 600;
         color: var(--or);
+      }
+      /*
+── BARRE DE RECHERCHE ──
+*/
+      .menu-search-wrap {
+        display: flex;
+        justify-content: center;
+        padding: 0 1.5rem 1.5rem;
+      }
+      .menu-search-box {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        padding: 0.7rem 1.2rem;
+        width: 100%;
+        max-width: 540px;
+        transition: border-color 0.25s;
+      }
+      .menu-search-box:focus-within {
+        border-color: var(--or);
+      }
+      .menu-search-box svg {
+        color: var(--gray);
+        flex-shrink: 0;
+      }
+      .menu-search-box input {
+        flex: 1;
+        background: none;
+        border: none;
+        outline: none;
+        color: var(--wh);
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+      }
+      .menu-search-box input::placeholder {
+        color: var(--gray);
+      }
+      .search-clear {
+        background: none;
+        border: none;
+        color: var(--gray);
+        cursor: pointer;
+        font-size: 0.9rem;
+        padding: 0;
+        line-height: 1;
+      }
+      .search-clear:hover {
+        color: var(--or);
+      }
+
+      /*
+── ONGLETS SCROLLABLE ──
+*/
+      .menu-tabs-wrap {
+        padding-bottom: 0.5rem;
+      }
+      .menu-tabs {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      /*
+── CARTES AVEC IMAGE (all-c améliorées avec boutons) ──
+*/
+      .all-c-desc {
+        font-size: 0.74rem;
+        color: var(--gray);
+        margin: 0.2rem 0 0.5rem;
+        line-height: 1.4;
+      }
+      .all-c-price-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+      .all-c-btns {
+        display: flex;
+        gap: 0.3rem;
+      }
+
+      /*
+── CARTES SANS IMAGE (catalogue complet) ──
+*/
+      .mc-noimg {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem 1.1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        transition:
+          border-color 0.25s,
+          transform 0.2s;
+      }
+      .mc-noimg:hover {
+        border-color: var(--or);
+        transform: translateY(-2px);
+      }
+      .mc-cat-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--or);
+        background: rgba(255, 122, 26, 0.1);
+        padding: 0.2rem 0.55rem;
+        border-radius: 20px;
+        width: fit-content;
+      }
+      .mc-noimg .mc-name {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--wh);
+        line-height: 1.3;
+      }
+      .mc-noimg .mc-desc {
+        font-size: 0.76rem;
+        color: var(--gray);
+        line-height: 1.45;
+        flex: 1;
+      }
+      .mc-noimg .mc-ft {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-top: 0.3rem;
+        flex-wrap: wrap;
+      }
+      .mc-noimg .mc-price {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 0.95rem;
+        color: var(--or);
+      }
+      .mc-action-btns {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+
+      /*
+── BOUTONS RÉSERVER / COMMANDER ──
+*/
+      .btn-reserver {
+        font-size: 0.68rem;
+        padding: 0.38rem 0.7rem;
+        border-radius: 6px;
+        border: 1px solid var(--or);
+        background: transparent;
+        color: var(--or);
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        white-space: nowrap;
+      }
+      .btn-reserver:hover {
+        background: var(--or);
+        color: #fff;
+      }
+      .btn-commander {
+        font-size: 0.68rem;
+        padding: 0.38rem 0.7rem;
+        border-radius: 6px;
+        border: none;
+        background: var(--or);
+        color: #fff;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        transition: opacity 0.2s;
+        white-space: nowrap;
+      }
+      .btn-commander:hover {
+        opacity: 0.85;
+      }
+
+      /*
+── RÉSULTAT RECHERCHE ──
+*/
+      .menu-result-count {
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--gray);
+        margin-bottom: 1rem;
+      }
+      .menu-result-count span {
+        color: var(--or);
+        font-weight: 700;
+      }
+      .menu-empty {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--gray);
+      }
+
+      @media (max-width: 768px) {
+        .all-c-btns {
+          gap: 0.25rem;
+        }
+        .btn-reserver,
+        .btn-commander {
+          font-size: 0.62rem;
+          padding: 0.32rem 0.55rem;
+        }
+        .mc-action-btns {
+          gap: 0.25rem;
+        }
       }
 
       /* ════════════ COMMANDE MODALE ════════════ */
@@ -2939,770 +3160,182 @@
      PAGE MENU
 ══════════════════════════════ -->
     <div class="page" id="page-menu">
+      <!-- EN-TÊTE -->
       <div class="pg-hdr">
-        <p class="s-label">🍽️ Carte Complète</p>
-        <h1 class="s-title">
-          Menu du Restaurant <span>Espaces à Sokodé</span>
-        </h1>
+        <p class="s-label">🍽️ Notre Menu</p>
+        <h1 class="s-title">Découvrez nos <span>Saveurs</span></h1>
         <div class="or-bar"></div>
         <p class="s-sub">
-          Cuisine fast-food & plats locaux togolais — Meilleur restaurant de
-          Sokodé. Livraison à domicile 24h/24.
+          Des plats locaux, fast-food, poissons et boissons pour tous les goûts
         </p>
-        <div class="menu-tabs">
-          <button class="m-tab active" onclick="switchMTab('fast-food', this)">
-            🍔 Fast-Food
-          </button>
-          <button class="m-tab" onclick="switchMTab('local', this)">
-            🫓 Plats Locaux
-          </button>
-          <button class="m-tab" onclick="switchMTab('boissons', this)">
-            🥤 Boissons
-          </button>
-          <button class="m-tab" onclick="switchMTab('tout', this)">
-            📋 Voir Tous Nos Plats
+      </div>
+
+      <!-- ── 1. BARRE DE RECHERCHE (toujours en haut) ── -->
+      <div class="menu-search-wrap">
+        <div class="menu-search-box">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="18"
+            height="18"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input
+            type="text"
+            id="menuSearchInput"
+            placeholder="Rechercher un plat, une boisson…"
+            oninput="menuSearch(this.value)"
+            autocomplete="off"
+          />
+          <button
+            class="search-clear"
+            id="searchClearBtn"
+            onclick="clearMenuSearch()"
+            style="display: none"
+          >
+            ✕
           </button>
         </div>
       </div>
 
-      <div class="m-panel active" id="mpt-fast-food">
-        <div class="m-grid">
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Hamburger.jpg"
-                alt="Hamburger"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Hamburger</div>
-              <div class="mc-desc">
-                Pain moelleux, steak, fromage, sauce maison
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">1 350 FCFA</span
-                ><button class="add-btn" onclick="quickAdd('Hamburger', 1350)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Chawarma-Bœuf.jpg"
-                alt="Chawarma Boeuf"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Chawarma Bœuf</div>
-              <div class="mc-desc">Wrap bœuf mariné, légumes, sauce épicée</div>
-              <div class="mc-ft">
-                <span class="mc-price">1 350 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Chawarma Bœuf', 1350)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Chawarma-Poulet.jpg"
-                alt="Chawarma Poulet"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Chawarma Poulet</div>
-              <div class="mc-desc">Wrap poulet tendre, légumes croquants</div>
-              <div class="mc-ft">
-                <span class="mc-price">1 500 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Chawarma Poulet', 1500)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Pizza.jpg"
-                alt="Pizza"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Pizza</div>
-              <div class="mc-desc">
-                Pâte croustillante, fromage fondu, garnitures
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">4 500 – 5 000 FCFA</span
-                ><button class="add-btn" onclick="quickAdd('Pizza', 4500)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Frites.jpg"
-                alt="Frites"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Frites</div>
-              <div class="mc-desc">Nature 1 000 F — Avec viande 1 500 F</div>
-              <div class="mc-ft">
-                <span class="mc-price">1 000 – 1 500 FCFA</span
-                ><button class="add-btn" onclick="quickAdd('Frites', 1000)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Crepe-Suzette.jpg"
-                alt="Crêpe Suzette"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Crêpe Suzette</div>
-              <div class="mc-desc">
-                Crêpe fine et dorée, garnie selon vos envies
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">2 000 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Crêpe Suzette', 2000)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Spaghetti-Bolognaise.jpg"
-                alt="Spaghetti Bolognaise"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Spaghetti Bolognaise</div>
-              <div class="mc-desc">
-                Sauce tomate maison, viande hachée, herbes
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">2 500 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Spaghetti Bolognaise', 2500)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Spaghetti-au-Gras.jpg"
-                alt="Spaghetti au Gras"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Spaghetti au Gras</div>
-              <div class="mc-desc">Rouge ou Blanc, bien mouillé ou non</div>
-              <div class="mc-ft">
-                <span class="mc-price">1 100 – 1 300 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Spaghetti au Gras', 1100)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Salade.jpg"
-                alt="Salade"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Salade</div>
-              <div class="mc-desc">
-                Fraîche et croquante, 3 tailles disponibles
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">1 000 – 2 000 FCFA</span
-                ><button class="add-btn" onclick="quickAdd('Salade', 1000)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
+      <!-- ── ZONE DE RÉSULTATS DE RECHERCHE (cachée si pas de recherche) ── -->
+      <section
+        class="section-pad"
+        id="menuSearchSection"
+        style="display: none; padding-top: 0"
+      >
+        <div id="menuResultCount" class="menu-result-count"></div>
+        <div class="m-grid" id="menuGrid"></div>
+        <div id="menuEmpty" class="menu-empty" style="display: none">
+          <div style="font-size: 3rem">🔍</div>
+          <p>Aucun résultat pour cette recherche…</p>
+          <button
+            class="add-btn"
+            style="margin-top: 0.8rem"
+            onclick="clearMenuSearch()"
+          >
+            Voir tout le menu
+          </button>
         </div>
-      </div>
+      </section>
 
-      <div class="m-panel" id="mpt-local">
-        <div class="m-grid">
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Riz-Blanc-Parfume.jpg"
-                alt="Riz Blanc Parfumé"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Riz Blanc Parfumé</div>
-              <div class="mc-desc">
-                Riz long grain parfumé, cuit à la perfection
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">1 200 – 1 500 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Riz Blanc Parfumé', 1200)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Riz-au-Poulet-Yassa.jpg"
-                alt="Riz Poulet Yassa"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Riz Poulet Yassa</div>
-              <div class="mc-desc">
-                Poulet mariné, oignons, sauce yassa citronnée
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">2 500 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Riz Poulet Yassa', 2500)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Riz-au-Gras.jpg"
-                alt="Riz au Gras"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Riz au Gras</div>
-              <div class="mc-desc">Riz cuisiné en sauce, saveurs profondes</div>
-              <div class="mc-ft">
-                <span class="mc-price">1 500 – 2 000 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Riz au Gras', 1500)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Couscous.jpg"
-                alt="Couscous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Couscous</div>
-              <div class="mc-desc">Semoule, légumes et viande mijotée</div>
-              <div class="mc-ft">
-                <span class="mc-price">1 200 – 1 500 FCFA</span
-                ><button class="add-btn" onclick="quickAdd('Couscous', 1200)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Poisson-Braise.jpg"
-                alt="Poisson Braisé"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Poisson Braisé</div>
-              <div class="mc-desc">
-                Grillé à la braise · Accomp: Akpan/Riz/Frites/Couscous/Salade
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">3 500 – 5 000 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Poisson Braisé', 3500)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Attieke.jpg"
-                alt="Attiéké"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Attiéké</div>
-              <div class="mc-desc">Semoule de manioc légère et parfumée</div>
-              <div class="mc-ft">
-                <span class="mc-price">1 200 – 1 500 FCFA</span
-                ><button class="add-btn" onclick="quickAdd('Attiéké', 1200)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Foufou.jpg"
-                alt="Foufou"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Foufou</div>
-              <div class="mc-desc">
-                Viande bœuf & chèvre · Sauces variées disponibles
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">500 FCFA+</span
-                ><button class="add-btn" onclick="quickAdd('Foufou', 500)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Pate-au-Mil.jpg"
-                alt="Pâte au Mil"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Pâte au Mil</div>
-              <div class="mc-desc">
-                Pâte traditionnelle, accompagnements variés
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">200 FCFA</span
-                ><button class="add-btn" onclick="quickAdd('Pâte au Mil', 200)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Pate-au-Maïs.jpg"
-                alt="Pâte au Maïs"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Pâte au Maïs</div>
-              <div class="mc-desc">Douce, sauce gombo ou tomate</div>
-              <div class="mc-ft">
-                <span class="mc-price">100 FCFA</span
-                ><button
-                  class="add-btn"
-                  onclick="quickAdd('Pâte au Maïs', 100)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Emakoume.jpg"
-                alt="Emakoumé"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Emakoumé</div>
-              <div class="mc-desc">
-                Plat traditionnel togolais, riche et savoureux
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">200 FCFA</span
-                ><button class="add-btn" onclick="quickAdd('Emakoumé', 200)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Degue.jpg"
-                alt="Déguè"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Déguè</div>
-              <div class="mc-desc">
-                500 F · Arachide 100 F · Lait Peak 600 F
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">500 FCFA+</span
-                ><button class="add-btn" onclick="quickAdd('Déguè', 500)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Khom.jpg"
-                alt="Khom"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Khom</div>
-              <div class="mc-desc">
-                100 F · Kanami · Akpama · Sardine · Poisson sardine
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">100 FCFA+</span
-                ><button class="add-btn" onclick="quickAdd('Khom', 100)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
+      <!-- ── 2. SPÉCIALITÉS AVEC IMAGES (toujours visibles sauf si recherche active) ── -->
+      <section class="section-pad" id="menuSpecSection">
+        <div class="s-hdr rev">
+          <p class="s-label">⭐ Incontournables</p>
+          <h2 class="s-title">Nos <span>Spécialités</span> Phares</h2>
+          <div class="or-bar"></div>
+          <p class="s-sub">
+            Commandables directement — cliquez pour ajouter à votre panier
+          </p>
         </div>
-      </div>
 
-      <div class="m-panel" id="mpt-boissons">
-        <div class="m-grid">
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Canettes-Sucreries.jpg"
-                alt="Canettes Sucreries"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Canettes Sucreries</div>
-              <div class="mc-desc">
-                Coca-Cola, Pepsi, Fanta, Sprite et autres
-              </div>
-              <div class="mc-ft">
-                <span class="mc-price">400 FCFA</span>
-                <button
-                  class="add-btn"
-                  onclick="quickAdd('Canette Sucrerie', 400)"
-                >
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Canettes-Bieres-BB.jpg"
-                alt="Bières BB"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Canettes Bières BB</div>
-              <div class="mc-desc">Bières fraîches de qualité</div>
-              <div class="mc-ft">
-                <span class="mc-price">600 FCFA</span>
-                <button class="add-btn" onclick="quickAdd('Bière BB', 600)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/Canettes-Bieres-Djama.jpg"
-                alt="Bières Djama"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Canettes Bières Djama</div>
-              <div class="mc-desc">Bière locale populaire</div>
-              <div class="mc-ft">
-                <span class="mc-price">500 FCFA</span>
-                <button class="add-btn" onclick="quickAdd('Bière Dajama', 500)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mc">
-            <div class="mc-img">
-              <img
-                src="images/vin-de-palme-deha.jpg"
-                alt="Vin de Palme"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="mc-body">
-              <div class="mc-name">Vin de Palme (Déha)</div>
-              <div class="mc-desc">En bouteilles, naturel et frais</div>
-              <div class="mc-ft">
-                <span class="mc-price">300 – 500 FCFA</span>
-                <button class="add-btn" onclick="quickAdd('Vin de Palme', 300)">
-                  + Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="m-panel" id="mpt-tout">
-        <p
-          style="color: var(--gray); font-size: 0.82rem; margin-bottom: 1.8rem"
-        >
-          Cliquez sur un plat pour l'ajouter a votre commande
-        </p>
-        <div class="all-grid">
-          <div class="all-c" onclick="quickAdd('Hamburger', 1350)">
+        <div class="all-grid" style="margin-top: 1.8rem">
+          <!-- Hamburger -->
+          <div class="all-c">
             <div class="all-c-img">
               <img src="images/Hamburger.jpg" alt="Hamburger" />
             </div>
             <div class="all-c-body">
               <div class="all-c-name">Hamburger</div>
-              <div class="all-c-price">1 350 F</div>
+              <div class="all-c-desc">
+                Pain moelleux, steak juteux, sauce maison
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">1 500 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Hamburger', 1500)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Hamburger', 1500);
+                      showAddFeedback('Hamburger');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Chawarma Bœuf', 1350)">
-            <div class="all-c-img">
-              <img src="images/Chawarma-Bœuf.jpg" alt="Chawarma Boeuf" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Chawarma Bœuf</div>
-              <div class="all-c-price">1 350 F</div>
-            </div>
-          </div>
-          <div class="all-c" onclick="quickAdd('Chawarma Poulet', 1500)">
+
+          <!-- Chawarma Poulet -->
+          <div class="all-c">
             <div class="all-c-img">
               <img src="images/Chawarma-Poulet.jpg" alt="Chawarma Poulet" />
             </div>
             <div class="all-c-body">
               <div class="all-c-name">Chawarma Poulet</div>
-              <div class="all-c-price">1 500 F</div>
+              <div class="all-c-desc">
+                Wrap poulet grillé, légumes et sauce épicée
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">1 500 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Chawarma', 1500)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Chawarma Poulet', 1500);
+                      showAddFeedback('Chawarma Poulet');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Pizza', 4500)">
+
+          <!-- Chawarma Boeuf -->
+          <div class="all-c">
             <div class="all-c-img">
-              <img src="images/Pizza.jpg" alt="Pizza" />
+              <img src="images/Chawarma-Bœuf.jpg" alt="Chawarma Bœuf" />
             </div>
             <div class="all-c-body">
-              <div class="all-c-name">Pizza</div>
-              <div class="all-c-price">4 500 F</div>
+              <div class="all-c-name">Chawarma Bœuf</div>
+              <div class="all-c-desc">
+                Wrap bœuf tendre, sauce maison et crudités
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">1 500 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Chawarma', 1500)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Chawarma Boeuf', 1500);
+                      showAddFeedback('Chawarma Boeuf');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Frites', 1000)">
-            <div class="all-c-img">
-              <img src="images/Frites.jpg" alt="Frites" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Frites</div>
-              <div class="all-c-price">1 000 F</div>
-            </div>
-          </div>
-          <div class="all-c" onclick="quickAdd('Crêpe Suzette', 2000)">
-            <div class="all-c-img">
-              <img src="images/Crepe-Suzette.jpg" alt="Crepe Suzette" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Crêpe Suzette</div>
-              <div class="all-c-price">2 000 F</div>
-            </div>
-          </div>
-          <div class="all-c" onclick="quickAdd('Spaghetti Bolognaise', 2500)">
+
+          <!-- Spaghetti Bolognaise -->
+          <div class="all-c">
             <div class="all-c-img">
               <img
                 src="images/Spaghetti-Bolognaise.jpg"
@@ -3710,153 +3343,449 @@
               />
             </div>
             <div class="all-c-body">
-              <div class="all-c-name">Spag. Bolognaise</div>
-              <div class="all-c-price">2 500 F</div>
+              <div class="all-c-name">Spaghetti Bolognaise</div>
+              <div class="all-c-desc">
+                Spaghetti en sauce bolonaise maison, riche
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">2 500 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="
+                      menuReserveByName('Spaghetti Bolonaise 2,5K', 2500)
+                    "
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Spaghetti Bolognaise', 2500);
+                      showAddFeedback('Spaghetti Bolognaise');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Spaghetti au Gras', 1100)">
+
+          <!-- Spaghetti au Gras -->
+          <div class="all-c">
             <div class="all-c-img">
               <img src="images/Spaghetti-au-Gras.jpg" alt="Spaghetti au Gras" />
             </div>
             <div class="all-c-body">
-              <div class="all-c-name">Spag. au Gras</div>
-              <div class="all-c-price">1 100 F</div>
+              <div class="all-c-name">Spaghetti au Gras</div>
+              <div class="all-c-desc">
+                Spaghetti sauce rouge épicée, saveur locale
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">1 100 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Spaghetti Rouge Emporté', 1100)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Spaghetti au Gras', 1100);
+                      showAddFeedback('Spaghetti au Gras');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Salade', 1000)">
+
+          <!-- Riz au Poulet Yassa -->
+          <div class="all-c">
             <div class="all-c-img">
-              <img src="images/Salade.jpg" alt="Salade" />
+              <img
+                src="images/Riz-au-Poulet-Yassa.jpg"
+                alt="Riz au Poulet Yassa"
+              />
             </div>
             <div class="all-c-body">
-              <div class="all-c-name">Salade</div>
-              <div class="all-c-price">1 000 F</div>
+              <div class="all-c-name">Riz au Poulet Yassa</div>
+              <div class="all-c-desc">
+                Poulet mariné, oignons, sauce yassa citronnée
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">2 500 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Poulet Yassa 2K', 2000)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Riz Poulet Yassa', 2500);
+                      showAddFeedback('Riz Poulet Yassa');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Riz Blanc Parfumé', 1200)">
-            <div class="all-c-img">
-              <img src="images/Riz-Blanc-Parfume.jpg" alt="Riz Blanc" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Riz Blanc</div>
-              <div class="all-c-price">1 200 F</div>
-            </div>
-          </div>
-          <div class="all-c" onclick="quickAdd('Riz Poulet Yassa', 2500)">
-            <div class="all-c-img">
-              <img src="images/Riz-au-Poulet-Yassa.jpg" alt="Riz Yassa" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Riz Yassa</div>
-              <div class="all-c-price">2 500 F</div>
-            </div>
-          </div>
-          <div class="all-c" onclick="quickAdd('Riz au Gras', 1500)">
+
+          <!-- Riz au Gras -->
+          <div class="all-c">
             <div class="all-c-img">
               <img src="images/Riz-au-Gras.jpg" alt="Riz au Gras" />
             </div>
             <div class="all-c-body">
               <div class="all-c-name">Riz au Gras</div>
-              <div class="all-c-price">1 500 F</div>
+              <div class="all-c-desc">
+                Riz togolais mijoté, épices et condiments
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">1 500 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Riz au Gras', 1500)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Riz au Gras', 1500);
+                      showAddFeedback('Riz au Gras');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Couscous', 1200)">
+
+          <!-- Riz Blanc Parfumé -->
+          <div class="all-c">
             <div class="all-c-img">
-              <img src="images/Couscous.jpg" alt="Couscous" />
+              <img src="images/Riz-Blanc-Parfume.jpg" alt="Riz Blanc" />
             </div>
             <div class="all-c-body">
-              <div class="all-c-name">Couscous</div>
-              <div class="all-c-price">1 200 F</div>
+              <div class="all-c-name">Riz Blanc Parfumé</div>
+              <div class="all-c-desc">
+                Riz blanc cuit à la perfection, bien parfumé
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">1 000 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Riz Blanc', 1000)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Riz Blanc Parfumé', 1000);
+                      showAddFeedback('Riz Blanc Parfumé');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Poisson Braisé', 3500)">
+
+          <!-- Poisson Braisé -->
+          <div class="all-c">
             <div class="all-c-img">
               <img src="images/Poisson-Braise.jpg" alt="Poisson Braisé" />
             </div>
             <div class="all-c-body">
               <div class="all-c-name">Poisson Braisé</div>
-              <div class="all-c-price">3 500 F</div>
+              <div class="all-c-desc">
+                Grillé à la braise, chair tendre et fumée
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">2 500 – 5 000 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Poisson Braisé 3K', 3000)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Poisson Braisé', 3500);
+                      showAddFeedback('Poisson Braisé');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Attiéké', 1200)">
+
+          <!-- Attiéké -->
+          <div class="all-c">
             <div class="all-c-img">
               <img src="images/Attieke.jpg" alt="Attiéké" />
             </div>
             <div class="all-c-body">
               <div class="all-c-name">Attiéké</div>
-              <div class="all-c-price">1 200 F</div>
+              <div class="all-c-desc">
+                Semoule de manioc légère, sauce et accompagnement
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">1 000 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Attiéké', 1000)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Attiéké', 1000);
+                      showAddFeedback('Attiéké');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Foufou', 500)">
+
+          <!-- Pâte au Mil -->
+          <div class="all-c">
             <div class="all-c-img">
-              <img src="images/Foufou.jpg" alt="Foufou" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Foufou</div>
-              <div class="all-c-price">500 F</div>
-            </div>
-          </div>
-          <div class="all-c" onclick="quickAdd('Pâte au Mil', 200)">
-            <div class="all-c-img">
-              <img src="images/Pate-au-Mil.jpg" alt="Pate au Mil" />
+              <img src="images/Pate-au-Mil.jpg" alt="Pâte au Mil" />
             </div>
             <div class="all-c-body">
               <div class="all-c-name">Pâte au Mil</div>
-              <div class="all-c-price">200 F</div>
+              <div class="all-c-desc">
+                Pâte de mil traditionnelle, base locale
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">200 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Pâte au Mil', 200)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Pâte au Mil', 200);
+                      showAddFeedback('Pâte au Mil');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Pâte au Maïs', 100)">
+
+          <!-- Pâte au Maïs -->
+          <div class="all-c">
             <div class="all-c-img">
-              <img src="images/Pate-au-Maïs.jpg" alt="Pate au Mais" />
+              <img src="images/Pate-au-Maïs.jpg" alt="Pâte au Maïs" />
             </div>
             <div class="all-c-body">
               <div class="all-c-name">Pâte au Maïs</div>
-              <div class="all-c-price">100 F</div>
+              <div class="all-c-desc">
+                Pâte de maïs douce, spécialité du terroir
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">100 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Pâte au Maïs', 100)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Pâte au Maïs', 100);
+                      showAddFeedback('Pâte au Maïs');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Emakoumé', 200)">
+
+          <!-- Dégué -->
+          <div class="all-c">
             <div class="all-c-img">
-              <img src="images/Emakoume.jpg" alt="Emakoumé" />
+              <img src="images/Degue.jpg" alt="Dégué" />
             </div>
             <div class="all-c-body">
-              <div class="all-c-name">Emakoumé</div>
-              <div class="all-c-price">200 F</div>
+              <div class="all-c-name">Dégué / Yaourt</div>
+              <div class="all-c-desc">
+                Lait fermenté sucré avec boule de mil
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">200 – 800 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Dégué / Yaourt 500', 500)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Dégué', 500);
+                      showAddFeedback('Dégué');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Déguè', 500)">
+
+          <!-- Émakoumé -->
+          <div class="all-c">
             <div class="all-c-img">
-              <img src="images/Degue.jpg" alt="Déguè" />
+              <img src="images/Emakoume.jpg" alt="Émakoumé" />
             </div>
             <div class="all-c-body">
-              <div class="all-c-name">Déguè</div>
-              <div class="all-c-price">500 F</div>
+              <div class="all-c-name">Émakoumé</div>
+              <div class="all-c-desc">
+                Spécialité locale togolaise, goût authentique
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">200 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Émakoumé', 200)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Émakoumé', 200);
+                      showAddFeedback('Émakoumé');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="all-c" onclick="quickAdd('Khom', 100)">
+
+          <!-- Crêpe Suzette -->
+          <div class="all-c">
             <div class="all-c-img">
-              <img src="images/Khom.jpg" alt="Khom" />
+              <img src="images/Crepe-Suzette.jpg" alt="Crêpe Suzette" />
             </div>
             <div class="all-c-body">
-              <div class="all-c-name">Khom</div>
-              <div class="all-c-price">100 F</div>
+              <div class="all-c-name">Crêpe Suzette</div>
+              <div class="all-c-desc">
+                Crêpe fine au caramel orangé, dessert raffiné
+              </div>
+              <div class="all-c-price-row">
+                <span class="all-c-price">2 000 F</span>
+                <div class="all-c-btns">
+                  <button
+                    class="btn-reserver"
+                    onclick="menuReserveByName('Dessert 200', 200)"
+                  >
+                    🗓
+                  </button>
+                  <button
+                    class="btn-commander"
+                    onclick="
+                      quickAdd('Crêpe Suzette', 2000);
+                      showAddFeedback('Crêpe Suzette');
+                    "
+                  >
+                    + Commander
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        <!-- fin .all-grid -->
 
-      <div
-        style="
-          background: var(--dk);
-          padding: 2.5rem 4%;
-          text-align: center;
-          border-top: 1px solid var(--border);
-        "
-      >
-        <button class="btn-wa-main" onclick="openOrder()">
-          💬 Passer commande sur WhatsApp
-        </button>
-      </div>
+        <div style="text-align: center; margin-top: 2rem">
+          <p style="font-size: 0.82rem; color: var(--gray)">
+            👇 Recherchez ou filtrez ci-dessous pour voir tous nos 199 produits
+          </p>
+        </div>
+      </section>
+
+      <!-- ── 3. ONGLETS + GRILLE COMPLÈTE (tous les produits) ── -->
+      <section class="section-pad" id="menuFullSection" style="padding-top: 0">
+        <div class="s-hdr rev">
+          <p class="s-label">📋 Catalogue Complet</p>
+          <h2 class="s-title">Tous nos <span>Produits</span></h2>
+          <div class="or-bar"></div>
+        </div>
+
+        <!-- Onglets scrollables -->
+        <div class="menu-tabs-wrap" style="margin-top: 1.5rem">
+          <div class="menu-tabs" id="menuTabs">
+            <button class="m-tab active" onclick="switchMenuCat('tout', this)">
+              📋 Tout
+            </button>
+            <button class="m-tab" onclick="switchMenuCat('fast', this)">
+              🍔 Fast-Food
+            </button>
+            <button class="m-tab" onclick="switchMenuCat('local', this)">
+              🍲 Plats Locaux
+            </button>
+            <button class="m-tab" onclick="switchMenuCat('poisson', this)">
+              🐟 Poissons &amp; Viandes
+            </button>
+            <button class="m-tab" onclick="switchMenuCat('boisson', this)">
+              🥤 Boissons
+            </button>
+            <button class="m-tab" onclick="switchMenuCat('snack', this)">
+              🍦 Snacks &amp; Desserts
+            </button>
+            <button class="m-tab" onclick="switchMenuCat('divers', this)">
+              🛒 Divers
+            </button>
+          </div>
+        </div>
+
+        <div class="m-grid" id="menuCatGrid" style="margin-top: 1.5rem"></div>
+      </section>
     </div>
-    <!-- /menu -->
+    <!-- fin page-menu -->
 
     <!-- ══════════════════════════════
      PAGE SERVICES
@@ -4557,6 +4486,35 @@
 
           <!-- BOUTON -->
           <button
+            onclick="goPage('menu')"
+            style="
+              width: 100%;
+              justify-content: center;
+              font-size: 0.9rem;
+              padding: 1rem;
+              background: transparent;
+              border: 1px solid var(--border);
+              color: var(--gray);
+              border-radius: 50px;
+              cursor: pointer;
+              font-family: &quot;Inter&quot;, sans-serif;
+              margin-bottom: 0.8rem;
+              transition:
+                border-color 0.2s,
+                color 0.2s;
+            "
+            onmouseover="
+              this.style.borderColor = 'var(--or)';
+              this.style.color = 'var(--or)';
+            "
+            onmouseout="
+              this.style.borderColor = 'var(--border)';
+              this.style.color = 'var(--gray)';
+            "
+          >
+            ← Annuler et retourner au Menu
+          </button>
+          <button
             class="btn-wa-main"
             onclick="sendReservation()"
             style="
@@ -4758,6 +4716,7 @@
         if (nb) nb.classList.add("active");
         window.scrollTo({ top: 0, behavior: "smooth" });
         setTimeout(initReveal, 80);
+        if (id === "menu") renderMenu();
         if (id === "reservation") renderResDishes(); // ← ajoute cette ligne
       }
       function toggleMob() {
@@ -4794,31 +4753,1206 @@
 
       // ──────────── COMMANDE SYSTEM ────────────
       const DISHES = [
-        { name: "Hamburger", price: 1350, cat: "fast" },
-        { name: "Chawarma Bœuf", price: 1350, cat: "fast" },
-        { name: "Chawarma Poulet", price: 1500, cat: "fast" },
-        { name: "Pizza", price: 4500, cat: "fast" },
-        { name: "Frites", price: 1000, cat: "fast" },
-        { name: "Crêpe Suzette", price: 2000, cat: "fast" },
-        { name: "Spaghetti Bolognaise", price: 2500, cat: "fast" },
-        { name: "Spaghetti au Gras", price: 1100, cat: "fast" },
-        { name: "Salade", price: 1000, cat: "fast" },
-        { name: "Riz Blanc Parfumé", price: 1200, cat: "local" },
-        { name: "Riz Poulet Yassa", price: 2500, cat: "local" },
-        { name: "Riz au Gras", price: 1500, cat: "local" },
-        { name: "Couscous", price: 1200, cat: "local" },
-        { name: "Poisson Braisé", price: 3500, cat: "local" },
-        { name: "Attiéké", price: 1200, cat: "local" },
-        { name: "Foufou", price: 500, cat: "local" },
-        { name: "Pâte au Mil", price: 200, cat: "local" },
-        { name: "Pâte au Maïs", price: 100, cat: "local" },
-        { name: "Emakoumé", price: 200, cat: "local" },
-        { name: "Déguè", price: 500, cat: "local" },
-        { name: "Khom", price: 100, cat: "local" },
-        { name: "Canette Sucrerie", price: 400, cat: "boisson" },
-        { name: "Bière BB", price: 600, cat: "boisson" },
-        { name: "Bière Dajama", price: 500, cat: "boisson" },
-        { name: "Vin de Palme", price: 300, cat: "boisson" },
+        // ─── FAST-FOOD ───
+        {
+          name: "Spaghetti Blanc avec Omelette",
+          price: 1200,
+          cat: "fast",
+          desc: "Spaghetti blanc servi avec une belle omelette dorée",
+        },
+        {
+          name: "Spaghetti Bolonaise 2,5K",
+          price: 2500,
+          cat: "fast",
+          desc: "Spaghetti en sauce bolonaise maison, riche et savoureux",
+        },
+        {
+          name: "Spaghetti Rouge Emporté",
+          price: 1100,
+          cat: "fast",
+          desc: "Spaghetti en sauce tomate épicée, idéal à emporter",
+        },
+        {
+          name: "Spaghetti Blanc Emporté",
+          price: 1300,
+          cat: "fast",
+          desc: "Spaghetti blanc à la sauce blanche, prêt à emporter",
+        },
+        {
+          name: "Spaghetti Rouge avec Omelette",
+          price: 1000,
+          cat: "fast",
+          desc: "Spaghetti rouge accompagné d'une omelette maison",
+        },
+        {
+          name: "Pizza Margherita",
+          price: 3500,
+          cat: "fast",
+          desc: "Pizza classique tomate, mozzarella et basilic frais",
+        },
+        {
+          name: "Pizza 5K",
+          price: 5000,
+          cat: "fast",
+          desc: "Grande pizza garnie généreusement, la préférée du restaurant",
+        },
+        {
+          name: "Pizza au 4 Fromages",
+          price: 5000,
+          cat: "fast",
+          desc: "Pizza gratinée aux quatre fromages fondants",
+        },
+        {
+          name: "Hamburger",
+          price: 1500,
+          cat: "fast",
+          desc: "Burger juteux avec steak, crudités et sauce maison",
+        },
+        {
+          name: "Chawarma",
+          price: 1500,
+          cat: "fast",
+          desc: "Wrap de viande grillée, sauce et légumes frais",
+        },
+        {
+          name: "Frite Simple",
+          price: 1000,
+          cat: "fast",
+          desc: "Frites croustillantes maison, dorées à souhait",
+        },
+        {
+          name: "Frite Viande",
+          price: 1500,
+          cat: "fast",
+          desc: "Frites accompagnées de morceaux de viande grillée",
+        },
+        {
+          name: "Kit Café au Lait + 2 Oeufs + Pain",
+          price: 1000,
+          cat: "fast",
+          desc: "Petit-déjeuner complet : café au lait, 2 oeufs et pain frais",
+        },
+        {
+          name: "Omelette 250",
+          price: 250,
+          cat: "fast",
+          desc: "Omelette légère et dorée, préparée à la demande",
+        },
+        {
+          name: "Salade 2K",
+          price: 2000,
+          cat: "fast",
+          desc: "Grande salade fraîche composée de crudités de saison",
+        },
+        {
+          name: "Salade 1K",
+          price: 1000,
+          cat: "fast",
+          desc: "Salade fraîche composée, idéale en accompagnement",
+        },
+        {
+          name: "Salade Emporte",
+          price: 1100,
+          cat: "fast",
+          desc: "Salade fraîche à emporter, pratique et délicieuse",
+        },
+        {
+          name: "Saucisse 200",
+          price: 150,
+          cat: "fast",
+          desc: "Saucisse grillée, croustillante et savoureuse",
+        },
+        // ─── PLATS LOCAUX ───
+        {
+          name: "Attieke",
+          price: 1000,
+          cat: "local",
+          desc: "Semoule de manioc légère, servie avec sauce et accompagnement",
+        },
+        {
+          name: "Couscous 1,3K",
+          price: 1300,
+          cat: "local",
+          desc: "Couscous traditionnel bien assaisonné avec légumes",
+        },
+        {
+          name: "Couscous sans Viande 1,0K",
+          price: 1000,
+          cat: "local",
+          desc: "Couscous savoureux préparé sans viande, végétarien",
+        },
+        {
+          name: "Couscous 1,5K",
+          price: 1500,
+          cat: "local",
+          desc: "Grand couscous garni, plat copieux pour les grandes faims",
+        },
+        {
+          name: "Riz au Gras",
+          price: 1500,
+          cat: "local",
+          desc: "Riz au gras togolais, mijoté avec épices et condiments",
+        },
+        {
+          name: "Riz Cantonne",
+          price: 1500,
+          cat: "local",
+          desc: "Riz cantonné sauté à la togolaise avec légumes",
+        },
+        {
+          name: "Riz Blanc",
+          price: 1000,
+          cat: "local",
+          desc: "Riz blanc parfumé, cuit à la perfection",
+        },
+        {
+          name: "Riz Saute au Curry 2,5K",
+          price: 2500,
+          cat: "local",
+          desc: "Riz sauté au curry avec légumes et épices orientales",
+        },
+        {
+          name: "Riz Cantonais au Pilon de Poulet",
+          price: 2500,
+          cat: "local",
+          desc: "Riz cantonais sauté avec pilon de poulet fondant",
+        },
+        {
+          name: "Accompagnement Riz Blanc",
+          price: 1300,
+          cat: "local",
+          desc: "Accompagnement complet pour votre riz : sauce et légumes",
+        },
+        {
+          name: "Watchi / Ayimolou",
+          price: 1000,
+          cat: "local",
+          desc: "Riz aux haricots, plat traditionnel béninois et togolais",
+        },
+        {
+          name: "Foufou 1K",
+          price: 1000,
+          cat: "local",
+          desc: "Foufou onctueux à base de manioc, servi avec soupe",
+        },
+        {
+          name: "Foufou d'Igname",
+          price: 500,
+          cat: "local",
+          desc: "Foufou traditionnel préparé à base d'igname pilée",
+        },
+        {
+          name: "Pate au Mil",
+          price: 200,
+          cat: "local",
+          desc: "Pâte de mil traditionnelle, base de l'alimentation locale",
+        },
+        {
+          name: "Pate au Mais",
+          price: 100,
+          cat: "local",
+          desc: "Pâte de maïs douce et légère, spécialité du terroir",
+        },
+        {
+          name: "Pate a Farine Igname",
+          price: 200,
+          cat: "local",
+          desc: "Pâte préparée à base de farine d'igname, très nutritive",
+        },
+        {
+          name: "Alloco Bananes Plantains",
+          price: 500,
+          cat: "local",
+          desc: "Bananes plantains frites à point, dorées et sucrées",
+        },
+        {
+          name: "Kanami Woului Woului",
+          price: 500,
+          cat: "local",
+          desc: "Spécialité locale savoureuse, sauce piquante maison",
+        },
+        {
+          name: "Soupe a la Chevre",
+          price: 500,
+          cat: "local",
+          desc: "Soupe riche à la viande de chèvre avec épices locales",
+        },
+        {
+          name: "Soupe au Mouton",
+          price: 500,
+          cat: "local",
+          desc: "Soupe généreuse à la viande de mouton bien épicée",
+        },
+        {
+          name: "Soupe au Boeuf",
+          price: 500,
+          cat: "local",
+          desc: "Soupe de bœuf mijotée longuement, riche et parfumée",
+        },
+        {
+          name: "Dessert 200",
+          price: 200,
+          cat: "local",
+          desc: "Dessert maison du jour, doux et gourmand",
+        },
+        {
+          name: "Dessert 100",
+          price: 100,
+          cat: "local",
+          desc: "Petit dessert maison pour finir le repas en douceur",
+        },
+        // ─── POISSONS & VIANDES ───
+        {
+          name: "Petits Poids",
+          price: 2000,
+          cat: "poisson",
+          desc: "Petits morceaux de viande tendres et bien épicés",
+        },
+        {
+          name: "Poulet Yassa 2K",
+          price: 2000,
+          cat: "poisson",
+          desc: "Poulet yassa à l'oignon et citron, recette sénégalaise",
+        },
+        {
+          name: "Poulet Yassa 3K",
+          price: 3000,
+          cat: "poisson",
+          desc: "Grande portion de poulet yassa, saveur incomparable",
+        },
+        {
+          name: "Poulet Braise + Accompagnement 7K",
+          price: 7000,
+          cat: "poisson",
+          desc: "Poulet braisé entier servi avec accompagnement complet",
+        },
+        {
+          name: "Poulet Braise + Accompagnement 5K",
+          price: 5000,
+          cat: "poisson",
+          desc: "Demi-poulet braisé avec accompagnement au choix",
+        },
+        {
+          name: "Poule Braise 5K + Accompagnement",
+          price: 5000,
+          cat: "poisson",
+          desc: "Poule braisée tendre avec accompagnement généreux",
+        },
+        {
+          name: "Pilon au Cuisses de Poulet",
+          price: 2500,
+          cat: "poisson",
+          desc: "Pilon et cuisses de poulet braisés, dorés et juteux",
+        },
+        {
+          name: "Cuisse de Poulet 1,5K",
+          price: 1500,
+          cat: "poisson",
+          desc: "Cuisse de poulet grillée, croustillante à l'extérieur",
+        },
+        {
+          name: "Poulet Cuisses / Ailes",
+          price: 500,
+          cat: "poisson",
+          desc: "Cuisses ou ailes de poulet grillées, légères et goûteuses",
+        },
+        {
+          name: "Poisson Fri 300 Kanami",
+          price: 300,
+          cat: "poisson",
+          desc: "Petit poisson kanami frit, croustillant et savoureux",
+        },
+        {
+          name: "Poisson Fri 500 Kanami",
+          price: 500,
+          cat: "poisson",
+          desc: "Poisson kanami frit doré, accompagné de condiments",
+        },
+        {
+          name: "Poisson Braise 2,5K",
+          price: 2500,
+          cat: "poisson",
+          desc: "Poisson braisé moyen, fumé et grillé à la braise",
+        },
+        {
+          name: "Poisson Braise 3K",
+          price: 3000,
+          cat: "poisson",
+          desc: "Poisson braisé grand format, chair tendre et fumée",
+        },
+        {
+          name: "Poisson Braise 4K",
+          price: 4000,
+          cat: "poisson",
+          desc: "Grand poisson braisé, parfait pour partager en famille",
+        },
+        {
+          name: "Poisson Braise 5K",
+          price: 5000,
+          cat: "poisson",
+          desc: "Très grand poisson braisé, le must du restaurant",
+        },
+        {
+          name: "Tilapia 1,0K",
+          price: 1000,
+          cat: "poisson",
+          desc: "Tilapia entier grillé, poisson d'eau douce très apprécié",
+        },
+        {
+          name: "Tilapia 1,5K",
+          price: 1500,
+          cat: "poisson",
+          desc: "Tilapia de taille moyenne, braisé à la perfection",
+        },
+        {
+          name: "Tilapia 2,0K",
+          price: 2000,
+          cat: "poisson",
+          desc: "Grand tilapia braisé, chair blanche et fondante",
+        },
+        {
+          name: "Tilapia 2,5K",
+          price: 2500,
+          cat: "poisson",
+          desc: "Très grand tilapia braisé, idéal pour 2 personnes",
+        },
+        {
+          name: "Viande de Boeuf 1K",
+          price: 1000,
+          cat: "poisson",
+          desc: "Morceau de bœuf tendre grillé, assaisonné à point",
+        },
+        {
+          name: "Viande de Boeuf 300",
+          price: 300,
+          cat: "poisson",
+          desc: "Petit morceau de bœuf grillé, parfait en accompagnement",
+        },
+        {
+          name: "Viande de Boeuf 500",
+          price: 500,
+          cat: "poisson",
+          desc: "Morceau de bœuf savoureux, grillé selon votre goût",
+        },
+        {
+          name: "Viande Mouton 300",
+          price: 300,
+          cat: "poisson",
+          desc: "Viande de mouton tendre, épicée et grillée",
+        },
+        {
+          name: "Viande Mouton 500",
+          price: 500,
+          cat: "poisson",
+          desc: "Belle portion de mouton, saveur authentique du terroir",
+        },
+        {
+          name: "Viande Chevre 300",
+          price: 300,
+          cat: "poisson",
+          desc: "Viande de chèvre parfumée, spécialité de la maison",
+        },
+        {
+          name: "Viande Chevre 500",
+          price: 500,
+          cat: "poisson",
+          desc: "Portion généreuse de chèvre grillée, tendre et épicée",
+        },
+        {
+          name: "Brochette 500",
+          price: 500,
+          cat: "poisson",
+          desc: "Brochette de viande grillée sur charbon de bois",
+        },
+        {
+          name: "Sardines 500",
+          price: 500,
+          cat: "poisson",
+          desc: "Sardines grillées ou en conserve, délicieuses et nutritives",
+        },
+        // ─── BOISSONS ───
+        {
+          name: "Double Seven 33CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Canette Double Seven bien fraîche, parfaite pour se désaltérer",
+        },
+        {
+          name: "Castel Cannette 33CL",
+          price: 600,
+          cat: "boisson",
+          desc: "Bière Castel en canette fraîche, légère et désaltérante",
+        },
+        {
+          name: "Castel 50CL",
+          price: 550,
+          cat: "boisson",
+          desc: "Bière Castel en bouteille 50cl, la classique bien fraîche",
+        },
+        {
+          name: "Vodka Batchana 50CL",
+          price: 800,
+          cat: "boisson",
+          desc: "Vodka Batchana locale, forte et authentique",
+        },
+        {
+          name: "Djama Pilsner 65CL",
+          price: 650,
+          cat: "boisson",
+          desc: "Grande bouteille Djama Pilsner, bière locale populaire",
+        },
+        {
+          name: "Djama Pilsner 50CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Bouteille Djama Pilsner 50cl, fraîche et légère",
+        },
+        {
+          name: "Djama Lager 50CL",
+          price: 600,
+          cat: "boisson",
+          desc: "Djama Lager 50cl, bière locale dorée et rafraîchissante",
+        },
+        {
+          name: "Djama Lager 65CL",
+          price: 650,
+          cat: "boisson",
+          desc: "Grande Djama Lager, idéale pour accompagner un repas",
+        },
+        {
+          name: "Djama 228 50CL",
+          price: 600,
+          cat: "boisson",
+          desc: "Djama 228, édition spéciale de la bière nationale togolaise",
+        },
+        {
+          name: "Djama Panache 50CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Djama Panaché, mélange bière et limonade, doux et frais",
+        },
+        {
+          name: "Djama Noir Stout Porter",
+          price: 600,
+          cat: "boisson",
+          desc: "Djama Noir Stout, bière brune forte avec arômes de café",
+        },
+        {
+          name: "Baltazar Energy Mix 25CL",
+          price: 450,
+          cat: "boisson",
+          desc: "Boisson énergisante Baltazar, pour recharger les batteries",
+        },
+        {
+          name: "EKU 50CL",
+          price: 700,
+          cat: "boisson",
+          desc: "Bière EKU allemande forte, pour les amateurs de qualité",
+        },
+        {
+          name: "Agrumes 50CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Boisson aux agrumes fraîche et vitaminée",
+        },
+        {
+          name: "Cocktail MM 50CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Cocktail MM fruité et savoureux, ambiance festive",
+        },
+        {
+          name: "Pacha Ananas Gin 5CL",
+          price: 125,
+          cat: "boisson",
+          desc: "Mini sachet Pacha ananas et gin, petit plaisir rafraîchissant",
+        },
+        {
+          name: "Baron Darignac Vin",
+          price: 4000,
+          cat: "boisson",
+          desc: "Vin rouge Baron Darignac importé, pour les grandes occasions",
+        },
+        {
+          name: "3X Grand 50CL",
+          price: 700,
+          cat: "boisson",
+          desc: "3X bière forte 50cl, triple fermentation, très appréciée",
+        },
+        {
+          name: "3X Petit 33CL",
+          price: 600,
+          cat: "boisson",
+          desc: "3X bière forte 33cl, parfaite pour une consommation légère",
+        },
+        {
+          name: "Desperados Cannette",
+          price: 700,
+          cat: "boisson",
+          desc: "Desperados bière tequila en canette, originale et festive",
+        },
+        {
+          name: "Guinness GM 65CL",
+          price: 1200,
+          cat: "boisson",
+          desc: "Grande Guinness stout irlandaise, noire, crémeuse et intense",
+        },
+        {
+          name: "Guinness PM 33CL",
+          price: 700,
+          cat: "boisson",
+          desc: "Petite Guinness stout, la bière noire la plus célèbre au monde",
+        },
+        {
+          name: "Beckers Pils 50CL",
+          price: 700,
+          cat: "boisson",
+          desc: "Bière Beckers Pils, légère et rafraîchissante",
+        },
+        {
+          name: "Domaine du Moulin 75CL",
+          price: 2500,
+          cat: "boisson",
+          desc: "Vin Domaine du Moulin 75cl, bouteille pour les repas spéciaux",
+        },
+        {
+          name: "Orange GM 60CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Soda Orange grand format 60cl, sucré et fruité",
+        },
+        {
+          name: "Racine Forte 50CL",
+          price: 700,
+          cat: "boisson",
+          desc: "Boisson énergisante Racine Forte, stimulante et tonifiante",
+        },
+        {
+          name: "Racine Faible 50CL",
+          price: 550,
+          cat: "boisson",
+          desc: "Racine Faible, version légère de la boisson énergisante",
+        },
+        {
+          name: "Sport Actif 30CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Boisson sportive hydratante pour rester actif",
+        },
+        {
+          name: "Chap Lemon 50CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Limonade Chap Lemon, citronnée et très rafraîchissante",
+        },
+        {
+          name: "Chap Cocktail 50CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Cocktail Chap fruité, doux et désaltérant",
+        },
+        {
+          name: "Doppel 50CL",
+          price: 650,
+          cat: "boisson",
+          desc: "Bière Doppel 50cl, double fermentation pour plus de goût",
+        },
+        {
+          name: "Doppel Energie 30CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Doppel Énergie, petite dose pour un grand coup de boost",
+        },
+        {
+          name: "Ckool 50CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Boisson Ckool fraîche et sucrée, idéale en toutes saisons",
+        },
+        {
+          name: "Vitale 1,5L",
+          price: 500,
+          cat: "boisson",
+          desc: "Eau minérale Vitale 1,5 litre, pure et hydratante",
+        },
+        {
+          name: "Voltc 1,5 Litres",
+          price: 500,
+          cat: "boisson",
+          desc: "Eau Voltc grande bouteille, fraîche et désaltérante",
+        },
+        {
+          name: "Cola GM 60CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Soda Cola grand format 60cl, pétillant et rafraîchissant",
+        },
+        {
+          name: "Cola PM 30CL",
+          price: 300,
+          cat: "boisson",
+          desc: "Soda Cola petit format, parfait pour accompagner un repas",
+        },
+        {
+          name: "Malta Cannette 33CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Malta sans alcool en canette, riche en vitamines B",
+        },
+        {
+          name: "Malta 30CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Malta sans alcool 30cl, boisson énergisante naturelle",
+        },
+        {
+          name: "Coca World Cola Cannette",
+          price: 500,
+          cat: "boisson",
+          desc: "Canette Coca-Cola ou World Cola fraîche et pétillante",
+        },
+        {
+          name: "Sprite Youzou Cannette 33CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Sprite ou Youzou citron-lime en canette, très rafraîchissant",
+        },
+        {
+          name: "Fanta Orange Cannette 33CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Fanta Orange en canette, sucré et fruité, adoré de tous",
+        },
+        {
+          name: "Beaufort 50CL",
+          price: 650,
+          cat: "boisson",
+          desc: "Bière Beaufort 50cl, brassée avec soin pour un goût unique",
+        },
+        {
+          name: "Beaufort Cannette 33CL",
+          price: 600,
+          cat: "boisson",
+          desc: "Bière Beaufort en canette, pratique et bien fraîche",
+        },
+        {
+          name: "Awooyo GM 65CL",
+          price: 800,
+          cat: "boisson",
+          desc: "Grande Awooyo 65cl, boisson locale très populaire à Sokodé",
+        },
+        {
+          name: "Charles du Lac 75CL",
+          price: 3500,
+          cat: "boisson",
+          desc: "Vin Charles du Lac 75cl, bouteille pour les belles occasions",
+        },
+        {
+          name: "Muscador 75CL",
+          price: 3500,
+          cat: "boisson",
+          desc: "Vin Muscador 75cl, doux et fruité, idéal pour fêter",
+        },
+        {
+          name: "Duc de Paris 75CL",
+          price: 3500,
+          cat: "boisson",
+          desc: "Vin Duc de Paris 75cl, bouteille prestige pour vos repas",
+        },
+        {
+          name: "White Blue 75CL",
+          price: 3500,
+          cat: "boisson",
+          desc: "Vin White & Blue 75cl, élégant et savoureux",
+        },
+        {
+          name: "Pils PM 33CL",
+          price: 400,
+          cat: "boisson",
+          desc: "Bière Pils petite format 33cl, légère et dorée",
+        },
+        {
+          name: "Pils GM 65CL",
+          price: 700,
+          cat: "boisson",
+          desc: "Grande bière Pils 65cl, dorée et désaltérante",
+        },
+        {
+          name: "Pils Cannette 33CL",
+          price: 600,
+          cat: "boisson",
+          desc: "Bière Pils en canette, fraîche à souhait",
+        },
+        {
+          name: "Cocktail Cannette 33CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Cocktail en canette 33cl, fruité et léger",
+        },
+        {
+          name: "Cocktail GM 65CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Grand cocktail 65cl, parfait pour se détendre",
+        },
+        {
+          name: "Cocktail PM 30CL",
+          price: 300,
+          cat: "boisson",
+          desc: "Petit cocktail 30cl, une gorgée de bonheur",
+        },
+        {
+          name: "Rush 35CL",
+          price: 300,
+          cat: "boisson",
+          desc: "Boisson Rush 35cl, énergisante et dynamique",
+        },
+        {
+          name: "Lager PM 33CL",
+          price: 400,
+          cat: "boisson",
+          desc: "Bière Lager petite format 33cl, légère et rafraîchissante",
+        },
+        {
+          name: "Lager GM 65CL",
+          price: 700,
+          cat: "boisson",
+          desc: "Grande Lager 65cl, bière blonde légère et désaltérante",
+        },
+        {
+          name: "Sangria Forte 25CL",
+          price: 400,
+          cat: "boisson",
+          desc: "Sangria forte en carton 25cl, fruité et alcoolisé",
+        },
+        {
+          name: "Chateau de France Bleu 25CL",
+          price: 400,
+          cat: "boisson",
+          desc: "Chateau de France Bleu 25cl, vin fruité et doux",
+        },
+        {
+          name: "Chateau de France Rouge 25CL",
+          price: 400,
+          cat: "boisson",
+          desc: "Chateau de France Rouge 25cl, vin rouge léger en carton",
+        },
+        {
+          name: "Kasa Vino 25CL",
+          price: 400,
+          cat: "boisson",
+          desc: "Kasa Vino 25cl, vin en carton pratique et savoureux",
+        },
+        {
+          name: "Vody 25CL",
+          price: 700,
+          cat: "boisson",
+          desc: "Vody 25cl, boisson alcoolisée fruité et festive",
+        },
+        {
+          name: "Vista Gingembre 5CL",
+          price: 125,
+          cat: "boisson",
+          desc: "Mini sachet Vista Gingembre, tonique et réchauffant",
+        },
+        {
+          name: "Verron Dose Normale 4,17CL",
+          price: 100,
+          cat: "boisson",
+          desc: "Verron dose normale, petit alcool en sachet",
+        },
+        {
+          name: "Verron Over Dose 4,17CL",
+          price: 200,
+          cat: "boisson",
+          desc: "Verron Over Dose, version plus concentrée en sachet",
+        },
+        {
+          name: "Gin Casanova",
+          price: 100,
+          cat: "boisson",
+          desc: "Gin Casanova en sachet, parfum délicat et saveur unique",
+        },
+        {
+          name: "Warsteiner Sikavi 50CL",
+          price: 650,
+          cat: "boisson",
+          desc: "Warsteiner Sikavi 50cl, bière allemande de qualité premium",
+        },
+        {
+          name: "Tonic PM 30CL",
+          price: 400,
+          cat: "boisson",
+          desc: "Schweppes Tonic 30cl, légèrement amer et très rafraîchissant",
+        },
+        {
+          name: "Lipton",
+          price: 200,
+          cat: "boisson",
+          desc: "Sachet Lipton Ice Tea ou thé chaud, doux et parfumé",
+        },
+        {
+          name: "Pure Water 50CL",
+          price: 25,
+          cat: "boisson",
+          desc: "Eau pure en sachet 50cl, fraîche et purifiée",
+        },
+        {
+          name: "Pompom 60CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Boisson Pompom 60cl, fruitée et pétillante",
+        },
+        {
+          name: "XXL 30CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Boisson XXL 30cl, énergisante et rafraîchissante",
+        },
+        {
+          name: "Youzou GM 60CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Grand Youzou 60cl, limonade citron très populaire",
+        },
+        {
+          name: "Chill 50CL",
+          price: 500,
+          cat: "boisson",
+          desc: "Bière Chill 50cl, légère et désaltérante",
+        },
+        {
+          name: "Ginny Cannette",
+          price: 500,
+          cat: "boisson",
+          desc: "Gin Ginny en canette, cocktail prêt à boire",
+        },
+        {
+          name: "Hollandia Yaourt 18CL",
+          price: 350,
+          cat: "boisson",
+          desc: "Yaourt à boire Hollandia 18cl, crémeux et nutritif",
+        },
+        {
+          name: "Yaourt Danone",
+          price: 600,
+          cat: "boisson",
+          desc: "Yaourt Danone, doux et crémeux, grand classique",
+        },
+        // ─── SNACKS & DESSERTS ───
+        {
+          name: "Degue Yaourt 200",
+          price: 200,
+          cat: "snack",
+          desc: "Dégué maison, lait fermenté sucré traditionnel 200 FCFA",
+        },
+        {
+          name: "Degue Yaourt 300",
+          price: 300,
+          cat: "snack",
+          desc: "Dégué maison, boule de mil dans lait sucré 300 FCFA",
+        },
+        {
+          name: "Degue Yaourt 400",
+          price: 400,
+          cat: "snack",
+          desc: "Dégué maison, plus généreux et savoureux 400 FCFA",
+        },
+        {
+          name: "Degue Yaourt 500",
+          price: 500,
+          cat: "snack",
+          desc: "Dégué maison, portion familiale bien garnie 500 FCFA",
+        },
+        {
+          name: "Degue Yaourt 600",
+          price: 600,
+          cat: "snack",
+          desc: "Dégué maison, extra généreux avec plus de lait 600 FCFA",
+        },
+        {
+          name: "Degue Yaourt 700",
+          price: 700,
+          cat: "snack",
+          desc: "Dégué maison, la grande portion très populaire 700 FCFA",
+        },
+        {
+          name: "Degue Yaourt 800",
+          price: 800,
+          cat: "snack",
+          desc: "Dégué maison, portion XXL pour les vrais gourmands 800 FCFA",
+        },
+        {
+          name: "Glace Majestic",
+          price: 500,
+          cat: "snack",
+          desc: "Glace Majestic crémeuse, parfum classique vanille ou chocolat",
+        },
+        {
+          name: "Glace Chocolat Cone 60G",
+          price: 600,
+          cat: "snack",
+          desc: "Cône chocolat 60g, croustillant dehors et glacé dedans",
+        },
+        {
+          name: "Glace Cremello 80G",
+          price: 1000,
+          cat: "snack",
+          desc: "Glace Cremello 80g, crémeuse et gourmande, format généreux",
+        },
+        {
+          name: "Glace Eskimo",
+          price: 700,
+          cat: "snack",
+          desc: "Glace Eskimo enrobée de chocolat, un classique apprécié",
+        },
+        {
+          name: "Glace Ice Poof",
+          price: 600,
+          cat: "snack",
+          desc: "Glace Ice Poof, légère et fruitée, parfaite pour se rafraîchir",
+        },
+        {
+          name: "Glace Super",
+          price: 500,
+          cat: "snack",
+          desc: "Glace Super, fraîche et délicieuse, la favorite des enfants",
+        },
+        {
+          name: "Glace Magicco",
+          price: 800,
+          cat: "snack",
+          desc: "Glace Magicco, format maxi pour une vraie pause gourmande",
+        },
+        {
+          name: "Glace Triple Chocolat Surprise",
+          price: 700,
+          cat: "snack",
+          desc: "Glace triple chocolat avec surprise à l'intérieur",
+        },
+        {
+          name: "Delice Cone Chocolat 105G",
+          price: 1500,
+          cat: "snack",
+          desc: "Grand cône chocolat 105g, riche et onctueux, très gourmand",
+        },
+        {
+          name: "Fan Vanille",
+          price: 150,
+          cat: "snack",
+          desc: "Fan vanille, petite glace crémeuse à la vanille très appréciée",
+        },
+        {
+          name: "Fanxtra",
+          price: 250,
+          cat: "snack",
+          desc: "Fanxtra, version extra de la glace Fan, plus grande et crémeuse",
+        },
+        {
+          name: "Khom Boule",
+          price: 100,
+          cat: "snack",
+          desc: "Khom Boule, petite bouchée sucrée locale très populaire",
+        },
+        {
+          name: "Akpama",
+          price: 100,
+          cat: "snack",
+          desc: "Akpama, beignet local traditionnel, doux et bien frit",
+        },
+        {
+          name: "Alombo",
+          price: 100,
+          cat: "snack",
+          desc: "Alombo, en-cas local léger et savoureux",
+        },
+        {
+          name: "Fromage",
+          price: 100,
+          cat: "snack",
+          desc: "Fromage, portion individuelle pour accompagner votre repas",
+        },
+        {
+          name: "Arachide 100",
+          price: 100,
+          cat: "snack",
+          desc: "Sachet d'arachides grillées, parfaites avec une boisson",
+        },
+        {
+          name: "Moments Biscuits Vanille 170G",
+          price: 1500,
+          cat: "snack",
+          desc: "Biscuits Moments vanille 170g, croustillants et parfumés",
+        },
+        {
+          name: "Moments Pistache Strawberry 85G",
+          price: 1500,
+          cat: "snack",
+          desc: "Biscuits Moments pistache-fraise 85g, goût unique et exquis",
+        },
+        {
+          name: "Moments Pistache Chocolat 85G",
+          price: 1500,
+          cat: "snack",
+          desc: "Biscuits Moments pistache-chocolat 85g, un délice sucré",
+        },
+        {
+          name: "Lait Peak Boite",
+          price: 600,
+          cat: "snack",
+          desc: "Lait Peak en boîte, concentré sucré pour vos boissons chaudes",
+        },
+        {
+          name: "Sachet Nescafe",
+          price: 100,
+          cat: "snack",
+          desc: "Sachet Nescafé instantané, café soluble pour votre pause",
+        },
+        {
+          name: "Cafe Rhum",
+          price: 100,
+          cat: "snack",
+          desc: "Sachet café rhum, petit plaisir chaud et légèrement alcoolisé",
+        },
+        {
+          name: "Tiger Eye",
+          price: 100,
+          cat: "snack",
+          desc: "Tiger Eye, bonbon ou snack local très apprécié",
+        },
+        {
+          name: "Pains",
+          price: 150,
+          cat: "snack",
+          desc: "Pain frais du jour, moelleux et légèrement croustillant",
+        },
+        // ─── DIVERS ───
+        {
+          name: "Livraison 300",
+          price: 300,
+          cat: "divers",
+          desc: "Frais de livraison pour commande à domicile zone proche",
+        },
+        {
+          name: "Livraison 500",
+          price: 500,
+          cat: "divers",
+          desc: "Frais de livraison pour commande à domicile zone éloignée",
+        },
+        {
+          name: "Take Away",
+          price: 100,
+          cat: "divers",
+          desc: "Emballage take away pour emporter votre repas facilement",
+        },
+        {
+          name: "Sac Espaces 200",
+          price: 200,
+          cat: "divers",
+          desc: "Sac Espaces Restaurations 200 FCFA, pour vos emplettes",
+        },
+        {
+          name: "Sac Espaces 300",
+          price: 300,
+          cat: "divers",
+          desc: "Grand sac Espaces Restaurations 300 FCFA, résistant",
+        },
+        {
+          name: "Cuillere de Mayonnaise",
+          price: 100,
+          cat: "divers",
+          desc: "Portion de mayonnaise maison pour accompagner votre plat",
+        },
+        {
+          name: "Craven",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Craven, vendue à l'unité",
+        },
+        {
+          name: "Concorde Rouge",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Concorde Rouge, vendue à l'unité",
+        },
+        {
+          name: "Concorde Verte",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Concorde Verte, vendue à l'unité",
+        },
+        {
+          name: "Business Royals Blanc",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Business Royals Blanc, vendue à l'unité",
+        },
+        {
+          name: "Business Royals Rouge",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Business Royals Rouge, vendue à l'unité",
+        },
+        {
+          name: "Bohem Vert",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Bohem Vert menthol, vendue à l'unité",
+        },
+        {
+          name: "Bohem Noir",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Bohem Noir, vendue à l'unité",
+        },
+        {
+          name: "Oris Noir",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Oris Noir, vendue à l'unité",
+        },
+        {
+          name: "Oris Cafe",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Oris Café aromatisée, vendue à l'unité",
+        },
+        {
+          name: "Oris Blanc",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Oris Blanc, vendue à l'unité",
+        },
+        {
+          name: "Royale",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Royale, vendue à l'unité",
+        },
+        {
+          name: "Fine",
+          price: 50,
+          cat: "divers",
+          desc: "Cigarette Fine, vendue à l'unité",
+        },
+        {
+          name: "Preservatif Masculin",
+          price: 50,
+          cat: "divers",
+          desc: "Préservatif masculin vendu discrètement à l'unité",
+        },
+        {
+          name: "Sachet 123",
+          price: 100,
+          cat: "divers",
+          desc: "Sachet 123, produit d'usage courant disponible au comptoir",
+        },
+        {
+          name: "Deplacement AR",
+          price: 500,
+          cat: "divers",
+          desc: "Frais de déplacement aller-retour pour livraison spéciale",
+        },
       ];
       let cart = {};
       let currentFilter = "all";
@@ -4986,6 +6120,214 @@
           encodeURIComponent(fn) +
           (msg ? "%0AMessage%20:%20" + encodeURIComponent(msg) : "");
         window.open("https://wa.me/22890151300?text=" + wa, "_blank");
+      }
+      let menuCurrentCat = "tout";
+
+      const CAT_LABELS = {
+        fast: "🍔 Fast-Food",
+        local: "🍲 Plats Locaux",
+        poisson: "🐟 Poissons & Viandes",
+        boisson: "🥤 Boissons",
+        snack: "🍦 Snacks & Desserts",
+        divers: "🛒 Divers",
+      };
+
+      // ─────────────────────────────────────────────
+      // BARRE DE RECHERCHE
+      // ─────────────────────────────────────────────
+      function menuSearch(val) {
+        const q = val.toLowerCase().trim();
+        document.getElementById("searchClearBtn").style.display = val
+          ? "flex"
+          : "none";
+
+        if (!q) {
+          // Cacher résultats, montrer spécialités + catalogue
+          document.getElementById("menuSearchSection").style.display = "none";
+          document.getElementById("menuSpecSection").style.display = "block";
+          document.getElementById("menuFullSection").style.display = "block";
+          return;
+        }
+
+        // Cacher spécialités + catalogue, montrer résultats
+        document.getElementById("menuSearchSection").style.display = "block";
+        document.getElementById("menuSpecSection").style.display = "none";
+        document.getElementById("menuFullSection").style.display = "none";
+
+        const items = DISHES.filter(
+          (d) =>
+            d.name.toLowerCase().includes(q) ||
+            d.desc.toLowerCase().includes(q),
+        );
+
+        const grid = document.getElementById("menuGrid");
+        const empty = document.getElementById("menuEmpty");
+        const counter = document.getElementById("menuResultCount");
+
+        if (!items.length) {
+          grid.innerHTML = "";
+          grid.style.display = "none";
+          empty.style.display = "block";
+          counter.innerHTML = "";
+          return;
+        }
+
+        empty.style.display = "none";
+        grid.style.display = "grid";
+        counter.innerHTML =
+          "<span>" +
+          items.length +
+          "</span> résultat" +
+          (items.length > 1 ? "s" : "") +
+          ' pour "' +
+          val +
+          '"';
+        window._menuSearchItems = items;
+
+        let html = "";
+        for (let i = 0; i < items.length; i++) {
+          html += buildCard(items[i], i, "Search");
+        }
+        grid.innerHTML = html;
+      }
+
+      function clearMenuSearch() {
+        document.getElementById("menuSearchInput").value = "";
+        menuSearch("");
+      }
+
+      // ─────────────────────────────────────────────
+      // ONGLETS CATALOGUE
+      // ─────────────────────────────────────────────
+      function switchMenuCat(cat, btn) {
+        menuCurrentCat = cat;
+        document
+          .querySelectorAll("#menuTabs .m-tab")
+          .forEach((b) => b.classList.remove("active"));
+        if (btn) btn.classList.add("active");
+        renderMenuCat();
+      }
+
+      function renderMenuCat() {
+        const grid = document.getElementById("menuCatGrid");
+        if (!grid) return;
+        const items =
+          menuCurrentCat === "tout"
+            ? DISHES
+            : DISHES.filter((d) => d.cat === menuCurrentCat);
+
+        let html = "";
+        for (let i = 0; i < items.length; i++) {
+          html += buildCard(items[i], i, "Cat");
+        }
+        grid.innerHTML = html;
+        window._menuCatItems = items;
+      }
+
+      // ─────────────────────────────────────────────
+      // CONSTRUCTEUR DE CARTE
+      // ─────────────────────────────────────────────
+      function buildCard(d, i, suffix) {
+        const badge = CAT_LABELS[d.cat] || d.cat;
+        return (
+          '<div class="mc-noimg">' +
+          '<div class="mc-cat-badge">' +
+          badge +
+          "</div>" +
+          '<div class="mc-name">' +
+          d.name +
+          "</div>" +
+          '<div class="mc-desc">' +
+          d.desc +
+          "</div>" +
+          '<div class="mc-ft">' +
+          '<span class="mc-price">' +
+          d.price.toLocaleString() +
+          " FCFA</span>" +
+          '<div class="mc-action-btns">' +
+          '<button class="btn-reserver" onclick="menuReserveIdx(' +
+          i +
+          ",'" +
+          suffix +
+          "')\">🗓 Réserver</button>" +
+          '<button class="btn-commander" onclick="menuCmdIdx(' +
+          i +
+          ",'" +
+          suffix +
+          "')\">+ Commander</button>" +
+          "</div>" +
+          "</div>" +
+          "</div>"
+        );
+      }
+
+      // ─────────────────────────────────────────────
+      // ACTIONS BOUTONS
+      // ─────────────────────────────────────────────
+      function menuReserveIdx(idx, suffix) {
+        const list =
+          suffix === "Search" ? window._menuSearchItems : window._menuCatItems;
+        if (!list) return;
+        const d = list[idx];
+        menuReserveByName(d.name, d.price);
+      }
+
+      function menuReserveByName(name, price) {
+        goPage("reservation");
+        setTimeout(function () {
+          if (typeof resCart !== "undefined") {
+            if (!resCart[name]) resCart[name] = { qty: 0, price: price };
+            resCart[name].qty++;
+            updateResSummary();
+            renderResDishes();
+          }
+        }, 200);
+      }
+
+      function menuCmdIdx(idx, suffix) {
+        const list =
+          suffix === "Search" ? window._menuSearchItems : window._menuCatItems;
+        if (!list) return;
+        const d = list[idx];
+        quickAdd(d.name, d.price);
+        showAddFeedback(d.name);
+      }
+
+      // ─────────────────────────────────────────────
+      // TOAST FEEDBACK
+      // ─────────────────────────────────────────────
+      function showAddFeedback(name) {
+        let toast = document.getElementById("addToast");
+        if (!toast) {
+          toast = document.createElement("div");
+          toast.id = "addToast";
+          toast.style.cssText =
+            "position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--or);color:#fff;padding:.55rem 1.2rem;border-radius:50px;font-size:.8rem;font-weight:600;z-index:9999;opacity:0;transition:all .3s;white-space:nowrap;pointer-events:none";
+          document.body.appendChild(toast);
+        }
+        const short = name.length > 28 ? name.substring(0, 28) + "…" : name;
+        toast.textContent = "✓ " + short + " ajouté !";
+        toast.style.opacity = "1";
+        toast.style.transform = "translateX(-50%) translateY(0)";
+        clearTimeout(window._toastTimer);
+        window._toastTimer = setTimeout(function () {
+          toast.style.opacity = "0";
+          toast.style.transform = "translateX(-50%) translateY(20px)";
+        }, 2000);
+      }
+
+      // ─────────────────────────────────────────────
+      // INIT — appelé dans goPage('menu')
+      // ─────────────────────────────────────────────
+      function renderMenu() {
+        // S'assurer que la recherche est vide
+        const inp = document.getElementById("menuSearchInput");
+        if (inp) inp.value = "";
+        document.getElementById("menuSearchSection").style.display = "none";
+        document.getElementById("menuSpecSection").style.display = "block";
+        document.getElementById("menuFullSection").style.display = "block";
+        // Rendre le catalogue
+        renderMenuCat();
       }
     </script>
   </body>
