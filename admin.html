@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin — Espaces Restaurations</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --or: #ff7a1a;
+        --bk: #080808;
+        --card: #181818;
+        --border: #2a2a2a;
+        --gray: #888;
+        --wh: #fff;
+        --green: #22c55e;
+        --red: #ef4444;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--bk);
+        color: var(--wh);
+        font-family: "Inter", sans-serif;
+        min-height: 100vh;
+      }
+      #loginScreen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 1rem;
+      }
+      .login-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2.5rem;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+      .login-box h1 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.6rem;
+        margin-bottom: 0.3rem;
+      }
+      .login-box h1 span {
+        color: var(--or);
+      }
+      .login-box p {
+        color: var(--gray);
+        font-size: 0.85rem;
+        margin-bottom: 2rem;
+      }
+      .login-box input {
+        width: 100%;
+        background: #111;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.85rem 1rem;
+        color: var(--wh);
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .login-box input:focus {
+        border-color: var(--or);
+      }
+      .login-box button {
+        width: 100%;
+        background: var(--or);
+        border: none;
+        border-radius: 8px;
+        padding: 0.9rem;
+        color: #fff;
+        font-family: "Syne", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .login-error {
+        color: var(--red);
+        font-size: 0.82rem;
+        margin-top: 0.5rem;
+        display: none;
+      }
+      #dashboard {
+        display: none;
+      }
+      .topbar {
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .topbar-brand {
+        font-family: "Syne", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 800;
+      }
+      .topbar-brand span {
+        color: var(--or);
+      }
+      .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .topbar-stats {
+        font-size: 0.8rem;
+        color: var(--gray);
+      }
+      .topbar-stats span {
+        color: var(--or);
+        font-weight: 700;
+      }
+      .btn-logout {
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 0.4rem 0.9rem;
+        color: var(--gray);
+        font-size: 0.8rem;
+        cursor: pointer;
+      }
+      .btn-logout:hover {
+        border-color: var(--red);
+        color: var(--red);
+      }
+      .main {
+        padding: 2rem;
+      }
+      .toolbar {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .search-box {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.6rem 1rem;
+        flex: 1;
+        min-width: 200px;
+      }
+      .search-box input {
+        background: none;
+        border: none;
+        outline: none;
+        color: var(--wh);
+        font-size: 0.88rem;
+        width: 100%;
+      }
+      .search-box input::placeholder {
+        color: var(--gray);
+      }
+      .filter-select {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.6rem 1rem;
+        color: var(--wh);
+        font-size: 0.88rem;
+        outline: none;
+        cursor: pointer;
+      }
+      .btn-add {
+        background: var(--or);
+        border: none;
+        border-radius: 8px;
+        padding: 0.65rem 1.3rem;
+        color: #fff;
+        font-family: "Syne", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .table-wrap {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .table-header {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .table-header h2 {
+        font-family: "Syne", sans-serif;
+        font-size: 1rem;
+      }
+      .table-count {
+        font-size: 0.8rem;
+        color: var(--gray);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th {
+        padding: 0.8rem 1rem;
+        text-align: left;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--gray);
+        border-bottom: 1px solid var(--border);
+      }
+      td {
+        padding: 0.85rem 1rem;
+        font-size: 0.85rem;
+        border-bottom: 1px solid #1a1a1a;
+        vertical-align: middle;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:hover td {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .td-name {
+        font-weight: 600;
+        max-width: 200px;
+      }
+      .td-desc {
+        color: var(--gray);
+        font-size: 0.78rem;
+        max-width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .td-price {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        color: var(--or);
+      }
+      .cat-badge {
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        background: rgba(255, 122, 26, 0.1);
+        color: var(--or);
+      }
+      .toggle-btn {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 22px;
+        cursor: pointer;
+      }
+      .toggle-btn input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .toggle-slider {
+        position: absolute;
+        inset: 0;
+        background: #333;
+        border-radius: 22px;
+        transition: 0.3s;
+      }
+      .toggle-slider:before {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+        background: #fff;
+        border-radius: 50%;
+        transition: 0.3s;
+      }
+      input:checked + .toggle-slider {
+        background: var(--green);
+      }
+      input:checked + .toggle-slider:before {
+        transform: translateX(18px);
+      }
+      .action-btns {
+        display: flex;
+        gap: 0.4rem;
+      }
+      .btn-edit {
+        background: rgba(255, 122, 26, 0.15);
+        border: none;
+        border-radius: 6px;
+        padding: 0.35rem 0.7rem;
+        color: var(--or);
+        font-size: 0.78rem;
+        cursor: pointer;
+      }
+      .btn-delete {
+        background: rgba(239, 68, 68, 0.15);
+        border: none;
+        border-radius: 6px;
+        padding: 0.35rem 0.7rem;
+        color: var(--red);
+        font-size: 0.78rem;
+        cursor: pointer;
+      }
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        width: 100%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .modal-header h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.1rem;
+      }
+      .modal-close {
+        background: none;
+        border: none;
+        color: var(--gray);
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+      .modal-body {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .form-group label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        background: #111;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.8rem 1rem;
+        color: var(--wh);
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.2s;
+        font-family: "Inter", sans-serif;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--or);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .form-group select option {
+        background: var(--card);
+      }
+      .modal-footer {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 0.8rem;
+        justify-content: flex-end;
+      }
+      .btn-cancel {
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.7rem 1.3rem;
+        color: var(--gray);
+        font-size: 0.88rem;
+        cursor: pointer;
+      }
+      .btn-save {
+        background: var(--or);
+        border: none;
+        border-radius: 8px;
+        padding: 0.7rem 1.5rem;
+        color: #fff;
+        font-family: "Syne", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .confirm-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .confirm-overlay.open {
+        display: flex;
+      }
+      .confirm-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+        max-width: 380px;
+        width: 100%;
+        text-align: center;
+      }
+      .confirm-box h3 {
+        font-family: "Syne", sans-serif;
+        margin-bottom: 0.8rem;
+      }
+      .confirm-box p {
+        color: var(--gray);
+        font-size: 0.88rem;
+        margin-bottom: 1.5rem;
+      }
+      .confirm-btns {
+        display: flex;
+        gap: 0.8rem;
+        justify-content: center;
+      }
+      .btn-confirm-delete {
+        background: var(--red);
+        border: none;
+        border-radius: 8px;
+        padding: 0.7rem 1.5rem;
+        color: #fff;
+        font-family: "Syne", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .toast {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: var(--green);
+        color: #fff;
+        padding: 0.6rem 1.4rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        z-index: 9999;
+        opacity: 0;
+        transition: all 0.3s;
+        pointer-events: none;
+      }
+      .toast.error {
+        background: var(--red);
+      }
+      .loading {
+        text-align: center;
+        padding: 3rem;
+        color: var(--gray);
+      }
+      .spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid var(--border);
+        border-top-color: var(--or);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 0 auto 1rem;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (max-width: 768px) {
+        .main {
+          padding: 1rem;
+        }
+        .topbar {
+          padding: 0.8rem 1rem;
+        }
+        table {
+          font-size: 0.78rem;
+        }
+        th,
+        td {
+          padding: 0.6rem 0.7rem;
+        }
+        .td-desc {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loginScreen">
+      <div class="login-box">
+        <h1>Espaces <span>REST.</span></h1>
+        <p>Interface d'administration — accès restreint</p>
+        <input
+          type="password"
+          id="loginPass"
+          placeholder="Mot de passe admin"
+          onkeydown="if (event.key === 'Enter') doLogin();"
+        />
+        <button onclick="doLogin()">🔐 Se connecter</button>
+        <div class="login-error" id="loginError">Mot de passe incorrect !</div>
+      </div>
+    </div>
+
+    <div id="dashboard">
+      <div class="topbar">
+        <div class="topbar-brand">Espaces <span>REST.</span> Admin</div>
+        <div class="topbar-right">
+          <div class="topbar-stats">
+            Total : <span id="statsTotal">0</span> plats &bull; Visibles :
+            <span id="statsVisible">0</span>
+          </div>
+          <button class="btn-logout" onclick="doLogout()">Deconnexion</button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="toolbar">
+          <div class="search-box">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Rechercher un plat..."
+              oninput="filterTable()"
+            />
+          </div>
+          <select class="filter-select" id="catFilter" onchange="filterTable()">
+            <option value="">Toutes categories</option>
+            <option value="fast">Fast-Food</option>
+            <option value="local">Plats Locaux</option>
+            <option value="poisson">Poissons</option>
+            <option value="viande">Viandes</option>
+            <option value="boisson">Boissons</option>
+            <option value="snack">Snacks</option>
+            <option value="divers">Divers</option>
+          </select>
+          <button class="btn-add" onclick="openAddModal()">
+            + Nouveau plat
+          </button>
+        </div>
+        <div class="table-wrap">
+          <div class="table-header">
+            <h2>Liste des plats</h2>
+            <span class="table-count" id="tableCount">Chargement...</span>
+          </div>
+          <div id="tableContainer">
+            <div class="loading">
+              <div class="spinner"></div>
+              Chargement...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modalTitle">Nouveau plat</h3>
+          <button class="modal-close" onclick="closeModal()">X</button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="editId" />
+          <div class="form-group">
+            <label>Nom du plat</label
+            ><input
+              type="text"
+              id="fName"
+              placeholder="ex: Spaghetti Bolognaise"
+            />
+          </div>
+          <div class="form-group">
+            <label>Prix (FCFA)</label
+            ><input type="number" id="fPrice" placeholder="ex: 1500" />
+          </div>
+          <div class="form-group">
+            <label>Categorie</label>
+            <select id="fCat">
+              <option value="fast">Fast-Food</option>
+              <option value="local">Plats Locaux</option>
+              <option value="poisson">Poissons</option>
+              <option value="viande">Viandes</option>
+              <option value="boisson">Boissons</option>
+              <option value="snack">Snacks</option>
+              <option value="divers">Divers</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Description</label
+            ><textarea
+              id="fDesc"
+              placeholder="Description du plat..."
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label>Visible sur le site</label>
+            <select id="fVisible">
+              <option value="true">Oui - visible</option>
+              <option value="false">Non - cache</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+          <button class="btn-save" onclick="savePlat()">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="confirm-overlay" id="confirmOverlay">
+      <div class="confirm-box">
+        <h3>Supprimer ce plat ?</h3>
+        <p id="confirmText">Cette action est irreversible.</p>
+        <div class="confirm-btns">
+          <button class="btn-cancel" onclick="closeConfirm()">Annuler</button>
+          <button class="btn-confirm-delete" onclick="confirmDelete()">
+            Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      const SUPA_URL = "https://vxapkdzpaohtjrxyfymo.supabase.co";
+      const SUPA_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4YXBrZHpwYW9odGpyeHlmeW1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMDQ4MzIsImV4cCI6MjA4ODY4MDgzMn0.bhVJohSW8COZ-81e3zP8aWr-MWdOsv-ThhN8JfJf5xQ";
+      const ADMIN_PASS = "espaces2024";
+      const HEADERS = {
+        "Content-Type": "application/json",
+        apikey: SUPA_KEY,
+        Authorization: "Bearer " + SUPA_KEY,
+      };
+      const CAT_LABELS = {
+        fast: "Fast-Food",
+        local: "Plats Locaux",
+        poisson: "Poissons",
+        viande: "Viandes",
+        boisson: "Boissons",
+        snack: "Snacks",
+        divers: "Divers",
+      };
+      let allPlats = [];
+      let deleteId = null;
+
+      function doLogin() {
+        const pass = document.getElementById("loginPass").value;
+        if (pass === ADMIN_PASS) {
+          document.getElementById("loginScreen").style.display = "none";
+          document.getElementById("dashboard").style.display = "block";
+          loadPlats();
+        } else {
+          const err = document.getElementById("loginError");
+          err.style.display = "block";
+          setTimeout(() => (err.style.display = "none"), 2000);
+        }
+      }
+
+      function doLogout() {
+        document.getElementById("dashboard").style.display = "none";
+        document.getElementById("loginScreen").style.display = "flex";
+        document.getElementById("loginPass").value = "";
+      }
+
+      async function loadPlats() {
+        try {
+          const res = await fetch(SUPA_URL + "/rest/v1/plats?order=cat,name", {
+            headers: HEADERS,
+          });
+          allPlats = await res.json();
+          renderTable(allPlats);
+          updateStats();
+        } catch (e) {
+          showToast("Erreur de connexion", true);
+        }
+      }
+
+      function updateStats() {
+        document.getElementById("statsTotal").textContent = allPlats.length;
+        document.getElementById("statsVisible").textContent = allPlats.filter(
+          (p) => p.visible,
+        ).length;
+      }
+
+      function renderTable(list) {
+        const c = document.getElementById("tableContainer");
+        document.getElementById("tableCount").textContent =
+          list.length + " plat" + (list.length > 1 ? "s" : "");
+        if (!list.length) {
+          c.innerHTML = '<div class="loading">Aucun plat trouve</div>';
+          return;
+        }
+        let h =
+          "<table><thead><tr><th>Nom</th><th>Prix</th><th>Categorie</th><th>Description</th><th>Visible</th><th>Actions</th></tr></thead><tbody>";
+        list.forEach((p) => {
+          h +=
+            "<tr>" +
+            '<td class="td-name">' +
+            esc(p.name) +
+            "</td>" +
+            '<td class="td-price">' +
+            p.price.toLocaleString() +
+            " F</td>" +
+            '<td><span class="cat-badge">' +
+            (CAT_LABELS[p.cat] || p.cat) +
+            "</span></td>" +
+            '<td class="td-desc">' +
+            esc(p.desc || "") +
+            "</td>" +
+            '<td><label class="toggle-btn"><input type="checkbox"' +
+            (p.visible ? " checked" : "") +
+            ' onchange="toggleVisible(' +
+            p.id +
+            ',this.checked)"/><span class="toggle-slider"></span></label></td>' +
+            '<td><div class="action-btns">' +
+            '<button class="btn-edit" onclick="openEditModal(' +
+            p.id +
+            ')">Modifier</button>' +
+            '<button class="btn-delete" onclick="openConfirm(' +
+            p.id +
+            ",'" +
+            esc(p.name) +
+            "')\">Suppr.</button>" +
+            "</div></td></tr>";
+        });
+        h += "</tbody></table>";
+        c.innerHTML = h;
+      }
+
+      function filterTable() {
+        const q = document.getElementById("searchInput").value.toLowerCase();
+        const cat = document.getElementById("catFilter").value;
+        const f = allPlats.filter(
+          (p) =>
+            (!q ||
+              p.name.toLowerCase().includes(q) ||
+              (p.desc || "").toLowerCase().includes(q)) &&
+            (!cat || p.cat === cat),
+        );
+        renderTable(f);
+      }
+
+      async function toggleVisible(id, val) {
+        try {
+          await fetch(SUPA_URL + "/rest/v1/plats?id=eq." + id, {
+            method: "PATCH",
+            headers: HEADERS,
+            body: JSON.stringify({ visible: val }),
+          });
+          const p = allPlats.find((x) => x.id === id);
+          if (p) p.visible = val;
+          updateStats();
+          showToast(val ? "Plat rendu visible" : "Plat masque");
+        } catch (e) {
+          showToast("Erreur", true);
+        }
+      }
+
+      function openAddModal() {
+        document.getElementById("modalTitle").textContent = "Nouveau plat";
+        document.getElementById("editId").value = "";
+        document.getElementById("fName").value = "";
+        document.getElementById("fPrice").value = "";
+        document.getElementById("fCat").value = "fast";
+        document.getElementById("fDesc").value = "";
+        document.getElementById("fVisible").value = "true";
+        document.getElementById("modalOverlay").classList.add("open");
+      }
+
+      function openEditModal(id) {
+        const p = allPlats.find((x) => x.id === id);
+        if (!p) return;
+        document.getElementById("modalTitle").textContent = "Modifier le plat";
+        document.getElementById("editId").value = p.id;
+        document.getElementById("fName").value = p.name;
+        document.getElementById("fPrice").value = p.price;
+        document.getElementById("fCat").value = p.cat;
+        document.getElementById("fDesc").value = p.desc || "";
+        document.getElementById("fVisible").value = p.visible
+          ? "true"
+          : "false";
+        document.getElementById("modalOverlay").classList.add("open");
+      }
+
+      function closeModal() {
+        document.getElementById("modalOverlay").classList.remove("open");
+      }
+
+      async function savePlat() {
+        const id = document.getElementById("editId").value;
+        const name = document.getElementById("fName").value.trim();
+        const price = parseInt(document.getElementById("fPrice").value);
+        const cat = document.getElementById("fCat").value;
+        const desc = document.getElementById("fDesc").value.trim();
+        const visible = document.getElementById("fVisible").value === "true";
+        if (!name || !price) {
+          showToast("Nom et prix obligatoires !", true);
+          return;
+        }
+        const body = JSON.stringify({ name, price, cat, desc, visible });
+        try {
+          if (id) {
+            await fetch(SUPA_URL + "/rest/v1/plats?id=eq." + id, {
+              method: "PATCH",
+              headers: HEADERS,
+              body,
+            });
+            const idx = allPlats.findIndex((x) => x.id == id);
+            if (idx > -1)
+              allPlats[idx] = {
+                ...allPlats[idx],
+                name,
+                price,
+                cat,
+                desc,
+                visible,
+              };
+            showToast("Plat modifie !");
+          } else {
+            const res = await fetch(SUPA_URL + "/rest/v1/plats", {
+              method: "POST",
+              headers: { ...HEADERS, Prefer: "return=representation" },
+              body,
+            });
+            const np = await res.json();
+            if (np && np[0]) allPlats.push(np[0]);
+            showToast("Plat ajoute !");
+          }
+          closeModal();
+          filterTable();
+          updateStats();
+        } catch (e) {
+          showToast("Erreur", true);
+        }
+      }
+
+      function openConfirm(id, name) {
+        deleteId = id;
+        document.getElementById("confirmText").textContent =
+          'Supprimer "' + name + '" ? Action irreversible.';
+        document.getElementById("confirmOverlay").classList.add("open");
+      }
+
+      function closeConfirm() {
+        deleteId = null;
+        document.getElementById("confirmOverlay").classList.remove("open");
+      }
+
+      async function confirmDelete() {
+        if (!deleteId) return;
+        try {
+          await fetch(SUPA_URL + "/rest/v1/plats?id=eq." + deleteId, {
+            method: "DELETE",
+            headers: HEADERS,
+          });
+          allPlats = allPlats.filter((x) => x.id !== deleteId);
+          closeConfirm();
+          filterTable();
+          updateStats();
+          showToast("Plat supprime");
+        } catch (e) {
+          showToast("Erreur", true);
+        }
+      }
+
+      function showToast(msg, isError = false) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.className = "toast" + (isError ? " error" : "");
+        t.style.opacity = "1";
+        t.style.transform = "translateX(-50%) translateY(0)";
+        clearTimeout(window._tt);
+        window._tt = setTimeout(() => {
+          t.style.opacity = "0";
+          t.style.transform = "translateX(-50%) translateY(20px)";
+        }, 2500);
+      }
+
+      function esc(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+    </script>
+  </body>
+</html>
