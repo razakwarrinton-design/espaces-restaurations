@@ -2623,9 +2623,7 @@
         <div class="hero-ov"></div>
         <div class="hero-content">
           <div class="hero-badge">Ouvert 24h/24 — 7j/7 · Sokodé, Togo</div>
-          <h1 class="hero-h1">
-  Votre <span>Restaurant</span><br />de Sokodé
-</h1>
+          <h1 class="hero-h1">Votre <span>Restaurant</span><br />de Sokodé</h1>
           <p class="hero-p">
             Hamburger · Pizza · Plats locaux · Attiéké · Poisson braisé<br /><strong
               >Livraison à domicile disponible partout à Sokodé !</strong
@@ -2684,63 +2682,11 @@
             heure du jour et de la nuit.
           </p>
         </div>
-        <div class="spec-grid rev">
-
-  <div class="sc">
-    <div class="sc-img"><img src="images/Couscous.jpg" alt="Couscous" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-    <div class="sc-body">
-      <div class="sc-name">Couscous</div>
-      <div class="sc-desc">Couscous blanc ou au gras bien assaisonné, servi avec viande de bœuf, mouton, chèvre ou poisson.</div>
-      <div class="sc-ft"><span class="sc-price">1 500 FCFA</span><button class="sc-btn" onclick="quickAdd('Couscous Blanc',1500)">+ Ajouter</button></div>
-    </div>
-  </div>
-
-  <div class="sc">
-    <div class="sc-img"><img src="images/Riz-au-Gras.jpg" alt="Riz au Gras" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-    <div class="sc-body">
-      <div class="sc-name">Riz au Gras</div>
-      <div class="sc-desc">Riz togolais mijoté avec épices et condiments, servi avec viande de bœuf, mouton, chèvre ou poisson.</div>
-      <div class="sc-ft"><span class="sc-price">1 500 FCFA</span><button class="sc-btn" onclick="quickAdd('Riz au Gras',1500)">+ Ajouter</button></div>
-    </div>
-  </div>
-
-  <div class="sc">
-    <div class="sc-img"><img src="images/Foufou.jpg" alt="Foufou" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-    <div class="sc-body">
-      <div class="sc-name">Foufou</div>
-      <div class="sc-desc">Foufou onctueux, sauce arachide/tomate/sésame/claire avec viande de bœuf, chèvre, mouton, poulet ou poisson.</div>
-      <div class="sc-ft"><span class="sc-price">à partir de 1 000 FCFA</span><button class="sc-btn" onclick="quickAdd('Foufou 1K',1000)">+ Ajouter</button></div>
-    </div>
-  </div>
-
-  <div class="sc">
-    <div class="sc-img"><img src="images/Pate-au-Mil.jpg" alt="Pâte au Mil" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-    <div class="sc-body">
-      <div class="sc-name">Pâte au Mil</div>
-      <div class="sc-desc">Pâte de mil avec sauce adèmè/gboma/gombo/tomate et viande de bœuf, chèvre, mouton, poisson ou Akpama.</div>
-      <div class="sc-ft"><span class="sc-price">500 – 1 000 FCFA</span><button class="sc-btn" onclick="quickAdd('Pate au Mil 500',500)">+ Ajouter</button></div>
-    </div>
-  </div>
-
-  <div class="sc">
-    <div class="sc-img"><img src="images/Pate-au-Maïs.jpg" alt="Pâte au Maïs" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-    <div class="sc-body">
-      <div class="sc-name">Pâte au Maïs</div>
-      <div class="sc-desc">Pâte de maïs avec sauce adèmè/gboma/gombo/tomate et viande de bœuf, chèvre, mouton, poisson ou Akpama.</div>
-      <div class="sc-ft"><span class="sc-price">500 – 1 000 FCFA</span><button class="sc-btn" onclick="quickAdd('Pate au Mais 500',500)">+ Ajouter</button></div>
-    </div>
-  </div>
-
-  <div class="sc">
-    <div class="sc-img"><img src="images/Watchi.jpg" alt="Watchi / Ayimolou" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-    <div class="sc-body">
-      <div class="sc-name">Watchi / Ayimolou</div>
-      <div class="sc-desc">Riz aux haricots, plat traditionnel béninois et togolais, savoureux et très nourrissant.</div>
-      <div class="sc-ft"><span class="sc-price">1 000 FCFA</span><button class="sc-btn" onclick="quickAdd('Watchi / Ayimolou',1000)">+ Ajouter</button></div>
-    </div>
-  </div>
-
-</div>
+        <div class="spec-grid rev" id="accueilSpecGrid">
+          <div style="color: var(--gray); text-align: center; padding: 2rem">
+            Chargement...
+          </div>
+        </div>
         <div style="text-align: center; margin-top: 2.2rem" class="rev">
           <button class="btn-or" onclick="goPage('menu')">
             🍽️ Voir tous nos plats →
@@ -3118,544 +3064,9 @@
           </p>
         </div>
 
-        <div class="all-grid" style="margin-top: 1.8rem">
-          <!-- Hamburger -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Hamburger.jpg" alt="Hamburger" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Hamburger</div>
-              <div class="all-c-desc">
-                Pain moelleux, steak juteux, sauce maison
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">1 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Hamburger', 1500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Hamburger', 1500);
-                      showAddFeedback('Hamburger');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Chawarma Poulet -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Chawarma-Poulet.jpg" alt="Chawarma Poulet" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Chawarma Poulet</div>
-              <div class="all-c-desc">
-                Wrap poulet grillé, légumes et sauce épicée
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">1 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Chawarma', 1500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Chawarma Poulet', 1500);
-                      showAddFeedback('Chawarma Poulet');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Chawarma Boeuf -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Chawarma-Bœuf.jpg" alt="Chawarma Bœuf" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Chawarma Bœuf</div>
-              <div class="all-c-desc">
-                Wrap bœuf tendre, sauce maison et crudités
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">1 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Chawarma', 1500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Chawarma Boeuf', 1500);
-                      showAddFeedback('Chawarma Boeuf');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Spaghetti Bolognaise -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img
-                src="images/Spaghetti-Bolognaise.jpg"
-                alt="Spaghetti Bolognaise"
-              />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Spaghetti Bolognaise</div>
-              <div class="all-c-desc">
-                Spaghetti bolognaise avec viande hachée de bœuf, fromage et
-                légumes
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">2 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="
-                      menuReserveByName('Spaghetti Bolonaise 2,5K', 2500)
-                    "
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Spaghetti Bolognaise', 2500);
-                      showAddFeedback('Spaghetti Bolognaise');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Spaghetti au Gras -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Spaghetti-au-Gras.jpg" alt="Spaghetti au Gras" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Spaghetti au Gras</div>
-              <div class="all-c-desc">
-                Spaghetti sauce rouge épicée, saveur locale
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">1 100 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Spaghetti Rouge Emporté', 1100)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Spaghetti au Gras', 1100);
-                      showAddFeedback('Spaghetti au Gras');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Riz au Poulet Yassa -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img
-                src="images/Riz-au-Poulet-Yassa.jpg"
-                alt="Riz au Poulet Yassa"
-              />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Riz au Poulet Yassa</div>
-              <div class="all-c-desc">
-                Poulet mariné, oignons, sauce yassa citronnée
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">2 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Poulet Yassa 2K', 2000)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Riz Poulet Yassa', 2500);
-                      showAddFeedback('Riz Poulet Yassa');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Riz au Gras -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Riz-au-Gras.jpg" alt="Riz au Gras" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Riz au Gras</div>
-              <div class="all-c-desc">
-                avec viande de bœuf/mouton/chèvre/poisson...
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">1 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Riz au Gras', 1500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Riz au Gras', 1500);
-                      showAddFeedback('Riz au Gras');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Riz Blanc Parfumé -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Riz-Blanc-Parfume.jpg" alt="Riz Blanc" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Riz Blanc Parfumé</div>
-              <div class="all-c-desc">
-                Riz blanc parfumé, sauce tomate ou arachide avec viande de bœuf,
-                mouton, chèvre ou poisson
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">1 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Riz Blanc', 1500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Riz Blanc Parfumé', 1500);
-                      showAddFeedback('Riz Blanc Parfumé');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Poisson Braisé -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Poisson-Braise.jpg" alt="Poisson Braisé" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Poisson Braisé</div>
-              <div class="all-c-desc">
-                Grillé à la braise, chair tendre et fumée,à partir de 3 500 F
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">à partir de 3 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Poisson Braisé 3K', 3500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Poisson Braisé', 3500);
-                      showAddFeedback('Poisson Braisé');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Attiéké -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Attieke.jpg" alt="Attiéké Akpalan" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Attiéké + Akpalan</div>
-              <div class="all-c-desc">
-                Semoule de manioc avec Akpalan frit ou braisé
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">1 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Attieke avec Akpalan', 1500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Attieke avec Akpalan', 1500);
-                      showAddFeedback('Attieke avec Akpalan');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Attieke.jpg" alt="Attiéké Tilapia" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Attiéké + Tilapia</div>
-              <div class="all-c-desc">
-                Semoule de manioc avec tilapia, à partir de 3 500 F
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">à partir de 3 500 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Attieke au Tilapia', 3500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Attieke au Tilapia', 3500);
-                      showAddFeedback('Attieke au Tilapia');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pâte au Mil -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Pate-au-Mil.jpg" alt="Pâte au Mil" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Pâte au Mil</div>
-              <div class="all-c-desc">
-                sauce ademè/gboma/gombo/tomate + viande de
-                bœuf/chèvre/mouton/poisson/Akpama
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">500F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Pâte au Mil', 500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Pâte au Mil', 500);
-                      showAddFeedback('Pâte au Mil');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pâte au Maïs -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Pate-au-Maïs.jpg" alt="Pâte au Maïs" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Pâte au Maïs</div>
-              <div class="all-c-desc">
-                sauce ademè/gboma/gombo/tomate + viande de
-                bœuf/chèvre/mouton/poisson/Akpama
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price"> 500F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Pâte au Maïs', 500)"
-                  >
-                    🗓
-                  </button>
-                  <buttonS
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Pâte au Maïs', 500);
-                      showAddFeedback('Pâte au Maïs');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Dégué -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Degue.jpg" alt="Dégué" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Dégué / Yaourt</div>
-              <div class="all-c-desc">
-                Lait fermenté sucré avec boule de mil
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price"> à partir de 500F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Dégué / Yaourt 500', 500)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Dégué', 500);
-                      showAddFeedback('Dégué');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Émakoumé -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Emakoume.jpg" alt="Émakoumé" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Émakoumé</div>
-              <div class="all-c-desc">
-                Spécialité locale togolaise, goût authentique
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">200 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Émakoumé', 200)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Émakoumé', 200);
-                      showAddFeedback('Émakoumé');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Crêpe Suzette -->
-          <div class="all-c">
-            <div class="all-c-img">
-              <img src="images/Crepe-Suzette.jpg" alt="Crêpe Suzette" />
-            </div>
-            <div class="all-c-body">
-              <div class="all-c-name">Crêpe Suzette</div>
-              <div class="all-c-desc">
-                Crêpe fine au caramel orangé, dessert raffiné
-              </div>
-              <div class="all-c-price-row">
-                <span class="all-c-price">2 000 F</span>
-                <div class="all-c-btns">
-                  <button
-                    class="btn-reserver"
-                    onclick="menuReserveByName('Dessert 200', 200)"
-                  >
-                    🗓
-                  </button>
-                  <button
-                    class="btn-commander"
-                    onclick="
-                      quickAdd('Crêpe Suzette', 2000);
-                      showAddFeedback('Crêpe Suzette');
-                    "
-                  >
-                    + Commander
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div class="all-grid" style="margin-top: 1.8rem" id="menuSpecGrid">
+          <div style="color: var(--gray); text-align: center; padding: 2rem">
+            Chargement...
           </div>
         </div>
         <!-- fin .all-grid -->
@@ -4488,9 +3899,10 @@
 
     <script>
       // ── RESERVATION SYSTEM ──
-      const SUPA_URL = 'https://vxapkdzpaohtjrxyfymo.supabase.co';
-const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4YXBrZHpwYW9odGpyeHlmeW1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMDQ4MzIsImV4cCI6MjA4ODY4MDgzMn0.bhVJohSW8COZ-81e3zP8aWr-MWdOsv-ThhN8JfJf5xQ';
-let DISHES = [];
+      const SUPA_URL = "https://vxapkdzpaohtjrxyfymo.supabase.co";
+      const SUPA_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4YXBrZHpwYW9odGpyeHlmeW1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMDQ4MzIsImV4cCI6MjA4ODY4MDgzMn0.bhVJohSW8COZ-81e3zP8aWr-MWdOsv-ThhN8JfJf5xQ";
+      let DISHES = [];
       let resCart = {};
       let resFilter = "all";
 
@@ -4643,6 +4055,7 @@ let DISHES = [];
         window.scrollTo({ top: 0, behavior: "smooth" });
         setTimeout(initReveal, 80);
         if (id === "menu") renderMenu();
+        if (id === "accueil") renderAccueilSpec();
         if (id === "reservation") renderResDishes(); // ← ajoute cette ligne
       }
       function toggleMob() {
@@ -5043,23 +4456,193 @@ let DISHES = [];
       // ─────────────────────────────────────────────
       // INIT — appelé dans goPage('menu')
       // ─────────────────────────────────────────────
-      async function renderMenu(){
-  // Charger depuis Supabase si pas encore chargé
-  try {
-  const res = await fetch(
-    SUPA_URL+'/rest/v1/plats?visible=eq.true&order=cat,name',
-    {headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY}}
-  );
-  DISHES = await res.json();
-} catch(e){ console.error('Erreur Supabase',e); }
-  // Réinitialiser la recherche
-  const inp = document.getElementById('menuSearchInput');
-  if(inp) inp.value='';
-  document.getElementById('menuSearchSection').style.display='none';
-  document.getElementById('menuSpecSection').style.display='block';
-  document.getElementById('menuFullSection').style.display='block';
-  renderMenuCat();
-}
+      // ═══════════════════════════════════════════════════════════
+      // PATCH — Spécialités dynamiques via Supabase
+      // ═══════════════════════════════════════════════════════════
+      // Remplace ta fonction renderMenu() existante par celle-ci
+      // Et ajoute les fonctions renderSpecialites() et renderAccueilSpec()
+      // ═══════════════════════════════════════════════════════════
+
+      // ── LISTE DES PLATS AVEC IMAGES (spécialités phares + accueil) ──
+      const SPEC_NAMES = [
+        "Hamburger",
+        "Chawarma au Poulet",
+        "Chawarma Viande de Boeuf",
+        "Spaghetti Bolognaise",
+        "Spaghetti Rouge",
+        "Riz au Poulet Yassa",
+        "Riz au Gras",
+        "Riz Blanc Parfume",
+        "Tilapia 3,5K",
+        "Attieke avec Akpalan",
+        "Attieke au Tilapia",
+        "Pate au Mil 500",
+        "Pate au Mais 500",
+        "Foufou 1K",
+        "Watchi / Ayimolou",
+        "Couscous Blanc",
+      ];
+
+      // ── RENDERmenu() — remplace l'ancienne ──
+      async function renderMenu() {
+        try {
+          const res = await fetch(
+            SUPA_URL + "/rest/v1/plats?visible=eq.true&order=cat,name",
+            {
+              headers: {
+                apikey: SUPA_KEY,
+                Authorization: "Bearer " + SUPA_KEY,
+              },
+            },
+          );
+          DISHES = await res.json();
+        } catch (e) {
+          console.error("Erreur Supabase", e);
+        }
+
+        // Réinitialiser la recherche
+        const inp = document.getElementById("menuSearchInput");
+        if (inp) inp.value = "";
+        document.getElementById("menuSearchSection").style.display = "none";
+        document.getElementById("menuSpecSection").style.display = "block";
+        document.getElementById("menuFullSection").style.display = "block";
+
+        // Rendre les spécialités avec images
+        renderSpecialites();
+        // Rendre le catalogue complet
+        renderMenuCat();
+      }
+
+      // ── RENDRE LES SPÉCIALITÉS PHARES (menu page) ──
+      function renderSpecialites() {
+        const grid = document.getElementById("menuSpecGrid");
+        if (!grid) return;
+
+        // Filtrer les plats avec image dans le bon ordre
+        const specs = SPEC_NAMES.map((n) =>
+          DISHES.find((d) => d.name === n),
+        ).filter((d) => d && d.image);
+
+        if (!specs.length) {
+          grid.innerHTML =
+            '<p style="color:var(--gray);text-align:center">Aucune spécialité disponible</p>';
+          return;
+        }
+
+        let html = "";
+        specs.forEach((d) => {
+          html +=
+            '<div class="all-c">' +
+            '<div class="all-c-img"><img src="images/' +
+            d.image +
+            '" alt="' +
+            d.name +
+            '" loading="lazy"/></div>' +
+            '<div class="all-c-body">' +
+            '<div class="all-c-name">' +
+            d.name +
+            "</div>" +
+            '<div class="all-c-desc">' +
+            d.desc +
+            "</div>" +
+            '<div class="all-c-price-row">' +
+            '<span class="all-c-price">' +
+            d.price.toLocaleString() +
+            " F</span>" +
+            '<div class="all-c-btns">' +
+            '<button class="btn-reserver" onclick="menuReserveByName(\'' +
+            d.name +
+            "'," +
+            d.price +
+            ')">🗓</button>' +
+            '<button class="btn-commander" onclick="quickAdd(\'' +
+            d.name +
+            "'," +
+            d.price +
+            ");showAddFeedback('" +
+            d.name +
+            "')\">+ Commander</button>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>";
+        });
+        grid.innerHTML = html;
+      }
+
+      // ── RENDRE LES SPÉCIALITÉS DE LA PAGE D'ACCUEIL ──
+      async function renderAccueilSpec() {
+        // Charger les plats si pas encore chargé
+        if (!DISHES.length) {
+          try {
+            const res = await fetch(
+              SUPA_URL + "/rest/v1/plats?visible=eq.true&order=cat,name",
+              {
+                headers: {
+                  apikey: SUPA_KEY,
+                  Authorization: "Bearer " + SUPA_KEY,
+                },
+              },
+            );
+            DISHES = await res.json();
+          } catch (e) {
+            console.error("Erreur Supabase", e);
+            return;
+          }
+        }
+
+        const grid = document.getElementById("accueilSpecGrid");
+        if (!grid) return;
+
+        // Plats pour la page d'accueil (plats locaux avec images)
+        const ACCUEIL_NAMES = [
+          "Attieke avec Akpalan",
+          "Couscous Blanc",
+          "Riz au Gras",
+          "Foufou 1K",
+          "Pate au Mil 500",
+          "Pate au Mais 500",
+          "Watchi / Ayimolou",
+          "Riz au Poulet Yassa",
+        ];
+
+        const plats = ACCUEIL_NAMES.map((n) =>
+          DISHES.find((d) => d.name === n),
+        ).filter((d) => d && d.image);
+
+        let html = "";
+        plats.forEach((d) => {
+          html +=
+            '<div class="sc">' +
+            '<div class="sc-img"><img src="images/' +
+            d.image +
+            '" alt="' +
+            d.name +
+            '" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"/></div>' +
+            '<div class="sc-body">' +
+            '<div class="sc-name">' +
+            d.name +
+            "</div>" +
+            '<div class="sc-desc">' +
+            d.desc +
+            "</div>" +
+            '<div class="sc-ft">' +
+            '<span class="sc-price">' +
+            d.price.toLocaleString() +
+            " FCFA</span>" +
+            '<button class="sc-btn" onclick="quickAdd(\'' +
+            d.name +
+            "'," +
+            d.price +
+            ')">+ Ajouter</button>' +
+            "</div>" +
+            "</div>" +
+            "</div>";
+        });
+
+        grid.innerHTML = html;
+      }
+      renderAccueilSpec(); // charge au démarrage
     </script>
   </body>
 </html>
