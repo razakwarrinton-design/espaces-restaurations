@@ -5045,17 +5045,13 @@ let DISHES = [];
       // ─────────────────────────────────────────────
       async function renderMenu(){
   // Charger depuis Supabase si pas encore chargé
-  if(!DISHES.length){
-    try {
-      const res = await fetch(
-        SUPA_URL+'/rest/v1/plats?visible=eq.true&order=cat,name',
-        {headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY}}
-      );
-      DISHES = await res.json();
-    } catch(e){
-      console.error('Erreur Supabase',e);
-    }
-  }
+  try {
+  const res = await fetch(
+    SUPA_URL+'/rest/v1/plats?visible=eq.true&order=cat,name',
+    {headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY}}
+  );
+  DISHES = await res.json();
+} catch(e){ console.error('Erreur Supabase',e); }
   // Réinitialiser la recherche
   const inp = document.getElementById('menuSearchInput');
   if(inp) inp.value='';
