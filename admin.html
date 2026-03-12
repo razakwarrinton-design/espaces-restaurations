@@ -523,12 +523,38 @@
       }
       @media (max-width: 768px) {
         .main {
-          padding: 1rem;
+          padding: 0.8rem;
         }
         .topbar {
           padding: 0.8rem 1rem;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        .topbar-right {
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        .topbar-stats {
+          font-size: 0.72rem;
+        }
+        .toolbar {
+          flex-direction: column;
+        }
+        .search-box {
+          width: 100%;
+        }
+        .filter-select {
+          width: 100%;
+        }
+        .btn-add {
+          width: 100%;
+          text-align: center;
+        }
+        .table-wrap {
+          overflow-x: auto;
         }
         table {
+          min-width: 600px;
           font-size: 0.78rem;
         }
         th,
@@ -537,6 +563,26 @@
         }
         .td-desc {
           display: none;
+        }
+        .modal {
+          margin: 0.5rem;
+        }
+        .modal-body {
+          padding: 1rem;
+        }
+        .modal-footer {
+          padding: 0.8rem 1rem;
+        }
+        .confirm-box {
+          padding: 1.5rem;
+        }
+        .action-btns {
+          flex-direction: column;
+        }
+        .btn-edit,
+        .btn-delete {
+          width: 100%;
+          text-align: center;
         }
       }
     </style>
