@@ -4151,26 +4151,28 @@
         btn.classList.add("active");
         renderDishList();
       }
-      function renderDishList() {
+      function renderDishList(customList) {
         const list = document.getElementById("dishList");
         const filtered =
-          currentFilter === "all"
-            ? DISHES
-            : DISHES.filter((d) => d.cat === currentFilter);
+          customList !== undefined
+            ? customList
+            : currentFilter === "all"
+              ? DISHES
+              : DISHES.filter((d) => d.cat === currentFilter);
         list.innerHTML = filtered
           .map(
             (d) => `
-    <div class="dish-row">
-      <div class="dish-info">
-        <div class="dish-name">${d.name}</div>
-        <div class="dish-price">${d.price.toLocaleString()} FCFA</div>
-      </div>
-      <div class="qty-ctrl">
-        <button class="qty-btn" onclick="changeQty('${d.name}',${d.price},-1)">−</button>
-        <span class="qty-n" id="qty-${d.name.replace(/\s/g, "_")}">${cart[d.name] ? cart[d.name].qty : 0}</span>
-        <button class="qty-btn" onclick="changeQty('${d.name}',${d.price},1)">+</button>
-      </div>
-    </div>`,
+  <div class="dish-row">
+    <div class="dish-info">
+      <div class="dish-name">${d.name}</div>
+      <div class="dish-price">${d.price.toLocaleString()} FCFA</div>
+    </div>
+    <div class="qty-ctrl">
+      <button class="qty-btn" onclick="changeQty('${d.name}',${d.price},-1)">−</button>
+      <span class="qty-n" id="qty-${d.name.replace(/\s/g, "_")}">${cart[d.name] ? cart[d.name].qty : 0}</span>
+      <button class="qty-btn" onclick="changeQty('${d.name}',${d.price},1)">+</button>
+    </div>
+  </div>`,
           )
           .join("");
       }
