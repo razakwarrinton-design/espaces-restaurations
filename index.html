@@ -4216,7 +4216,7 @@
           .join("");
         st.textContent = total.toLocaleString() + " FCFA";
       }
-      function sendOrder() {
+      async function sendOrder() {
         const items = Object.entries(cart);
         if (!items.length) {
           alert("⚠️ Veuillez sélectionner au moins un plat !");
@@ -4230,6 +4230,7 @@
         const mode = document.getElementById("ord-mode").value;
         const addr = document.getElementById("ord-addr").value || "À préciser";
         const note = document.getElementById("ord-note").value;
+
         let total = 0;
         let msg = `COMMANDE - Espaces Restaurations\n\n`;
         msg += `Client : ${name}\n`;
@@ -4238,12 +4239,40 @@
         if (mode.includes("domicile")) msg += `Adresse : ${addr}\n`;
         msg += `Heure souhaitee : ${time}\n\n`;
         msg += `Detail de la commande :\n`;
+
+        const plats = [];
         items.forEach(([n, v]) => {
           total += v.price * v.qty;
           msg += `- ${n} x${v.qty} = ${(v.price * v.qty).toLocaleString()} FCFA\n`;
+          plats.push({ nom: n, prix: v.price, qty: v.qty });
         });
         msg += `\nTotal estime : ${total.toLocaleString()} FCFA`;
         if (note) msg += `\nNote : ${note}`;
+
+        // ── Sauvegarder dans Supabase ──
+        try {
+          await fetch(SUPA_URL + "/rest/v1/commandes", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              apikey: SUPA_KEY,
+              Authorization: "Bearer " + SUPA_KEY,
+            },
+            body: JSON.stringify({
+              client_nom: name,
+              client_tel: phone,
+              client_adresse: addr,
+              mode: mode,
+              heure: time,
+              note: note,
+              plats: plats,
+              total: total,
+              statut: "nouveau",
+            }),
+          });
+        } catch (e) {
+          console.error("Erreur sauvegarde commande", e);
+        }
 
         window.open(
           "https://wa.me/22890151300?text=" + encodeURIComponent(msg),
