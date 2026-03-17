@@ -1,1112 +1,818 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Admin — Espaces Restaurations</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --or: #e31e24;
-        --bk: #080808;
-        --card: #181818;
-        --border: #2a2a2a;
-        --gray: #888;
-        --wh: #fff;
-        --green: #22c55e;
-        --red: #ef4444;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-      body {
-        background: var(--bk);
-        color: var(--wh);
-        font-family: "Inter", sans-serif;
-        min-height: 100vh;
-      }
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin — Espaces Restaurations</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--or:#e31e24;--bk:#080808;--card:#181818;--border:#2a2a2a;--gray:#888;--wh:#fff;--green:#22c55e;--red:#ef4444;--sidebar:220px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{max-width:100%;overflow-x:hidden;}
+body{background:var(--bk);color:var(--wh);font-family:'Inter',sans-serif;min-height:100vh;}
 
-      /* LOGIN */
-      #loginScreen {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 1rem;
-      }
-      .login-box {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 2rem;
-        width: 100%;
-        max-width: 380px;
-        text-align: center;
-      }
-      .login-box h1 {
-        font-family: "Syne", sans-serif;
-        font-size: 1.5rem;
-        margin-bottom: 0.3rem;
-      }
-      .login-box h1 span {
-        color: var(--or);
-      }
-      .login-box p {
-        color: var(--gray);
-        font-size: 0.83rem;
-        margin-bottom: 1.5rem;
-      }
-      .login-box input {
-        width: 100%;
-        background: #111;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 0.8rem 1rem;
-        color: var(--wh);
-        font-size: 0.95rem;
-        margin-bottom: 1rem;
-        outline: none;
-      }
-      .login-box input:focus {
-        border-color: var(--or);
-      }
-      .login-box button {
-        width: 100%;
-        background: var(--or);
-        border: none;
-        border-radius: 8px;
-        padding: 0.85rem;
-        color: #fff;
-        font-family: "Syne", sans-serif;
-        font-size: 0.95rem;
-        font-weight: 700;
-        cursor: pointer;
-      }
-      .login-error {
-        color: var(--red);
-        font-size: 0.82rem;
-        margin-top: 0.5rem;
-        display: none;
-      }
+/* ── LOGIN ── */
+#loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1rem;}
+.login-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;width:100%;max-width:380px;text-align:center;}
+.login-box h1{font-family:'Syne',sans-serif;font-size:1.5rem;margin-bottom:.3rem;}
+.login-box h1 span{color:var(--or);}
+.login-box p{color:var(--gray);font-size:.83rem;margin-bottom:1.5rem;}
+.login-box input{width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;color:var(--wh);font-size:.95rem;margin-bottom:1rem;outline:none;}
+.login-box input:focus{border-color:var(--or);}
+.login-box button{width:100%;background:var(--or);border:none;border-radius:8px;padding:.85rem;color:#fff;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;}
+.login-error{color:var(--red);font-size:.82rem;margin-top:.5rem;display:none;}
 
-      /* DASHBOARD */
-      #dashboard {
-        display: none;
-      }
-      .topbar {
-        background: var(--card);
-        border-bottom: 1px solid var(--border);
-        padding: 0.9rem 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-      .topbar-brand {
-        font-family: "Syne", sans-serif;
-        font-size: 1rem;
-        font-weight: 800;
-      }
-      .topbar-brand span {
-        color: var(--or);
-      }
-      .topbar-right {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        flex-wrap: wrap;
-      }
-      .topbar-stats {
-        font-size: 0.75rem;
-        color: var(--gray);
-      }
-      .topbar-stats span {
-        color: var(--or);
-        font-weight: 700;
-      }
-      .btn-logout {
-        background: transparent;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        padding: 0.35rem 0.8rem;
-        color: var(--gray);
-        font-size: 0.75rem;
-        cursor: pointer;
-        white-space: nowrap;
-      }
+/* ── LAYOUT ── */
+#dashboard{display:none;}
+.app-layout{display:flex;min-height:100vh;}
 
-      /* MAIN */
-      .main {
-        padding: 1rem;
-      }
-      .toolbar {
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-        margin-bottom: 1.2rem;
-      }
-      .search-box {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 0.6rem 1rem;
-        width: 100%;
-      }
-      .search-box input {
-        background: none;
-        border: none;
-        outline: none;
-        color: var(--wh);
-        font-size: 0.88rem;
-        width: 100%;
-      }
-      .search-box input::placeholder {
-        color: var(--gray);
-      }
-      .filter-select {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 0.6rem 1rem;
-        color: var(--wh);
-        font-size: 0.85rem;
-        outline: none;
-        cursor: pointer;
-        width: 100%;
-      }
-      .btn-add {
-        background: var(--or);
-        border: none;
-        border-radius: 8px;
-        padding: 0.7rem 1rem;
-        color: #fff;
-        font-family: "Syne", sans-serif;
-        font-size: 0.88rem;
-        font-weight: 700;
-        cursor: pointer;
-        width: 100%;
-        text-align: center;
-      }
+/* ── SIDEBAR ── */
+.sidebar{width:var(--sidebar);background:var(--card);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:200;transition:transform .3s;}
+.sidebar-brand{padding:1.3rem 1.2rem;border-bottom:1px solid var(--border);}
+.sidebar-brand h2{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;}
+.sidebar-brand h2 span{color:var(--or);}
+.sidebar-brand p{font-size:.7rem;color:var(--gray);margin-top:.2rem;}
+.sidebar-nav{flex:1;padding:.8rem 0;overflow-y:auto;}
+.nav-item{display:flex;align-items:center;gap:.7rem;padding:.7rem 1.2rem;font-size:.85rem;color:var(--gray);cursor:pointer;transition:all .2s;border-left:3px solid transparent;}
+.nav-item:hover{color:var(--wh);background:rgba(255,255,255,.04);}
+.nav-item.active{color:var(--or);background:rgba(227,30,36,.08);border-left-color:var(--or);}
+.nav-item svg{flex-shrink:0;}
+.sidebar-footer{padding:1rem 1.2rem;border-top:1px solid var(--border);}
+.btn-logout{width:100%;background:transparent;border:1px solid var(--border);border-radius:8px;padding:.6rem;color:var(--gray);font-size:.82rem;cursor:pointer;transition:all .2s;}
+.btn-logout:hover{border-color:var(--red);color:var(--red);}
 
-      /* TABLE WRAP */
-      .table-wrap {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        overflow: hidden;
-      }
-      .table-header {
-        padding: 0.9rem 1.2rem;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .table-header h2 {
-        font-family: "Syne", sans-serif;
-        font-size: 0.95rem;
-      }
-      .table-count {
-        font-size: 0.78rem;
-        color: var(--gray);
-      }
+/* ── TOPBAR MOBILE ── */
+.topbar-mobile{display:none;background:var(--card);border-bottom:1px solid var(--border);padding:.8rem 1rem;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:150;}
+.topbar-mobile h2{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;}
+.topbar-mobile h2 span{color:var(--or);}
+.burger{background:none;border:none;color:var(--wh);cursor:pointer;padding:.3rem;}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:190;}
+.sidebar-overlay.open{display:block;}
 
-      /* TABLE DESKTOP */
-      .desktop-table {
-        display: none;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      th {
-        padding: 0.75rem 1rem;
-        text-align: left;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--gray);
-        border-bottom: 1px solid var(--border);
-      }
-      td {
-        padding: 0.8rem 1rem;
-        font-size: 0.83rem;
-        border-bottom: 1px solid #1a1a1a;
-        vertical-align: middle;
-      }
-      tr:last-child td {
-        border-bottom: none;
-      }
-      .td-name {
-        font-weight: 600;
-      }
-      .td-desc {
-        color: var(--gray);
-        font-size: 0.76rem;
-        max-width: 220px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .td-price {
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        color: var(--or);
-        white-space: nowrap;
-      }
+/* ── MAIN CONTENT ── */
+.main-content{margin-left:var(--sidebar);flex:1;padding:1.5rem;min-height:100vh;}
 
-      /* CARDS MOBILE */
-      .mobile-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-        padding: 0.8rem;
-      }
-      .plat-card {
-        background: #111;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 0.9rem;
-      }
-      .plat-card-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-      }
-      .plat-card-name {
-        font-weight: 700;
-        font-size: 0.9rem;
-        flex: 1;
-      }
-      .plat-card-price {
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        color: var(--or);
-        font-size: 0.88rem;
-        white-space: nowrap;
-      }
-      .plat-card-meta {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      .plat-card-desc {
-        color: var(--gray);
-        font-size: 0.75rem;
-        margin-bottom: 0.5rem;
-        line-height: 1.4;
-      }
-      .plat-card-actions {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-      .btn-edit {
-        background: rgba(227, 30, 36, 0.15);
-        border: none;
-        border-radius: 6px;
-        padding: 0.35rem 0.8rem;
-        color: var(--or);
-        font-size: 0.78rem;
-        cursor: pointer;
-      }
-      .btn-delete {
-        background: rgba(239, 68, 68, 0.15);
-        border: none;
-        border-radius: 6px;
-        padding: 0.35rem 0.8rem;
-        color: var(--red);
-        font-size: 0.78rem;
-        cursor: pointer;
-      }
+/* ── SECTIONS ── */
+.section{display:none;}
+.section.active{display:block;}
 
-      /* BADGE */
-      .cat-badge {
-        display: inline-block;
-        padding: 0.18rem 0.5rem;
-        border-radius: 20px;
-        font-size: 0.65rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        background: rgba(227, 30, 36, 0.1);
-        color: var(--or);
-      }
+/* ── DASHBOARD STATS ── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center;}
+.stat-card .stat-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--or);}
+.stat-card .stat-label{font-size:.75rem;color:var(--gray);margin-top:.3rem;}
+.cat-stats{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem;}
+.cat-stats h3{font-family:'Syne',sans-serif;font-size:.9rem;margin-bottom:1rem;}
+.cat-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;}
+.cat-row-label{font-size:.8rem;width:100px;flex-shrink:0;}
+.cat-bar-wrap{flex:1;background:#222;border-radius:50px;height:8px;overflow:hidden;}
+.cat-bar{height:100%;background:var(--or);border-radius:50px;transition:width .5s;}
+.cat-row-count{font-size:.78rem;color:var(--gray);width:30px;text-align:right;}
 
-      /* TOGGLE */
-      .toggle-btn {
-        position: relative;
-        display: inline-block;
-        width: 40px;
-        height: 22px;
-        cursor: pointer;
-        flex-shrink: 0;
-      }
-      .toggle-btn input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      .toggle-slider {
-        position: absolute;
-        inset: 0;
-        background: #333;
-        border-radius: 22px;
-        transition: 0.3s;
-      }
-      .toggle-slider:before {
-        content: "";
-        position: absolute;
-        height: 16px;
-        width: 16px;
-        left: 3px;
-        bottom: 3px;
-        background: #fff;
-        border-radius: 50%;
-        transition: 0.3s;
-      }
-      input:checked + .toggle-slider {
-        background: var(--green);
-      }
-      input:checked + .toggle-slider:before {
-        transform: translateX(18px);
-      }
+/* ── TOOLBAR ── */
+.toolbar{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.2rem;}
+.search-box{display:flex;align-items:center;gap:.5rem;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.6rem 1rem;width:100%;}
+.search-box input{background:none;border:none;outline:none;color:var(--wh);font-size:.88rem;width:100%;}
+.search-box input::placeholder{color:var(--gray);}
+.filter-select{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.6rem 1rem;color:var(--wh);font-size:.85rem;outline:none;cursor:pointer;width:100%;}
+.btn-add{background:var(--or);border:none;border-radius:8px;padding:.7rem 1rem;color:#fff;font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;width:100%;text-align:center;}
 
-      /* MODAL */
-      .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.75);
-        z-index: 1000;
-        display: none;
-        align-items: flex-end;
-        justify-content: center;
-        padding: 0;
-      }
-      .modal-overlay.open {
-        display: flex;
-      }
-      .modal {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px 16px 0 0;
-        width: 100%;
-        max-width: 100%;
-        max-height: 92vh;
-        overflow-y: auto;
-      }
-      .modal-header {
-        padding: 1.2rem 1.2rem 0.8rem;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        background: var(--card);
-        z-index: 10;
-      }
-      .modal-header h3 {
-        font-family: "Syne", sans-serif;
-        font-size: 1rem;
-      }
-      .modal-close {
-        background: none;
-        border: none;
-        color: var(--gray);
-        font-size: 1.3rem;
-        cursor: pointer;
-        padding: 0.2rem 0.5rem;
-      }
-      .modal-body {
-        padding: 1.2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.9rem;
-      }
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-      }
-      .form-group label {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: var(--gray);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-      }
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        background: #111;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 0.75rem 0.9rem;
-        color: var(--wh);
-        font-size: 0.9rem;
-        outline: none;
-        font-family: "Inter", sans-serif;
-        width: 100%;
-      }
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        border-color: var(--or);
-      }
-      .form-group textarea {
-        resize: vertical;
-        min-height: 75px;
-      }
-      .form-group select option {
-        background: var(--card);
-      }
-      .modal-footer {
-        padding: 0.9rem 1.2rem;
-        border-top: 1px solid var(--border);
-        display: flex;
-        gap: 0.7rem;
-        position: sticky;
-        bottom: 0;
-        background: var(--card);
-      }
-      .btn-cancel {
-        background: transparent;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 0.7rem 1rem;
-        color: var(--gray);
-        font-size: 0.85rem;
-        cursor: pointer;
-        flex: 1;
-      }
-      .btn-save {
-        background: var(--or);
-        border: none;
-        border-radius: 8px;
-        padding: 0.7rem 1rem;
-        color: #fff;
-        font-family: "Syne", sans-serif;
-        font-size: 0.85rem;
-        font-weight: 700;
-        cursor: pointer;
-        flex: 2;
-      }
+/* ── TABLE WRAP ── */
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.table-header{padding:.9rem 1.2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.table-header h2{font-family:'Syne',sans-serif;font-size:.95rem;}
+.table-count{font-size:.78rem;color:var(--gray);}
+table{width:100%;border-collapse:collapse;}
+th{padding:.75rem 1rem;text-align:left;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border);}
+td{padding:.8rem 1rem;font-size:.83rem;border-bottom:1px solid #1a1a1a;vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+.td-name{font-weight:600;}
+.td-desc{color:var(--gray);font-size:.76rem;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.td-price{font-family:'Syne',sans-serif;font-weight:700;color:var(--or);white-space:nowrap;}
+.td-img img{width:36px;height:36px;object-fit:cover;border-radius:6px;background:#222;}
+.td-img-placeholder{width:36px;height:36px;background:#222;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gray);}
 
-      /* CONFIRM */
-      .confirm-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.75);
-        z-index: 1100;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-      }
-      .confirm-overlay.open {
-        display: flex;
-      }
-      .confirm-box {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 1.5rem;
-        max-width: 340px;
-        width: 100%;
-        text-align: center;
-      }
-      .confirm-box h3 {
-        font-family: "Syne", sans-serif;
-        margin-bottom: 0.7rem;
-        font-size: 1rem;
-      }
-      .confirm-box p {
-        color: var(--gray);
-        font-size: 0.83rem;
-        margin-bottom: 1.3rem;
-        line-height: 1.5;
-      }
-      .confirm-btns {
-        display: flex;
-        gap: 0.7rem;
-        justify-content: center;
-      }
-      .btn-confirm-delete {
-        background: var(--red);
-        border: none;
-        border-radius: 8px;
-        padding: 0.7rem 1.3rem;
-        color: #fff;
-        font-family: "Syne", sans-serif;
-        font-size: 0.85rem;
-        font-weight: 700;
-        cursor: pointer;
-      }
+/* ── MOBILE CARDS ── */
+.mobile-cards{display:flex;flex-direction:column;gap:.7rem;padding:.8rem;}
+.plat-card{background:#111;border:1px solid var(--border);border-radius:10px;padding:.9rem;}
+.plat-card-top{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.5rem;}
+.plat-card-img{width:44px;height:44px;object-fit:cover;border-radius:8px;flex-shrink:0;background:#222;}
+.plat-card-img-placeholder{width:44px;height:44px;background:#222;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.8rem;}
+.plat-card-info{flex:1;}
+.plat-card-name{font-weight:700;font-size:.88rem;}
+.plat-card-price{font-family:'Syne',sans-serif;font-weight:700;color:var(--or);font-size:.83rem;}
+.plat-card-desc{color:var(--gray);font-size:.73rem;margin-bottom:.5rem;line-height:1.4;}
+.plat-card-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.plat-card-actions{display:flex;align-items:center;gap:.4rem;}
 
-      /* TOAST */
-      .toast {
-        position: fixed;
-        bottom: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%) translateY(20px);
-        background: var(--green);
-        color: #fff;
-        padding: 0.55rem 1.3rem;
-        border-radius: 50px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        z-index: 9999;
-        opacity: 0;
-        transition: all 0.3s;
-        pointer-events: none;
-        white-space: nowrap;
-      }
-      .toast.error {
-        background: var(--red);
-      }
+/* ── BADGES ── */
+.cat-badge{display:inline-block;padding:.18rem .5rem;border-radius:20px;font-size:.65rem;font-weight:600;text-transform:uppercase;background:rgba(227,30,36,.1);color:var(--or);}
+.statut-badge{display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.68rem;font-weight:600;}
+.statut-nouveau{background:rgba(227,30,36,.15);color:var(--or);}
+.statut-confirme{background:rgba(34,197,94,.15);color:var(--green);}
+.statut-livre{background:rgba(136,136,136,.15);color:var(--gray);}
 
-      /* LOADING */
-      .loading {
-        text-align: center;
-        padding: 2.5rem;
-        color: var(--gray);
-      }
-      .spinner {
-        width: 28px;
-        height: 28px;
-        border: 3px solid var(--border);
-        border-top-color: var(--or);
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-        margin: 0 auto 0.8rem;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
+/* ── TOGGLE ── */
+.toggle-btn{position:relative;display:inline-block;width:40px;height:22px;cursor:pointer;flex-shrink:0;}
+.toggle-btn input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;inset:0;background:#333;border-radius:22px;transition:.3s;}
+.toggle-slider:before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;}
+input:checked+.toggle-slider{background:var(--green);}
+input:checked+.toggle-slider:before{transform:translateX(18px);}
 
-      /* DESKTOP */
-      @media (min-width: 768px) {
-        .main {
-          padding: 1.5rem;
-        }
-        .toolbar {
-          flex-direction: row;
-          align-items: center;
-        }
-        .search-box {
-          flex: 1;
-        }
-        .filter-select {
-          width: auto;
-        }
-        .btn-add {
-          width: auto;
-        }
-        .mobile-cards {
-          display: none;
-        }
-        .desktop-table {
-          display: block;
-        }
-        .modal {
-          border-radius: 16px;
-          max-width: 500px;
-        }
-        .modal-overlay {
-          align-items: center;
-          padding: 1rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="loginScreen">
-      <div class="login-box">
-        <h1>Espaces <span>REST.</span></h1>
-        <p>Interface d'administration — accès restreint</p>
-        <input
-          type="password"
-          id="loginPass"
-          placeholder="Mot de passe admin"
-          onkeydown="if (event.key === 'Enter') doLogin();"
-        />
-        <button onclick="doLogin()">🔐 Se connecter</button>
-        <div class="login-error" id="loginError">Mot de passe incorrect !</div>
+/* ── ACTION BTNS ── */
+.btn-edit{background:rgba(227,30,36,.15);border:none;border-radius:6px;padding:.32rem .7rem;color:var(--or);font-size:.76rem;cursor:pointer;}
+.btn-delete{background:rgba(239,68,68,.15);border:none;border-radius:6px;padding:.32rem .7rem;color:var(--red);font-size:.76rem;cursor:pointer;}
+.btn-wa{background:rgba(37,211,102,.15);border:none;border-radius:6px;padding:.32rem .7rem;color:#25d366;font-size:.76rem;cursor:pointer;white-space:nowrap;}
+
+/* ── COMMANDES ── */
+.cmd-filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.cmd-filter-btn{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:.35rem .9rem;color:var(--gray);font-size:.78rem;cursor:pointer;transition:all .2s;}
+.cmd-filter-btn.active{background:var(--or);border-color:var(--or);color:#fff;}
+.cmd-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:.8rem;}
+.cmd-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;margin-bottom:.7rem;}
+.cmd-client-name{font-weight:700;font-size:.9rem;}
+.cmd-client-tel{font-size:.78rem;color:var(--gray);}
+.cmd-date{font-size:.72rem;color:var(--gray);}
+.cmd-plats{background:#111;border-radius:8px;padding:.7rem;margin-bottom:.7rem;font-size:.8rem;}
+.cmd-plats-item{display:flex;justify-content:space-between;padding:.2rem 0;border-bottom:1px solid #1a1a1a;}
+.cmd-plats-item:last-child{border-bottom:none;}
+.cmd-total{font-family:'Syne',sans-serif;font-weight:700;color:var(--or);font-size:.88rem;text-align:right;margin-bottom:.7rem;}
+.cmd-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.cmd-mode{font-size:.75rem;color:var(--gray);}
+.cmd-actions{display:flex;gap:.4rem;flex-wrap:wrap;}
+.btn-statut{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:.3rem .7rem;color:var(--gray);font-size:.73rem;cursor:pointer;transition:all .2s;}
+.btn-statut:hover{border-color:var(--or);color:var(--or);}
+
+/* ── SECURITE ── */
+.security-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;max-width:400px;}
+.security-card h3{font-family:'Syne',sans-serif;font-size:1rem;margin-bottom:1.2rem;}
+.sec-form{display:flex;flex-direction:column;gap:.9rem;}
+.sec-form label{font-size:.78rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:.3rem;}
+.sec-form input{width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:.75rem .9rem;color:var(--wh);font-size:.9rem;outline:none;}
+.sec-form input:focus{border-color:var(--or);}
+.btn-save-sec{background:var(--or);border:none;border-radius:8px;padding:.75rem 1.5rem;color:#fff;font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;margin-top:.5rem;}
+.session-info{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem;max-width:400px;margin-top:1rem;}
+.session-info h3{font-family:'Syne',sans-serif;font-size:.9rem;margin-bottom:.7rem;}
+.session-info p{font-size:.82rem;color:var(--gray);line-height:1.6;}
+.session-info span{color:var(--or);font-weight:600;}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;display:none;align-items:flex-end;justify-content:center;padding:0;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:16px 16px 0 0;width:100%;max-width:100%;max-height:92vh;overflow-y:auto;}
+.modal-header{padding:1.2rem 1.2rem .8rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--card);z-index:10;}
+.modal-header h3{font-family:'Syne',sans-serif;font-size:1rem;}
+.modal-close{background:none;border:none;color:var(--gray);font-size:1.3rem;cursor:pointer;padding:.2rem .5rem;}
+.modal-body{padding:1.2rem;display:flex;flex-direction:column;gap:.9rem;}
+.form-group{display:flex;flex-direction:column;gap:.4rem;}
+.form-group label{font-size:.75rem;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;}
+.form-group input,.form-group select,.form-group textarea{background:#111;border:1px solid var(--border);border-radius:8px;padding:.75rem .9rem;color:var(--wh);font-size:.9rem;outline:none;font-family:'Inter',sans-serif;width:100%;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--or);}
+.form-group textarea{resize:vertical;min-height:75px;}
+.form-group select option{background:var(--card);}
+.img-preview{width:80px;height:80px;object-fit:cover;border-radius:8px;background:#222;display:block;margin-top:.5rem;}
+.img-preview-placeholder{width:80px;height:80px;background:#222;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gray);margin-top:.5rem;}
+.modal-footer{padding:.9rem 1.2rem;border-top:1px solid var(--border);display:flex;gap:.7rem;position:sticky;bottom:0;background:var(--card);}
+.btn-cancel{background:transparent;border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--gray);font-size:.85rem;cursor:pointer;flex:1;}
+.btn-save{background:var(--or);border:none;border-radius:8px;padding:.7rem 1rem;color:#fff;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;flex:2;}
+
+/* ── CONFIRM ── */
+.confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1100;display:none;align-items:center;justify-content:center;padding:1rem;}
+.confirm-overlay.open{display:flex;}
+.confirm-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;max-width:340px;width:100%;text-align:center;}
+.confirm-box h3{font-family:'Syne',sans-serif;margin-bottom:.7rem;font-size:1rem;}
+.confirm-box p{color:var(--gray);font-size:.83rem;margin-bottom:1.3rem;line-height:1.5;}
+.confirm-btns{display:flex;gap:.7rem;justify-content:center;}
+.btn-confirm-delete{background:var(--red);border:none;border-radius:8px;padding:.7rem 1.3rem;color:#fff;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--green);color:#fff;padding:.55rem 1.3rem;border-radius:50px;font-size:.82rem;font-weight:600;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;}
+.toast.error{background:var(--red);}
+
+/* ── LOADING ── */
+.loading{text-align:center;padding:2.5rem;color:var(--gray);}
+.spinner{width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--or);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto .8rem;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── DESKTOP ── */
+@media(min-width:768px){
+  .topbar-mobile{display:none !important;}
+  .sidebar{transform:none !important;}
+  .main-content{margin-left:var(--sidebar);}
+  .toolbar{flex-direction:row;align-items:center;}
+  .search-box{flex:1;}
+  .filter-select{width:auto;}
+  .btn-add{width:auto;}
+  .mobile-cards{display:none;}
+  .desktop-table{display:block;}
+  .modal{border-radius:16px;max-width:520px;}
+  .modal-overlay{align-items:center;padding:1rem;}
+  .stats-grid{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:767px){
+  .topbar-mobile{display:flex;}
+  .sidebar{transform:translateX(-100%);}
+  .sidebar.open{transform:translateX(0);}
+  .main-content{margin-left:0;padding:1rem;}
+  .desktop-table{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <h1>Espaces <span>REST.</span></h1>
+    <p>Interface d'administration — accès restreint</p>
+    <input type="password" id="loginPass" placeholder="Mot de passe admin" onkeydown="if(event.key==='Enter')doLogin()"/>
+    <button onclick="doLogin()">🔐 Se connecter</button>
+    <div class="login-error" id="loginError">Mot de passe incorrect !</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <!-- Overlay sidebar mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <h2>Espaces <span>REST.</span></h2>
+      <p>Panel d'administration</p>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-item active" onclick="showSection('dashboard')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Tableau de bord
+      </div>
+      <div class="nav-item" onclick="showSection('plats')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Plats & Menu
+      </div>
+      <div class="nav-item" onclick="showSection('commandes')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Commandes
+        <span id="badgeCommandes" style="background:var(--or);color:#fff;border-radius:50px;font-size:.65rem;padding:.1rem .45rem;margin-left:auto;display:none;">0</span>
+      </div>
+      <div class="nav-item" onclick="showSection('securite')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Sécurité
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn-logout" onclick="doLogout()">🚪 Déconnexion</button>
+    </div>
+  </div>
+
+  <!-- TOPBAR MOBILE -->
+  <div class="topbar-mobile">
+    <button class="burger" onclick="openSidebar()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <h2>Espaces <span>REST.</span></h2>
+    <div style="width:20px"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- ── SECTION DASHBOARD ── -->
+    <div class="section active" id="sec-dashboard">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:1.2rem;">Tableau de bord</h2>
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card"><div class="stat-val" id="statTotal">—</div><div class="stat-label">Total plats</div></div>
+        <div class="stat-card"><div class="stat-val" id="statVisible">—</div><div class="stat-label">Visibles</div></div>
+        <div class="stat-card"><div class="stat-val" id="statMasque">—</div><div class="stat-label">Masqués</div></div>
+        <div class="stat-card"><div class="stat-val" id="statCommandes">—</div><div class="stat-label">Commandes</div></div>
+      </div>
+      <div class="cat-stats">
+        <h3>Répartition par catégorie</h3>
+        <div id="catStatsContent"><div class="loading"><div class="spinner"></div></div></div>
       </div>
     </div>
 
-    <div id="dashboard">
-      <div class="topbar">
-        <div class="topbar-brand">Espaces <span>REST.</span> Admin</div>
-        <div class="topbar-right">
-          <div class="topbar-stats">
-            Total : <span id="statsTotal">0</span> &bull; Visibles :
-            <span id="statsVisible">0</span>
-          </div>
-          <button class="btn-logout" onclick="doLogout()">Déconnexion</button>
+    <!-- ── SECTION PLATS ── -->
+    <div class="section" id="sec-plats">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:1.2rem;">Plats & Menu</h2>
+      <div class="toolbar">
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="searchInput" placeholder="Rechercher un plat..." oninput="filterTable()"/>
         </div>
+        <select class="filter-select" id="catFilter" onchange="filterTable()">
+          <option value="">Toutes catégories</option>
+          <option value="fast">Fast-Food</option>
+          <option value="local">Plats Locaux</option>
+          <option value="poisson">Poissons</option>
+          <option value="viande">Viandes</option>
+          <option value="boisson">Boissons</option>
+          <option value="snack">Snacks</option>
+          <option value="divers">Divers</option>
+        </select>
+        <button class="btn-add" onclick="openAddModal()">+ Nouveau plat</button>
       </div>
-      <div class="main">
-        <div class="toolbar">
-          <div class="search-box">
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#888"
-              stroke-width="2"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-            </svg>
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Rechercher un plat..."
-              oninput="filterTable()"
-            />
-          </div>
-          <select class="filter-select" id="catFilter" onchange="filterTable()">
-            <option value="">Toutes catégories</option>
-            <option value="fast">Fast-Food</option>
-            <option value="local">Plats Locaux</option>
-            <option value="poisson">Poissons</option>
-            <option value="viande">Viandes</option>
-            <option value="boisson">Boissons</option>
-            <option value="snack">Snacks</option>
-            <option value="divers">Divers</option>
-          </select>
-          <button class="btn-add" onclick="openAddModal()">
-            + Nouveau plat
-          </button>
+      <div class="table-wrap">
+        <div class="table-header">
+          <h2>Liste des plats</h2>
+          <span class="table-count" id="tableCount">Chargement...</span>
         </div>
-        <div class="table-wrap">
-          <div class="table-header">
-            <h2>Liste des plats</h2>
-            <span class="table-count" id="tableCount">Chargement...</span>
-          </div>
-          <div id="tableContainer">
-            <div class="loading">
-              <div class="spinner"></div>
-              Chargement...
-            </div>
-          </div>
-        </div>
+        <div id="tableContainer"><div class="loading"><div class="spinner"></div>Chargement...</div></div>
       </div>
     </div>
 
-    <!-- MODAL -->
-    <div class="modal-overlay" id="modalOverlay">
-      <div class="modal">
-        <div class="modal-header">
-          <h3 id="modalTitle">Nouveau plat</h3>
-          <button class="modal-close" onclick="closeModal()">✕</button>
+    <!-- ── SECTION COMMANDES ── -->
+    <div class="section" id="sec-commandes">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:1.2rem;">Commandes reçues</h2>
+      <div class="cmd-filters">
+        <button class="cmd-filter-btn active" onclick="filterCommandes('all',this)">Toutes</button>
+        <button class="cmd-filter-btn" onclick="filterCommandes('nouveau',this)">🔴 Nouvelles</button>
+        <button class="cmd-filter-btn" onclick="filterCommandes('confirme',this)">🟢 Confirmées</button>
+        <button class="cmd-filter-btn" onclick="filterCommandes('livre',this)">✅ Livrées</button>
+      </div>
+      <div id="commandesContainer"><div class="loading"><div class="spinner"></div>Chargement...</div></div>
+    </div>
+
+    <!-- ── SECTION SECURITE ── -->
+    <div class="section" id="sec-securite">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:1.2rem;">Sécurité</h2>
+      <div class="security-card">
+        <h3>🔐 Changer le mot de passe</h3>
+        <div class="sec-form">
+          <div><label>Mot de passe actuel</label><input type="password" id="secOld" placeholder="Mot de passe actuel"/></div>
+          <div><label>Nouveau mot de passe</label><input type="password" id="secNew" placeholder="Nouveau mot de passe"/></div>
+          <div><label>Confirmer</label><input type="password" id="secConfirm" placeholder="Confirmer le nouveau mot de passe"/></div>
+          <button class="btn-save-sec" onclick="changePassword()">Enregistrer</button>
         </div>
-        <div class="modal-body">
-          <input type="hidden" id="editId" />
-          <div class="form-group">
-            <label>Nom du plat</label
-            ><input
-              type="text"
-              id="fName"
-              placeholder="ex: Spaghetti Bolognaise"
-            />
-          </div>
-          <div class="form-group">
-            <label>Prix (FCFA)</label
-            ><input type="number" id="fPrice" placeholder="ex: 1500" />
-          </div>
-          <div class="form-group">
-            <label>Catégorie</label>
-            <select id="fCat">
-              <option value="fast">Fast-Food</option>
-              <option value="local">Plats Locaux</option>
-              <option value="poisson">Poissons</option>
-              <option value="viande">Viandes</option>
-              <option value="boisson">Boissons</option>
-              <option value="snack">Snacks</option>
-              <option value="divers">Divers</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Description</label
-            ><textarea
-              id="fDesc"
-              placeholder="Description du plat..."
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <label>Visible sur le site</label>
-            <select id="fVisible">
-              <option value="true">✅ Oui — visible</option>
-              <option value="false">❌ Non — caché</option>
-            </select>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn-cancel" onclick="closeModal()">Annuler</button>
-          <button class="btn-save" onclick="savePlat()">Enregistrer</button>
-        </div>
+      </div>
+      <div class="session-info">
+        <h3>⏱️ Session</h3>
+        <p>Connecté depuis : <span id="sessionTime">—</span><br/>La session expire après <span>2 heures</span> d'inactivité.</p>
       </div>
     </div>
 
-    <!-- CONFIRM DELETE -->
-    <div class="confirm-overlay" id="confirmOverlay">
-      <div class="confirm-box">
-        <h3>🗑️ Supprimer ?</h3>
-        <p id="confirmText">Cette action est irréversible.</p>
-        <div class="confirm-btns">
-          <button class="btn-cancel" onclick="closeConfirm()">Annuler</button>
-          <button class="btn-confirm-delete" onclick="confirmDelete()">
-            Supprimer
-          </button>
+  </div>
+</div>
+
+<!-- MODAL PLAT -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Nouveau plat</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="editId"/>
+      <div class="form-group"><label>Nom du plat</label><input type="text" id="fName" placeholder="ex: Spaghetti Bolognaise"/></div>
+      <div class="form-group"><label>Prix (FCFA)</label><input type="number" id="fPrice" placeholder="ex: 1500"/></div>
+      <div class="form-group"><label>Catégorie</label>
+        <select id="fCat">
+          <option value="fast">Fast-Food</option>
+          <option value="local">Plats Locaux</option>
+          <option value="poisson">Poissons</option>
+          <option value="viande">Viandes</option>
+          <option value="boisson">Boissons</option>
+          <option value="snack">Snacks</option>
+          <option value="divers">Divers</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Description</label><textarea id="fDesc" placeholder="Description du plat..."></textarea></div>
+      <div class="form-group">
+        <label>Image (nom du fichier)</label>
+        <input type="text" id="fImage" placeholder="ex: Hamburger.jpg" oninput="previewImage(this.value)"/>
+        <div id="imgPreviewWrap" style="margin-top:.5rem;display:none;">
+          <img id="imgPreview" class="img-preview" src="" alt="Aperçu"/>
         </div>
       </div>
+      <div class="form-group"><label>Visible sur le site</label>
+        <select id="fVisible">
+          <option value="true">✅ Oui — visible</option>
+          <option value="false">❌ Non — caché</option>
+        </select>
+      </div>
     </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+      <button class="btn-save" onclick="savePlat()">Enregistrer</button>
+    </div>
+  </div>
+</div>
 
-    <div class="toast" id="toast"></div>
+<!-- CONFIRM DELETE -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <h3>🗑️ Supprimer ?</h3>
+    <p id="confirmText">Cette action est irréversible.</p>
+    <div class="confirm-btns">
+      <button class="btn-cancel" onclick="closeConfirm()">Annuler</button>
+      <button class="btn-confirm-delete" onclick="confirmDelete()">Supprimer</button>
+    </div>
+  </div>
+</div>
 
-    <script>
-      const SUPA_URL = "https://vxapkdzpaohtjrxyfymo.supabase.co";
-      const SUPA_KEY =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4YXBrZHpwYW9odGpyeHlmeW1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMDQ4MzIsImV4cCI6MjA4ODY4MDgzMn0.bhVJohSW8COZ-81e3zP8aWr-MWdOsv-ThhN8JfJf5xQ";
-      const ADMIN_PASS = "espaces2024";
-      const HEADERS = {
-        "Content-Type": "application/json",
-        apikey: SUPA_KEY,
-        Authorization: "Bearer " + SUPA_KEY,
-      };
-      const CAT_LABELS = {
-        fast: "Fast-Food",
-        local: "Plats Locaux",
-        poisson: "Poissons",
-        viande: "Viandes",
-        boisson: "Boissons",
-        snack: "Snacks",
-        divers: "Divers",
-      };
-      let allPlats = [];
-      let deleteId = null;
+<div class="toast" id="toast"></div>
 
-      function doLogin() {
-        const pass = document.getElementById("loginPass").value;
-        if (pass === ADMIN_PASS) {
-          document.getElementById("loginScreen").style.display = "none";
-          document.getElementById("dashboard").style.display = "block";
-          loadPlats();
-        } else {
-          const err = document.getElementById("loginError");
-          err.style.display = "block";
-          setTimeout(() => (err.style.display = "none"), 2000);
-        }
-      }
+<script>
+const SUPA_URL  = 'https://vxapkdzpaohtjrxyfymo.supabase.co';
+const SUPA_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4YXBrZHpwYW9odGpyeHlmeW1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMDQ4MzIsImV4cCI6MjA4ODY4MDgzMn0.bhVJohSW8COZ-81e3zP8aWr-MWdOsv-ThhN8JfJf5xQ';
+const WA_NUM    = '22890151300';
+const PASS_KEY  = 'espaces_admin_pass';
+const SESSION_KEY = 'espaces_admin_session';
+const SESSION_DURATION = 2 * 60 * 60 * 1000; // 2h
+const HEADERS   = {'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY};
+const CAT_LABELS = {fast:'Fast-Food',local:'Plats Locaux',poisson:'Poissons',viande:'Viandes',boisson:'Boissons',snack:'Snacks',divers:'Divers'};
 
-      function doLogout() {
-        document.getElementById("dashboard").style.display = "none";
-        document.getElementById("loginScreen").style.display = "flex";
-        document.getElementById("loginPass").value = "";
-      }
+let allPlats = [];
+let allCommandes = [];
+let deleteId = null;
+let cmdFilter = 'all';
+let loginTime = null;
 
-      async function loadPlats() {
-        try {
-          const res = await fetch(SUPA_URL + "/rest/v1/plats?order=cat,name", {
-            headers: HEADERS,
-          });
-          allPlats = await res.json();
-          renderTable(allPlats);
-          updateStats();
-        } catch (e) {
-          showToast("Erreur de connexion", true);
-        }
-      }
+// ── UTILS ──
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function isMobile(){return window.innerWidth<768;}
+function showToast(msg,isError=false){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast'+(isError?' error':'');
+  t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(window._tt);
+  window._tt=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2500);
+}
 
-      function updateStats() {
-        document.getElementById("statsTotal").textContent = allPlats.length;
-        document.getElementById("statsVisible").textContent = allPlats.filter(
-          (p) => p.visible,
-        ).length;
-      }
+// ── SESSION ──
+function getAdminPass(){return localStorage.getItem(PASS_KEY)||'espaces2024';}
+function checkSession(){
+  const s=localStorage.getItem(SESSION_KEY);
+  if(!s) return false;
+  const data=JSON.parse(s);
+  if(Date.now()-data.time > SESSION_DURATION){localStorage.removeItem(SESSION_KEY);return false;}
+  return true;
+}
+function saveSession(){localStorage.setItem(SESSION_KEY,JSON.stringify({time:Date.now()}));}
+function resetSession(){document.addEventListener('click',()=>saveSession(),{passive:true});}
 
-      function isMobile() {
-        return window.innerWidth < 768;
-      }
+// ── LOGIN ──
+function doLogin(){
+  const pass=document.getElementById('loginPass').value;
+  if(pass===getAdminPass()){
+    saveSession();
+    loginTime=new Date();
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+    document.getElementById('sessionTime').textContent=loginTime.toLocaleTimeString('fr-FR');
+    resetSession();
+    loadAll();
+  } else {
+    const err=document.getElementById('loginError');
+    err.style.display='block';
+    setTimeout(()=>err.style.display='none',2000);
+  }
+}
 
-      function renderTable(list) {
-        const c = document.getElementById("tableContainer");
-        document.getElementById("tableCount").textContent =
-          list.length + " plat" + (list.length > 1 ? "s" : "");
-        if (!list.length) {
-          c.innerHTML = '<div class="loading">Aucun plat trouvé</div>';
-          return;
-        }
+function doLogout(){
+  localStorage.removeItem(SESSION_KEY);
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('loginPass').value='';
+}
 
-        if (isMobile()) {
-          // AFFICHAGE CARTES sur mobile
-          let h = '<div class="mobile-cards">';
-          list.forEach((p) => {
-            h +=
-              '<div class="plat-card">' +
-              '<div class="plat-card-top">' +
-              '<div class="plat-card-name">' +
-              esc(p.name) +
-              "</div>" +
-              '<div class="plat-card-price">' +
-              p.price.toLocaleString() +
-              " F</div>" +
-              "</div>" +
-              '<div class="plat-card-desc">' +
-              esc(p.desc || "") +
-              "</div>" +
-              '<div class="plat-card-meta">' +
-              '<span class="cat-badge">' +
-              (CAT_LABELS[p.cat] || p.cat) +
-              "</span>" +
-              '<div class="plat-card-actions">' +
-              '<label class="toggle-btn"><input type="checkbox"' +
-              (p.visible ? " checked" : "") +
-              ' onchange="toggleVisible(' +
-              p.id +
-              ',this.checked)"/><span class="toggle-slider"></span></label>' +
-              '<button class="btn-edit" onclick="openEditModal(' +
-              p.id +
-              ')">✏️ Modifier</button>' +
-              '<button class="btn-delete" onclick="openConfirm(' +
-              p.id +
-              ",'" +
-              esc(p.name) +
-              "')\">🗑️</button>" +
-              "</div>" +
-              "</div>" +
-              "</div>";
-          });
-          h += "</div>";
-          c.innerHTML = h;
-        } else {
-          // AFFICHAGE TABLEAU sur desktop
-          let h =
-            '<div class="desktop-table"><table><thead><tr>' +
-            "<th>Nom</th><th>Prix</th><th>Catégorie</th><th>Description</th><th>Visible</th><th>Actions</th>" +
-            "</tr></thead><tbody>";
-          list.forEach((p) => {
-            h +=
-              "<tr>" +
-              '<td class="td-name">' +
-              esc(p.name) +
-              "</td>" +
-              '<td class="td-price">' +
-              p.price.toLocaleString() +
-              " F</td>" +
-              '<td><span class="cat-badge">' +
-              (CAT_LABELS[p.cat] || p.cat) +
-              "</span></td>" +
-              '<td class="td-desc">' +
-              esc(p.desc || "") +
-              "</td>" +
-              '<td><label class="toggle-btn"><input type="checkbox"' +
-              (p.visible ? " checked" : "") +
-              ' onchange="toggleVisible(' +
-              p.id +
-              ',this.checked)"/><span class="toggle-slider"></span></label></td>' +
-              '<td><div style="display:flex;gap:.4rem;">' +
-              '<button class="btn-edit" onclick="openEditModal(' +
-              p.id +
-              ')">✏️ Modifier</button>' +
-              '<button class="btn-delete" onclick="openConfirm(' +
-              p.id +
-              ",'" +
-              esc(p.name) +
-              "')\">🗑️</button>" +
-              "</div></td></tr>";
-          });
-          h += "</tbody></table></div>";
-          c.innerHTML = h;
-        }
-      }
+// Auto-login si session valide
+window.addEventListener('load',()=>{
+  if(checkSession()){
+    loginTime=new Date();
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+    document.getElementById('sessionTime').textContent=loginTime.toLocaleTimeString('fr-FR');
+    resetSession();
+    loadAll();
+  }
+});
 
-      function filterTable() {
-        const q = document.getElementById("searchInput").value.toLowerCase();
-        const cat = document.getElementById("catFilter").value;
-        const f = allPlats.filter(
-          (p) =>
-            (!q ||
-              p.name.toLowerCase().includes(q) ||
-              (p.desc || "").toLowerCase().includes(q)) &&
-            (!cat || p.cat === cat),
-        );
-        renderTable(f);
-      }
+// ── SIDEBAR ──
+function openSidebar(){
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebarOverlay').classList.add('open');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+}
 
-      async function toggleVisible(id, val) {
-        try {
-          await fetch(SUPA_URL + "/rest/v1/plats?id=eq." + id, {
-            method: "PATCH",
-            headers: HEADERS,
-            body: JSON.stringify({ visible: val }),
-          });
-          const p = allPlats.find((x) => x.id === id);
-          if (p) p.visible = val;
-          updateStats();
-          showToast(val ? "Plat rendu visible" : "Plat masqué");
-        } catch (e) {
-          showToast("Erreur", true);
-        }
-      }
+// ── NAVIGATION ──
+function showSection(name){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('sec-'+name).classList.add('active');
+  event.currentTarget.classList.add('active');
+  closeSidebar();
+  if(name==='commandes') renderCommandes();
+}
 
-      function openAddModal() {
-        document.getElementById("modalTitle").textContent = "Nouveau plat";
-        document.getElementById("editId").value = "";
-        document.getElementById("fName").value = "";
-        document.getElementById("fPrice").value = "";
-        document.getElementById("fCat").value = "fast";
-        document.getElementById("fDesc").value = "";
-        document.getElementById("fVisible").value = "true";
-        document.getElementById("modalOverlay").classList.add("open");
-      }
+// ── LOAD ALL ──
+async function loadAll(){
+  await Promise.all([loadPlats(),loadCommandes()]);
+  renderDashboard();
+}
 
-      function openEditModal(id) {
-        const p = allPlats.find((x) => x.id === id);
-        if (!p) return;
-        document.getElementById("modalTitle").textContent = "Modifier le plat";
-        document.getElementById("editId").value = p.id;
-        document.getElementById("fName").value = p.name;
-        document.getElementById("fPrice").value = p.price;
-        document.getElementById("fCat").value = p.cat;
-        document.getElementById("fDesc").value = p.desc || "";
-        document.getElementById("fVisible").value = p.visible
-          ? "true"
-          : "false";
-        document.getElementById("modalOverlay").classList.add("open");
-      }
+// ── PLATS ──
+async function loadPlats(){
+  try {
+    const res=await fetch(SUPA_URL+'/rest/v1/plats?order=cat,name',{headers:HEADERS});
+    allPlats=await res.json();
+    renderTable(allPlats);
+  } catch(e){showToast('Erreur chargement plats',true);}
+}
 
-      function closeModal() {
-        document.getElementById("modalOverlay").classList.remove("open");
-      }
+function renderTable(list){
+  const c=document.getElementById('tableContainer');
+  document.getElementById('tableCount').textContent=list.length+' plat'+(list.length>1?'s':'');
+  if(!list.length){c.innerHTML='<div class="loading">Aucun plat trouvé</div>';return;}
 
-      async function savePlat() {
-        const id = document.getElementById("editId").value;
-        const name = document.getElementById("fName").value.trim();
-        const price = parseInt(document.getElementById("fPrice").value);
-        const cat = document.getElementById("fCat").value;
-        const desc = document.getElementById("fDesc").value.trim();
-        const visible = document.getElementById("fVisible").value === "true";
-        if (!name || !price) {
-          showToast("Nom et prix obligatoires !", true);
-          return;
-        }
-        const body = JSON.stringify({ name, price, cat, desc, visible });
-        try {
-          if (id) {
-            await fetch(SUPA_URL + "/rest/v1/plats?id=eq." + id, {
-              method: "PATCH",
-              headers: HEADERS,
-              body,
-            });
-            const idx = allPlats.findIndex((x) => x.id == id);
-            if (idx > -1)
-              allPlats[idx] = {
-                ...allPlats[idx],
-                name,
-                price,
-                cat,
-                desc,
-                visible,
-              };
-            showToast("Plat modifié !");
-          } else {
-            const res = await fetch(SUPA_URL + "/rest/v1/plats", {
-              method: "POST",
-              headers: { ...HEADERS, Prefer: "return=representation" },
-              body,
-            });
-            const np = await res.json();
-            if (np && np[0]) allPlats.push(np[0]);
-            showToast("Plat ajouté !");
-          }
-          closeModal();
-          filterTable();
-          updateStats();
-        } catch (e) {
-          showToast("Erreur", true);
-        }
-      }
+  if(isMobile()){
+    let h='<div class="mobile-cards">';
+    list.forEach(p=>{
+      const imgSrc=p.image?'images/'+p.image:'';
+      h+='<div class="plat-card">'
+        +'<div class="plat-card-top">'
+        +(imgSrc?'<img class="plat-card-img" src="'+imgSrc+'" onerror="this.style.display=\'none\'"/>'
+                :'<div class="plat-card-img-placeholder">📷</div>')
+        +'<div class="plat-card-info">'
+        +'<div class="plat-card-name">'+esc(p.name)+'</div>'
+        +'<div class="plat-card-price">'+p.price.toLocaleString()+' F</div>'
+        +'</div></div>'
+        +'<div class="plat-card-desc">'+esc(p.desc||'')+'</div>'
+        +'<div class="plat-card-meta">'
+        +'<span class="cat-badge">'+(CAT_LABELS[p.cat]||p.cat)+'</span>'
+        +'<div class="plat-card-actions">'
+        +'<label class="toggle-btn"><input type="checkbox"'+(p.visible?' checked':'')+' onchange="toggleVisible('+p.id+',this.checked)"/><span class="toggle-slider"></span></label>'
+        +'<button class="btn-edit" onclick="openEditModal('+p.id+')">✏️</button>'
+        +'<button class="btn-delete" onclick="openConfirm('+p.id+',\''+esc(p.name)+'\')">🗑️</button>'
+        +'</div></div></div>';
+    });
+    h+='</div>';
+    c.innerHTML=h;
+  } else {
+    let h='<div class="desktop-table"><table><thead><tr>'
+      +'<th>Image</th><th>Nom</th><th>Prix</th><th>Catégorie</th><th>Description</th><th>Visible</th><th>Actions</th>'
+      +'</tr></thead><tbody>';
+    list.forEach(p=>{
+      const imgSrc=p.image?'images/'+p.image:'';
+      h+='<tr>'
+        +'<td class="td-img">'+(imgSrc?'<img src="'+imgSrc+'" width="36" height="36" style="object-fit:cover;border-radius:6px;background:#222;" onerror="this.style.display=\'none\'"/>'
+        :'<div class="td-img-placeholder">📷</div>')+'</td>'
+        +'<td class="td-name">'+esc(p.name)+'</td>'
+        +'<td class="td-price">'+p.price.toLocaleString()+' F</td>'
+        +'<td><span class="cat-badge">'+(CAT_LABELS[p.cat]||p.cat)+'</span></td>'
+        +'<td class="td-desc">'+esc(p.desc||'')+'</td>'
+        +'<td><label class="toggle-btn"><input type="checkbox"'+(p.visible?' checked':'')+' onchange="toggleVisible('+p.id+',this.checked)"/><span class="toggle-slider"></span></label></td>'
+        +'<td><div style="display:flex;gap:.4rem;">'
+        +'<button class="btn-edit" onclick="openEditModal('+p.id+')">✏️ Modifier</button>'
+        +'<button class="btn-delete" onclick="openConfirm('+p.id+',\''+esc(p.name)+'\')">🗑️</button>'
+        +'</div></td></tr>';
+    });
+    h+='</tbody></table></div>';
+    c.innerHTML=h;
+  }
+}
 
-      function openConfirm(id, name) {
-        deleteId = id;
-        document.getElementById("confirmText").textContent =
-          'Supprimer "' + name + '" ? Action irréversible.';
-        document.getElementById("confirmOverlay").classList.add("open");
-      }
+function filterTable(){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  const cat=document.getElementById('catFilter').value;
+  const f=allPlats.filter(p=>(!q||p.name.toLowerCase().includes(q)||(p.desc||'').toLowerCase().includes(q))&&(!cat||p.cat===cat));
+  renderTable(f);
+}
 
-      function closeConfirm() {
-        deleteId = null;
-        document.getElementById("confirmOverlay").classList.remove("open");
-      }
+async function toggleVisible(id,val){
+  try {
+    await fetch(SUPA_URL+'/rest/v1/plats?id=eq.'+id,{method:'PATCH',headers:HEADERS,body:JSON.stringify({visible:val})});
+    const p=allPlats.find(x=>x.id===id);
+    if(p) p.visible=val;
+    updateDashStats();
+    showToast(val?'✅ Plat visible':'🙈 Plat masqué');
+  } catch(e){showToast('Erreur',true);}
+}
 
-      async function confirmDelete() {
-        if (!deleteId) return;
-        try {
-          await fetch(SUPA_URL + "/rest/v1/plats?id=eq." + deleteId, {
-            method: "DELETE",
-            headers: HEADERS,
-          });
-          allPlats = allPlats.filter((x) => x.id !== deleteId);
-          closeConfirm();
-          filterTable();
-          updateStats();
-          showToast("Plat supprimé");
-        } catch (e) {
-          showToast("Erreur", true);
-        }
-      }
+// ── IMAGE PREVIEW ──
+function previewImage(val){
+  const wrap=document.getElementById('imgPreviewWrap');
+  const img=document.getElementById('imgPreview');
+  if(val){
+    img.src='images/'+val;
+    wrap.style.display='block';
+    img.onerror=()=>{wrap.style.display='none';};
+    img.onload=()=>{wrap.style.display='block';};
+  } else {
+    wrap.style.display='none';
+  }
+}
 
-      function showToast(msg, isError = false) {
-        const t = document.getElementById("toast");
-        t.textContent = msg;
-        t.className = "toast" + (isError ? " error" : "");
-        t.style.opacity = "1";
-        t.style.transform = "translateX(-50%) translateY(0)";
-        clearTimeout(window._tt);
-        window._tt = setTimeout(() => {
-          t.style.opacity = "0";
-          t.style.transform = "translateX(-50%) translateY(20px)";
-        }, 2500);
-      }
+// ── MODAL PLAT ──
+function openAddModal(){
+  document.getElementById('modalTitle').textContent='Nouveau plat';
+  document.getElementById('editId').value='';
+  document.getElementById('fName').value='';
+  document.getElementById('fPrice').value='';
+  document.getElementById('fCat').value='fast';
+  document.getElementById('fDesc').value='';
+  document.getElementById('fImage').value='';
+  document.getElementById('fVisible').value='true';
+  document.getElementById('imgPreviewWrap').style.display='none';
+  document.getElementById('modalOverlay').classList.add('open');
+}
 
-      function esc(s) {
-        return String(s)
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;");
-      }
+function openEditModal(id){
+  const p=allPlats.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById('modalTitle').textContent='✏️ Modifier le plat';
+  document.getElementById('editId').value=p.id;
+  document.getElementById('fName').value=p.name;
+  document.getElementById('fPrice').value=p.price;
+  document.getElementById('fCat').value=p.cat;
+  document.getElementById('fDesc').value=p.desc||'';
+  document.getElementById('fImage').value=p.image||'';
+  document.getElementById('fVisible').value=p.visible?'true':'false';
+  previewImage(p.image||'');
+  document.getElementById('modalOverlay').classList.add('open');
+}
 
-      window.addEventListener("resize", () => filterTable());
-    </script>
-  </body>
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
+
+async function savePlat(){
+  const id=document.getElementById('editId').value;
+  const name=document.getElementById('fName').value.trim();
+  const price=parseInt(document.getElementById('fPrice').value);
+  const cat=document.getElementById('fCat').value;
+  const desc=document.getElementById('fDesc').value.trim();
+  const image=document.getElementById('fImage').value.trim();
+  const visible=document.getElementById('fVisible').value==='true';
+  if(!name||!price){showToast('Nom et prix obligatoires !',true);return;}
+  const body=JSON.stringify({name,price,cat,desc,image:image||null,visible});
+  try {
+    if(id){
+      await fetch(SUPA_URL+'/rest/v1/plats?id=eq.'+id,{method:'PATCH',headers:HEADERS,body});
+      const idx=allPlats.findIndex(x=>x.id==id);
+      if(idx>-1) allPlats[idx]={...allPlats[idx],name,price,cat,desc,image:image||null,visible};
+      showToast('✅ Plat modifié !');
+    } else {
+      const res=await fetch(SUPA_URL+'/rest/v1/plats',{method:'POST',headers:{...HEADERS,Prefer:'return=representation'},body});
+      const np=await res.json();
+      if(np&&np[0]) allPlats.push(np[0]);
+      showToast('✅ Plat ajouté !');
+    }
+    closeModal();filterTable();updateDashStats();renderCatStats();
+  } catch(e){showToast('Erreur',true);}
+}
+
+// ── DELETE ──
+function openConfirm(id,name){
+  deleteId=id;
+  document.getElementById('confirmText').textContent='Supprimer "'+name+'" ? Action irréversible.';
+  document.getElementById('confirmOverlay').classList.add('open');
+}
+function closeConfirm(){deleteId=null;document.getElementById('confirmOverlay').classList.remove('open');}
+async function confirmDelete(){
+  if(!deleteId)return;
+  try {
+    await fetch(SUPA_URL+'/rest/v1/plats?id=eq.'+deleteId,{method:'DELETE',headers:HEADERS});
+    allPlats=allPlats.filter(x=>x.id!==deleteId);
+    closeConfirm();filterTable();updateDashStats();renderCatStats();
+    showToast('🗑️ Plat supprimé');
+  } catch(e){showToast('Erreur',true);}
+}
+
+// ── COMMANDES ──
+async function loadCommandes(){
+  try {
+    const res=await fetch(SUPA_URL+'/rest/v1/commandes?order=created_at.desc',{headers:HEADERS});
+    allCommandes=await res.json();
+    const nouvelles=allCommandes.filter(c=>c.statut==='nouveau').length;
+    const badge=document.getElementById('badgeCommandes');
+    if(nouvelles>0){badge.textContent=nouvelles;badge.style.display='inline';}
+    else badge.style.display='none';
+  } catch(e){console.error('Erreur commandes',e);}
+}
+
+function filterCommandes(statut,btn){
+  cmdFilter=statut;
+  document.querySelectorAll('.cmd-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCommandes();
+}
+
+function renderCommandes(){
+  const c=document.getElementById('commandesContainer');
+  const list=cmdFilter==='all'?allCommandes:allCommandes.filter(x=>x.statut===cmdFilter);
+  if(!list.length){c.innerHTML='<div class="loading">Aucune commande trouvée</div>';return;}
+  let h='';
+  list.forEach(cmd=>{
+    const date=new Date(cmd.created_at);
+    const dateStr=date.toLocaleDateString('fr-FR')+' à '+date.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+    const plats=Array.isArray(cmd.plats)?cmd.plats:[];
+    const statutClass='statut-'+(cmd.statut||'nouveau');
+    h+='<div class="cmd-card">'
+      +'<div class="cmd-card-header">'
+      +'<div>'
+      +'<div class="cmd-client-name">👤 '+esc(cmd.client_nom||'Client')+'</div>'
+      +'<div class="cmd-client-tel">📞 '+esc(cmd.client_tel||'—')+'</div>'
+      +'</div>'
+      +'<div style="text-align:right;">'
+      +'<span class="statut-badge '+statutClass+'">'+(cmd.statut||'nouveau')+'</span>'
+      +'<div class="cmd-date">'+dateStr+'</div>'
+      +'</div>'
+      +'</div>'
+      +'<div class="cmd-plats">'
+      +plats.map(p=>'<div class="cmd-plats-item"><span>'+esc(p.nom)+'</span><span>x'+p.qty+' — '+(p.prix*p.qty).toLocaleString()+' F</span></div>').join('')
+      +'</div>'
+      +'<div class="cmd-total">Total : '+(cmd.total||0).toLocaleString()+' FCFA</div>'
+      +'<div class="cmd-footer">'
+      +'<div class="cmd-mode">📦 '+esc(cmd.mode||'—')+(cmd.client_adresse?' · '+esc(cmd.client_adresse):'')+'</div>'
+      +'<div class="cmd-actions">'
+      +'<button class="btn-wa" onclick="contactClient(\''+esc(cmd.client_tel||'')+'\',\''+esc(cmd.client_nom||'Client')+'\')">💬 WhatsApp</button>'
+      +(cmd.statut!=='confirme'?'<button class="btn-statut" onclick="updateStatut('+cmd.id+',\'confirme\')">✅ Confirmer</button>':'')
+      +(cmd.statut!=='livre'?'<button class="btn-statut" onclick="updateStatut('+cmd.id+',\'livre\')">📦 Livré</button>':'')
+      +'<button class="btn-delete" onclick="deleteCommande('+cmd.id+')">🗑️</button>'
+      +'</div>'
+      +'</div>'
+      +'</div>';
+  });
+  c.innerHTML=h;
+}
+
+async function updateStatut(id,statut){
+  try {
+    await fetch(SUPA_URL+'/rest/v1/commandes?id=eq.'+id,{method:'PATCH',headers:HEADERS,body:JSON.stringify({statut})});
+    const c=allCommandes.find(x=>x.id===id);
+    if(c) c.statut=statut;
+    renderCommandes();
+    loadCommandes();
+    showToast('Statut mis à jour');
+  } catch(e){showToast('Erreur',true);}
+}
+
+async function deleteCommande(id){
+  try {
+    await fetch(SUPA_URL+'/rest/v1/commandes?id=eq.'+id,{method:'DELETE',headers:HEADERS});
+    allCommandes=allCommandes.filter(x=>x.id!==id);
+    renderCommandes();
+    updateDashStats();
+    showToast('Commande supprimée');
+  } catch(e){showToast('Erreur',true);}
+}
+
+function contactClient(tel,nom){
+  if(!tel){showToast('Numéro non renseigné',true);return;}
+  const clean=tel.replace(/\s/g,'');
+  const msg='Bonjour '+nom+', votre commande chez Espaces Restaurations a bien été reçue. Merci !';
+  window.open('https://wa.me/'+clean+'?text='+encodeURIComponent(msg),'_blank');
+}
+
+// ── DASHBOARD ──
+function renderDashboard(){
+  updateDashStats();
+  renderCatStats();
+}
+
+function updateDashStats(){
+  document.getElementById('statTotal').textContent=allPlats.length;
+  document.getElementById('statVisible').textContent=allPlats.filter(p=>p.visible).length;
+  document.getElementById('statMasque').textContent=allPlats.filter(p=>!p.visible).length;
+  document.getElementById('statCommandes').textContent=allCommandes.length;
+}
+
+function renderCatStats(){
+  const cats=Object.keys(CAT_LABELS);
+  const max=Math.max(...cats.map(c=>allPlats.filter(p=>p.cat===c).length),1);
+  let h='';
+  cats.forEach(c=>{
+    const count=allPlats.filter(p=>p.cat===c).length;
+    const pct=Math.round(count/max*100);
+    h+='<div class="cat-row">'
+      +'<div class="cat-row-label">'+CAT_LABELS[c]+'</div>'
+      +'<div class="cat-bar-wrap"><div class="cat-bar" style="width:'+pct+'%"></div></div>'
+      +'<div class="cat-row-count">'+count+'</div>'
+      +'</div>';
+  });
+  document.getElementById('catStatsContent').innerHTML=h;
+}
+
+// ── SECURITE ──
+function changePassword(){
+  const old=document.getElementById('secOld').value;
+  const nw=document.getElementById('secNew').value;
+  const conf=document.getElementById('secConfirm').value;
+  if(old!==getAdminPass()){showToast('Mot de passe actuel incorrect !',true);return;}
+  if(nw.length<6){showToast('Minimum 6 caractères !',true);return;}
+  if(nw!==conf){showToast('Les mots de passe ne correspondent pas !',true);return;}
+  localStorage.setItem(PASS_KEY,nw);
+  document.getElementById('secOld').value='';
+  document.getElementById('secNew').value='';
+  document.getElementById('secConfirm').value='';
+  showToast('✅ Mot de passe changé !');
+}
+
+window.addEventListener('resize',()=>filterTable());
+</script>
+</body>
 </html>
