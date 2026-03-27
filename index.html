@@ -2610,13 +2610,7 @@
                   <option>Récupérer sur place</option>
                 </select>
               </div>
-              <div class="o-fg" id="zone-field">
-                <label>Zone de livraison</label>
-                <select id="ord-zone" onchange="updateSummary()">
-                  <option value="300">Zone proche — 300 FCFA</option>
-                  <option value="500">Zone loin — 500 FCFA</option>
-                </select>
-              </div>
+
               <div class="o-fg full">
                 <label>Adresse de livraison</label>
                 <input
@@ -4257,16 +4251,14 @@
         const items = Object.entries(cart);
         const sl = document.getElementById("sumList");
         const st = document.getElementById("sumTotal");
-        const mode = document.getElementById("ord-mode");
-        const zoneField = document.getElementById("zone-field");
         const livraisonRow = document.getElementById("livraison-row");
-        const sumLivraison = document.getElementById("sumLivraison");
+        const mode = document.getElementById("ord-mode");
 
-        // Affiche/cache la zone selon le mode
-        const isLivraison = mode && mode.value.includes("domicile");
-        if (zoneField) zoneField.style.display = isLivraison ? "" : "none";
-        if (livraisonRow)
-          livraisonRow.style.display = isLivraison ? "flex" : "none";
+        // Affiche/cache frais livraison selon le mode
+        if (livraisonRow) {
+          livraisonRow.style.display =
+            mode && mode.value.includes("domicile") ? "flex" : "none";
+        }
 
         if (!items.length) {
           sl.innerHTML =
@@ -4282,14 +4274,7 @@
             return `<div class="sum-item"><span>${n} ×${v.qty}</span><span>${(v.price * v.qty).toLocaleString()} F</span></div>`;
           })
           .join("");
-
-        // Frais de livraison
-        const frais = isLivraison
-          ? parseInt(document.getElementById("ord-zone").value)
-          : 0;
-        if (sumLivraison)
-          sumLivraison.textContent = frais.toLocaleString() + " FCFA";
-        st.textContent = (total + frais).toLocaleString() + " FCFA";
+        st.textContent = total.toLocaleString() + " FCFA";
       }
       async function sendOrder() {
         const items = Object.entries(cart);
