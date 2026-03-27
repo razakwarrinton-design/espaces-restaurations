@@ -2638,7 +2638,7 @@
                 Aucun plat sélectionné pour l'instant…
               </div>
             </div>
-            
+
             <div
               id="livraison-row"
               style="
@@ -2653,7 +2653,7 @@
               "
             >
               <span>🛵 Frais de livraison (payé au livreur)</span>
-              <span style="color: var(--or-lt); font-weight: 600"
+              <span style="color: var(--or); font-weight: 600"
                 >300 – 500 FCFA</span
               >
             </div>
@@ -4073,7 +4073,9 @@
         const livraisonRow = document.getElementById("livraison-row");
         if (livraisonRow) {
           livraisonRow.style.display =
-            mode && mode.value.includes("domicile") ? "flex" : "none";
+            items.length && mode && mode.value.includes("domicile")
+              ? "flex"
+              : "none";
         }
         st.textContent = total.toLocaleString() + " FCFA";
       }
@@ -4253,6 +4255,7 @@
           sl.innerHTML =
             '<div class="empty-cart">Aucun plat sélectionné…</div>';
           st.textContent = "0 FCFA";
+          if (livraisonRow) livraisonRow.style.display = "none";
           return;
         }
 
