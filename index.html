@@ -4061,6 +4061,7 @@
           sl.innerHTML =
             '<div class="empty-cart">Aucun plat sélectionné…</div>';
           st.textContent = "0 FCFA";
+          if (livraisonRow) livraisonRow.style.display = "none";
           return;
         }
         let total = 0;
