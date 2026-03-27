@@ -2657,9 +2657,27 @@
               <span>🛵 Frais de livraison</span>
               <span id="sumLivraison" style="color: var(--or)">300 FCFA</span>
             </div>
+            <div
+              id="livraison-row"
+              style="
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(255, 122, 26, 0.2);
+                margin-bottom: 0.4rem;
+                font-size: 0.82rem;
+                color: var(--gray);
+              "
+            >
+              <span>🛵 Frais de livraison (payé au livreur)</span>
+              <span style="color: var(--or-lt); font-weight: 600"
+                >300 – 500 FCFA</span
+              >
+            </div>
             <div class="sum-total">
-              <span>Total estimé</span>
-              <span id="sumTotal" style="color: var(--or)">0 FCFA</span>
+              <span>Total estimé</span
+              ><span id="sumTotal" style="color: var(--or)">0 FCFA</span>
             </div>
           </div>
         </div>
@@ -4067,6 +4085,13 @@
             " F</span></div>";
         });
         sl.innerHTML = html;
+        // Affiche frais livraison si mode domicile
+        const mode = document.getElementById("ord-mode");
+        const livraisonRow = document.getElementById("livraison-row");
+        if (livraisonRow) {
+          livraisonRow.style.display =
+            mode && mode.value.includes("domicile") ? "flex" : "none";
+        }
         st.textContent = total.toLocaleString() + " FCFA";
       }
 
