@@ -2605,9 +2605,16 @@
               </div>
               <div class="o-fg">
                 <label>Mode</label>
-                <select id="ord-mode">
+                <select id="ord-mode" onchange="updateSummary()">
                   <option>Livraison à domicile</option>
                   <option>Récupérer sur place</option>
+                </select>
+              </div>
+              <div class="o-fg" id="zone-field">
+                <label>Zone de livraison</label>
+                <select id="ord-zone" onchange="updateSummary()">
+                  <option value="300">Zone proche — 300 FCFA</option>
+                  <option value="500">Zone loin — 500 FCFA</option>
                 </select>
               </div>
               <div class="o-fg full">
@@ -2637,9 +2644,22 @@
                 Aucun plat sélectionné pour l'instant…
               </div>
             </div>
+            <div
+              class="sum-total"
+              id="livraison-row"
+              style="
+                display: none;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+              "
+            >
+              <span>🛵 Frais de livraison</span>
+              <span id="sumLivraison" style="color: var(--or)">300 FCFA</span>
+            </div>
             <div class="sum-total">
-              <span>Total estimé</span
-              ><span id="sumTotal" style="color: var(--or)">0 FCFA</span>
+              <span>Total estimé</span>
+              <span id="sumTotal" style="color: var(--or)">0 FCFA</span>
             </div>
           </div>
         </div>
@@ -4212,12 +4232,24 @@
         const items = Object.entries(cart);
         const sl = document.getElementById("sumList");
         const st = document.getElementById("sumTotal");
+        const mode = document.getElementById("ord-mode");
+        const zoneField = document.getElementById("zone-field");
+        const livraisonRow = document.getElementById("livraison-row");
+        const sumLivraison = document.getElementById("sumLivraison");
+
+        // Affiche/cache la zone selon le mode
+        const isLivraison = mode && mode.value.includes("domicile");
+        if (zoneField) zoneField.style.display = isLivraison ? "" : "none";
+        if (livraisonRow)
+          livraisonRow.style.display = isLivraison ? "flex" : "none";
+
         if (!items.length) {
           sl.innerHTML =
             '<div class="empty-cart">Aucun plat sélectionné…</div>';
           st.textContent = "0 FCFA";
           return;
         }
+
         let total = 0;
         sl.innerHTML = items
           .map(([n, v]) => {
@@ -4225,7 +4257,14 @@
             return `<div class="sum-item"><span>${n} ×${v.qty}</span><span>${(v.price * v.qty).toLocaleString()} F</span></div>`;
           })
           .join("");
-        st.textContent = total.toLocaleString() + " FCFA";
+
+        // Frais de livraison
+        const frais = isLivraison
+          ? parseInt(document.getElementById("ord-zone").value)
+          : 0;
+        if (sumLivraison)
+          sumLivraison.textContent = frais.toLocaleString() + " FCFA";
+        st.textContent = (total + frais).toLocaleString() + " FCFA";
       }
       async function sendOrder() {
         const items = Object.entries(cart);
@@ -4257,7 +4296,13 @@
           msg += `- ${n} x${v.qty} = ${(v.price * v.qty).toLocaleString()} FCFA\n`;
           plats.push({ nom: n, prix: v.price, qty: v.qty });
         });
-        msg += `\nTotal estime : ${total.toLocaleString()} FCFA`;
+        const fraisLiv = mode.includes("domicile")
+          ? parseInt(document.getElementById("ord-zone").value)
+          : 0;
+        const zone = fraisLiv === 300 ? "Zone proche" : "Zone loin";
+        if (mode.includes("domicile"))
+          msg += `Zone : ${zone} (+${fraisLiv} FCFA)\n`;
+        msg += `\nTotal estime : ${(total + fraisLiv).toLocaleString()} FCFA`;
         if (note) msg += `\nNote : ${note}`;
 
         // ── Sauvegarder dans Supabase ──
