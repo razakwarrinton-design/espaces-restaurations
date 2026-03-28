@@ -4298,13 +4298,9 @@
           msg += `- ${n} x${v.qty} = ${(v.price * v.qty).toLocaleString()} FCFA\n`;
           plats.push({ nom: n, prix: v.price, qty: v.qty });
         });
-        const fraisLiv = mode.includes("domicile")
-          ? parseInt(document.getElementById("ord-zone").value)
-          : 0;
-        const zone = fraisLiv === 300 ? "Zone proche" : "Zone loin";
         if (mode.includes("domicile"))
-          msg += `Zone : ${zone} (+${fraisLiv} FCFA)\n`;
-        msg += `\nTotal estime : ${(total + fraisLiv).toLocaleString()} FCFA`;
+          msg += `\nFrais de livraison : 300 - 500 FCFA (paye au livreur)`;
+        msg += `\nTotal estime : ${total.toLocaleString()} FCFA`;
         if (note) msg += `\nNote : ${note}`;
 
         // ── Sauvegarder dans Supabase ──
